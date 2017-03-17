@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>showpersondata</class>
+ <widget class="QDialog" name="showpersondata">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>460</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>15616</width>
+    <height>2262</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>个人信息</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>370</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+    border:solid 1px black opacity 0.4;
+	border-width: 1px;
+    background-color: white;
+	border-color: rgb(171,168,165);
+    border-style: outset;
+    }
+QPushButton:pressed {
+    background-color: rgb(240,240,240);
+    border-style: inset;
+    }</string>
+   </property>
+   <property name="text">
+    <string>修改</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>231</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>欢迎来到个人中心！</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>331</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="location">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="username">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;年龄：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;性别：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="sex">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;姓名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="age">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;职业：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;所在地：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;单位：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="profession">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; color:#92827f;&quot;&gt;邮箱：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="workplace">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="email">
+      <property name="minimumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>252</width>
+        <height>17</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent</string>
+      </property>
+      <property name="text">
+       <string>无</string>
+      </property>
+      <property name="frame">
+       <bool>false</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
