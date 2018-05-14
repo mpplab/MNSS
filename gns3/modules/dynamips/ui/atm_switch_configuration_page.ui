@@ -11,19 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ATM Switch</string>
+   <string>ATM交换</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" colspan="3">
     <widget class="QGroupBox" name="uiGeneralGroupBox">
      <property name="title">
-      <string>General</string>
+      <string>常规</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiNameLabel">
         <property name="text">
-         <string>Name:</string>
+         <string>名称：</string>
         </property>
        </widget>
       </item>
@@ -33,7 +33,7 @@
       <item row="1" column="0" colspan="2">
        <widget class="QCheckBox" name="uiVPICheckBox">
         <property name="text">
-         <string>Use VPI only (VP tunnel)</string>
+         <string>只使用VPI（VP隧道）</string>
         </property>
        </widget>
       </item>
@@ -43,7 +43,7 @@
    <item row="0" column="3" rowspan="3">
     <widget class="QGroupBox" name="uiMappingGroupBox">
      <property name="title">
-      <string>Mapping</string>
+      <string>映射</string>
      </property>
      <layout class="QVBoxLayout">
       <item>
@@ -59,12 +59,12 @@
         </property>
         <column>
          <property name="text">
-          <string>Port:VPI:VCI</string>
+          <string>端口:VPI:VCI</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Port:VPI:VCI</string>
+          <string>端口:VPI:VCI</string>
          </property>
         </column>
        </widget>
@@ -75,7 +75,7 @@
    <item row="3" column="0">
     <widget class="QPushButton" name="uiAddPushButton">
      <property name="text">
-      <string>&amp;Add</string>
+      <string>添加</string>
      </property>
     </widget>
    </item>
@@ -85,7 +85,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Delete</string>
+      <string>删除</string>
      </property>
     </widget>
    </item>
@@ -111,7 +111,7 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Source</string>
+      <string>源端</string>
      </property>
      <layout class="QGridLayout">
       <item row="0" column="0">
@@ -201,7 +201,7 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Destination</string>
+      <string>目的端</string>
      </property>
      <layout class="QGridLayout">
       <item row="0" column="0">

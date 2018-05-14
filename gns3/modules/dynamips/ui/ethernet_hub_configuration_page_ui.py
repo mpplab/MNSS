@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/dynamips/ui/ethernet_hub_configuration_page.ui'
+# Form implementation generated from reading ui file 'ethernet_hub_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_ethernetHubConfigPageWidget(object):
-
     def setupUi(self, ethernetHubConfigPageWidget):
         ethernetHubConfigPageWidget.setObjectName("ethernetHubConfigPageWidget")
         ethernetHubConfigPageWidget.resize(381, 270)
@@ -54,7 +52,8 @@ class Ui_ethernetHubConfigPageWidget(object):
 
     def retranslateUi(self, ethernetHubConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        ethernetHubConfigPageWidget.setWindowTitle(_translate("ethernetHubConfigPageWidget", "Ethernet hub"))
-        self.uiSettingsGroupBox.setTitle(_translate("ethernetHubConfigPageWidget", "Settings"))
-        self.uiNameLabel.setText(_translate("ethernetHubConfigPageWidget", "Name:"))
-        self.uiPortsLabel.setText(_translate("ethernetHubConfigPageWidget", "Number of ports:"))
+        ethernetHubConfigPageWidget.setWindowTitle(_translate("ethernetHubConfigPageWidget", "以太网集线器"))
+        self.uiSettingsGroupBox.setTitle(_translate("ethernetHubConfigPageWidget", "设置"))
+        self.uiNameLabel.setText(_translate("ethernetHubConfigPageWidget", "名  称："))
+        self.uiPortsLabel.setText(_translate("ethernetHubConfigPageWidget", "端口数："))
+

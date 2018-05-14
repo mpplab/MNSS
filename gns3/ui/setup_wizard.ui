@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Setup Wizard</string>
+   <string>配置向导</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -36,10 +36,10 @@
   </property>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your GNS3 network simulations. The GNS3 VM is strongly recommended on Windows and Mac OS X.</string>
+    <string>请选择服务器类型来运行MNSS网络仿真（推荐使用本地服务器）。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -48,7 +48,7 @@
        <string>Dynamips, IOU, VPCS and Qemu will use this virtual machine.</string>
       </property>
       <property name="text">
-       <string>Local GNS3 VM</string>
+       <string>本地GNS VM</string>
       </property>
       <property name="checked">
        <bool>true</bool>
@@ -61,7 +61,7 @@
        <string>Eveything that is supported by your system will run on your computer.</string>
       </property>
       <property name="text">
-       <string>Local server</string>
+       <string>本地服务器</string>
       </property>
      </widget>
     </item>
@@ -81,7 +81,7 @@
     <item row="3" column="0">
      <widget class="QCheckBox" name="uiShowCheckBox">
       <property name="text">
-       <string>Don't show this again</string>
+       <string>不在显示此向导</string>
       </property>
       <property name="checked">
        <bool>true</bool>
@@ -95,7 +95,7 @@
     <string>GNS3 VM</string>
    </property>
    <property name="subTitle">
-    <string>In order to run the GNS3 VM you must first have VMware or VirtualBox installed and the GNS3 VM.ova imported in one of these.</string>
+    <string>为了运行GNS3 VM必须安装VMware与VirtualBox，并且需要GNS3 vm.ova镜像。</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -105,7 +105,7 @@
         <item>
          <widget class="QLabel" name="uiVirtualizationSoftwarLabel">
           <property name="text">
-           <string>Virtualization software:</string>
+           <string>虚拟化软件：</string>
           </property>
          </widget>
         </item>
@@ -115,7 +115,7 @@
            <string>VMware is recommended to run Qemu based appliances (required for KVM).</string>
           </property>
           <property name="text">
-           <string>VMware (recommended)</string>
+           <string>VMware (推荐)</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -171,19 +171,9 @@
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="uiGNS3VMDownloadLinkUrlLabel">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The GNS3 VM can be &lt;a href=&quot;https://github.com/GNS3/gns3-gui/releases/download/v1.4.1/GNS3.VM.VMware.Workstation.1.4.1.zip&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;downloaded here&lt;/span&gt;&lt;/a&gt;. Import the VM in your virtualization software and hit refresh.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="openExternalLinks">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QLabel" name="uiVMNameLabel">
       <property name="text">
-       <string>VM name:</string>
+       <string>VM名称:</string>
       </property>
      </widget>
     </item>
@@ -202,7 +192,7 @@
       <item>
        <widget class="QPushButton" name="uiRefreshPushButton">
         <property name="text">
-         <string>&amp;Refresh</string>
+         <string>刷新</string>
         </property>
        </widget>
       </item>
@@ -211,7 +201,7 @@
     <item>
      <widget class="QLabel" name="uiCPULabel">
       <property name="text">
-       <string>vCPU cores:</string>
+       <string>虚拟CPU内核：</string>
       </property>
      </widget>
     </item>
@@ -231,7 +221,7 @@
     <item>
      <widget class="QLabel" name="uiRAMLabel">
       <property name="text">
-       <string>RAM size:</string>
+       <string>RAM大小:</string>
       </property>
      </widget>
     </item>
@@ -267,10 +257,10 @@
   </widget>
   <widget class="QWizardPage" name="uiAddVMsWizardPage">
    <property name="title">
-    <string>Add virtual machines</string>
+    <string>添加虚拟设备</string>
    </property>
    <property name="subTitle">
-    <string>Now that you have configured the server type you can choose to add one or more virtual machines (VMs) of different types.</string>
+    <string>既然您已经配置了服务器类型，您可以选择添加一个或多个不同类型的虚拟机（VM）。</string>
    </property>
    <widget class="QCheckBox" name="uiAddIOSRouterCheckBox">
     <property name="geometry">
@@ -282,7 +272,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&amp;Add an IOS router using a real IOS image (supported by Dynamips)</string>
+     <string>使用IOS镜像添加一个IOS路由器（支持Dynamips）</string>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -298,7 +288,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&amp;Add an IOU (IOS on UNIX) device using a L3 or L2 IOU image</string>
+     <string>使用的L2或L3的镜像添加IOU设备</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="uiAddQemuVMcheckBox">
@@ -311,46 +301,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>&amp;Add a Qemu virtual machine</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="uiAddVirtualBoxVMcheckBox">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>93</y>
-      <width>249</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&amp;Add a VirtualBox virtual machine</string>
+     <string>添加QEMU虚拟机</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="uiAddVMwareVMcheckBox">
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>121</y>
+      <y>93</y>
       <width>233</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>&amp;Add a VMware virtual machine</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="uiAddDockerVMCheckBox">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>150</y>
-      <width>233</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&amp;Add a Docker container</string>
+     <string>添加医院信息系统及其他终端系统</string>
     </property>
    </widget>
   </widget>

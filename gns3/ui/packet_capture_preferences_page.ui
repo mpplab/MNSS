@@ -7,23 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>446</width>
-    <height>321</height>
+    <height>301</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Packet capture</string>
+   <string>抓包</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="2">
     <widget class="QGroupBox" name="uiSettingsGroupBox">
      <property name="title">
-      <string>Settings</string>
+      <string>设置</string>
      </property>
      <layout class="QGridLayout">
       <item row="5" column="0">
        <widget class="QLabel" name="uiCaptureAnalyzerCommandLabel">
         <property name="text">
-         <string>Packet capture analyzer command:</string>
+         <string>数据包捕获分析器命令：</string>
         </property>
        </widget>
       </item>
@@ -33,7 +33,7 @@
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Packet capture reader command:</string>
+         <string>数据包读取命令：</string>
         </property>
        </widget>
       </item>
@@ -50,7 +50,7 @@
          <bool>true</bool>
         </property>
         <property name="text">
-         <string>Automatically start the packet capture application</string>
+         <string>自动启动数据包捕获应用程序</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -60,7 +60,7 @@
       <item row="0" column="0" colspan="2">
        <widget class="QLabel" name="uiPreconfiguredCaptureReaderCommandLabel">
         <property name="text">
-         <string>Preconfigured packet capture reader commands:</string>
+         <string>预先设定的数据包捕获器的命令：</string>
         </property>
        </widget>
       </item>
@@ -73,7 +73,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>&amp;Set</string>
+         <string>设置</string>
         </property>
        </widget>
       </item>
@@ -102,7 +102,7 @@
    <item row="1" column="1">
     <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
      <property name="text">
-      <string>Restore defaults</string>
+      <string>重置</string>
      </property>
     </widget>
    </item>

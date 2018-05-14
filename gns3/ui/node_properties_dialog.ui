@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Node properties</string>
+   <string>节点属性</string>
   </property>
   <layout class="QGridLayout">
    <item row="0" column="0">
@@ -40,7 +40,16 @@
        <property name="spacing">
         <number>4</number>
        </property>
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>
@@ -57,7 +66,7 @@
           <enum>QFrame::Sunken</enum>
          </property>
          <property name="text">
-          <string>Node Configuration</string>
+          <string>节点配置</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
@@ -117,8 +126,7 @@
            <item>
             <widget class="QLabel" name="textLabel">
              <property name="text">
-              <string>Please select a node in the list 
-to display the configuration page.</string>
+              <string>请在列表中选择节点</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

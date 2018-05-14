@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/qemu/ui/qemu_vm_preferences_page.ui'
+# Form implementation generated from reading ui file 'qemu_vm_preferences_page.ui'
 #
-# Created: Sun Mar 27 12:02:29 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_QemuVMPreferencesPageWidget(object):
     def setupUi(self, QemuVMPreferencesPageWidget):
         QemuVMPreferencesPageWidget.setObjectName("QemuVMPreferencesPageWidget")
-        QemuVMPreferencesPageWidget.resize(572, 514)
+        QemuVMPreferencesPageWidget.resize(572, 462)
         QemuVMPreferencesPageWidget.setAccessibleDescription("")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(QemuVMPreferencesPageWidget)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -79,7 +78,7 @@ class Ui_QemuVMPreferencesPageWidget(object):
         QemuVMPreferencesPageWidget.setAccessibleName(_translate("QemuVMPreferencesPageWidget", "Qemu VM templates"))
         self.uiQemuVMInfoTreeWidget.headerItem().setText(0, _translate("QemuVMPreferencesPageWidget", "1"))
         self.uiQemuVMInfoTreeWidget.headerItem().setText(1, _translate("QemuVMPreferencesPageWidget", "2"))
-        self.uiNewQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "&New"))
-        self.uiEditQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "&Edit"))
-        self.uiDeleteQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "&Delete"))
+        self.uiNewQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "添加"))
+        self.uiEditQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "编辑"))
+        self.uiDeleteQemuVMPushButton.setText(_translate("QemuVMPreferencesPageWidget", "删除"))
 

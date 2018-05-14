@@ -24,13 +24,13 @@
      </property>
      <widget class="QWidget" name="uiGeneralSettingsTabWidget">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规配置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QCheckBox" name="uiUseLocalServercheckBox">
          <property name="text">
-          <string>Use the local server</string>
+          <string>使用本地服务器</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -40,7 +40,7 @@
        <item>
         <widget class="QLabel" name="uiVPCSPathLabel">
          <property name="text">
-          <string>Path to VPCS executable:</string>
+          <string>vpcs.exe的路径：</string>
          </property>
         </widget>
        </item>
@@ -59,7 +59,7 @@
          <item>
           <widget class="QToolButton" name="uiVPCSPathToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -85,7 +85,7 @@
      </widget>
      <widget class="QWidget" name="uiVPCSTabWidget">
       <attribute name="title">
-       <string>VPCS VM settings</string>
+       <string>VPCS VM配置</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="1">
@@ -103,7 +103,7 @@
          <item>
           <widget class="QToolButton" name="uiScriptFileToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -115,7 +115,7 @@
        <item row="4" column="0">
         <widget class="QLabel" name="uiSymbolLabel">
          <property name="text">
-          <string>Symbol:</string>
+          <string>图标：</string>
          </property>
         </widget>
        </item>
@@ -127,7 +127,7 @@
          <item>
           <widget class="QToolButton" name="uiSymbolToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -139,7 +139,7 @@
        <item row="5" column="0">
         <widget class="QLabel" name="uiCategoryLabel">
          <property name="text">
-          <string>Category:</string>
+          <string>类别：</string>
          </property>
         </widget>
        </item>
@@ -162,14 +162,14 @@
        <item row="1" column="0">
         <widget class="QLabel" name="uiScriptFileLabel">
          <property name="text">
-          <string>Base script file:</string>
+          <string>依赖脚本文件：</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="uiDefaultNameFormatLabel">
          <property name="text">
-          <string>Default name format:</string>
+          <string>默认名称格式：</string>
          </property>
         </widget>
        </item>
@@ -198,7 +198,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

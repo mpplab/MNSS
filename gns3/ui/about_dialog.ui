@@ -9,84 +9,80 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>378</width>
-    <height>234</height>
+    <width>442</width>
+    <height>371</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>About</string>
+   <string>关于</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="1" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>关于</string>
+       <string>MNSS版本</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QLabel" name="uiLogoLabel">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="../../resources/resources.qrc">:/images/gns3_logo.png</pixmap>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="uiAboutTextLabel">
-           <property name="text">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="uiLogoLabel">
+         <property name="minimumSize">
+          <size>
+           <width>400</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/images/MNSS.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="uiAboutTextLabel">
+         <property name="text">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:14pt; font-weight:600;&quot;&gt;GNSS %VERSION%&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-size:10pt; font-weight:600;&quot;&gt;徐州医科大学&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-size:10pt; font-weight:600;&quot;&gt;第一版&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="openExternalLinks">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:16pt; font-weight:600;&quot;&gt;MNSS %VERSION%&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Sans Serif'; font-size:16pt; font-weight:600;&quot;&gt;Under GPL v3 license&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:16pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
-       <string>团队</string>
+       <string>关于我们</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -98,16 +94,8 @@ p, li { white-space: pre-wrap; }
           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;开发者&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;吴响&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;余文文，黄怡鹤&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;    经过课题组多年的研究与积淀，医学网络系统仿真软件&lt;/span&gt;MNSS&lt;span style=&quot; font-family:'宋体';&quot;&gt;的功能和生态不断完善，各个功能模块得到多项课题资助，并积累了一定的知识产权，其中&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;医学信息模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;得到江苏省现代教育技术研究重点项目《面向医学信息学的虚拟网络实验平台的开发研究》的资助（&lt;/span&gt;2012&lt;span style=&quot; font-family:'宋体';&quot;&gt;年）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;云端资源分配模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;得到江苏省现代教育技术研究重点项目《基于&lt;/span&gt;ELM&lt;span style=&quot; font-family:'宋体';&quot;&gt;的分布式医学虚拟网络实验平台的开发研究与设计》的资助（&lt;/span&gt;2016&lt;span style=&quot; font-family:'宋体';&quot;&gt;年）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;安全存储模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;获得软件著作权&lt;/span&gt;2&lt;span style=&quot; font-family:'宋体';&quot;&gt;项：《医学隐私保护安全云存储系统》（软著登字第&lt;/span&gt;1845816&lt;span style=&quot; font-family:'宋体';&quot;&gt;号，&lt;/span&gt;2017SR260532&lt;span style=&quot; font-family:'宋体';&quot;&gt;），《医学隐私保护安全云存储管理控制端》（软著登字第&lt;/span&gt;1845812&lt;span style=&quot; font-family:'宋体';&quot;&gt;号，&lt;/span&gt;2017SR260528&lt;span style=&quot; font-family:'宋体';&quot;&gt;）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;云端调度服务模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;获得发明专利&lt;/span&gt;2&lt;span style=&quot; font-family:'宋体';&quot;&gt;项：《一种基于状态机实现访问控制的云平台服务方法及系统》（发明专利号：&lt;/span&gt;ZL201610551889.1&lt;span style=&quot; font-family:'宋体';&quot;&gt;），《一种分布式集群负载均衡并行调度系统及方法》（发明专利号：&lt;/span&gt;ZL201610480848.8&lt;span style=&quot; font-family:'宋体';&quot;&gt;）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;隐私保护推荐系统模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;得到江苏省现代教育技术研究重点项目《面向个性化学习推荐系统的差分隐私模型研究及其在&lt;/span&gt;MNSS&lt;span style=&quot; font-family:'宋体';&quot;&gt;中的应用》的资助（&lt;/span&gt;2017&lt;span style=&quot; font-family:'宋体';&quot;&gt;年）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;教学效果智能分析模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;获得软件著作权&lt;/span&gt;2&lt;span style=&quot; font-family:'宋体';&quot;&gt;项：《基于安全云的教育教学统计分析与智能决策系统》（软著登字第&lt;/span&gt;1843400&lt;span style=&quot; font-family:'宋体';&quot;&gt;号，&lt;/span&gt;2017SR258116&lt;span style=&quot; font-family:'宋体';&quot;&gt;），《基于安全云的教学管理通信系统》（软著登字第&lt;/span&gt;1841494&lt;span style=&quot; font-family:'宋体';&quot;&gt;号，&lt;/span&gt;2017SR256210&lt;span style=&quot; font-family:'宋体';&quot;&gt;）；&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; font-weight:600;&quot;&gt;微教学模块&lt;/span&gt;&lt;span style=&quot; font-family:'宋体';&quot;&gt;得到江苏省高校实验室研究会项目《面向&lt;/span&gt;MNSS&lt;span style=&quot; font-family:'宋体';&quot;&gt;的虚拟仿真实验微教学体系研究及系统开发》的资助（&lt;/span&gt;2017&lt;span style=&quot; font-family:'宋体';&quot;&gt;年）。&lt;/span&gt; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::TextBrowserInteraction</set>
@@ -118,16 +106,41 @@ p, li { white-space: pre-wrap; }
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>感谢</string>
+       <string>关于iMNSS</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
-        <widget class="QPlainTextEdit" name="uiThanksPlainTextEdit">
-         <property name="readOnly">
-          <bool>true</bool>
+        <widget class="QTextEdit" name="textEdit_2">
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    iMNSS源自于2012年徐州医科大学构建的医学网络系统仿真软件&lt;span style=&quot; font-weight:600;&quot;&gt;MNSS（Medical Network System Simulator）&lt;/span&gt;，该软件在引入新的平台架构的基础上，整合了GNS3 GUI、Dynamips、Dynagen、QEMU、GNU Health、OpenLIS、OpenSourcePACS等众多优秀开源/底层软件，实现构建、设计和测试医院网络与系统的虚拟教学仿真环境，软件提供非常简单的方法来设计和模拟任何规模的网络架构，而不需要硬件。此外，由于该软件具有桥接到真实网络的功能，可以作为医院测试与部署新系统、完成网络改造、快速排查网络故障的有效工具，非常适合于医院的信息中心（信息科）使用。随后，基于MNSS不断MNSSware、MNSSexam、MNSSpaper等工具与系统，自2017年10月起上线iMNSS，作为众多工具与系统的统一入口。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
-         <property name="plainText">
-          <string>徐州医科大学</string>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>iMNSS大事件</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2012年3月：构建医学网络系统仿真软件MNSS。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2014年5月：构建在线试题资源库MNSSexam。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2017年2月：构建在线视频教育平台MNSSware。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2017年5月：构建MNSSpaper，用于下载论文资源。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2017年7月：构建医学信息工具库MNSStools。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2017年9月：构建安全存储服务MNSSstorage。 &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2017年10月：构建MNSS系列模块的统一门户iMNSS。 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -135,11 +148,18 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
    </item>
+   <item row="1" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>uiThanksPlainTextEdit</tabstop>
- </tabstops>
  <resources>
   <include location="../../resources/resources.qrc"/>
  </resources>

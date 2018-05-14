@@ -11,29 +11,29 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New QEMU VM template</string>
+   <string>创建QEMU VM模板</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your new QEMU VM.</string>
+    <string>请选择服务器类型来运行你的新QEMU虚拟机。</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QGroupBox" name="uiServerTypeGroupBox">
       <property name="title">
-       <string>Server type</string>
+       <string>服务器类型</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QRadioButton" name="uiRemoteRadioButton">
          <property name="text">
-          <string>Run this Qemu VM on a remote computer</string>
+          <string>运行云端服务器上的Qemu VM</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -43,14 +43,14 @@
        <item>
         <widget class="QRadioButton" name="uiVMRadioButton">
          <property name="text">
-          <string>Run this Qemu VM  on the GNS3 VM</string>
+          <string>运行GNS3 Vm上的Qemy VM</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="uiLocalRadioButton">
          <property name="text">
-          <string>Run this Qemu VM on my local computer</string>
+          <string>运行本地服务器上的Qemu VM</string>
          </property>
         </widget>
        </item>
@@ -60,13 +60,13 @@
     <item>
      <widget class="QGroupBox" name="uiRemoteServersGroupBox">
       <property name="title">
-       <string>Remote server</string>
+       <string>云端服务器</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="0" column="0">
         <widget class="QLabel" name="uiRemoteServersLabel">
          <property name="text">
-          <string>Run on:</string>
+          <string>路径：</string>
          </property>
         </widget>
        </item>
@@ -90,16 +90,16 @@
   </widget>
   <widget class="QWizardPage" name="uiNameWizardPage">
    <property name="title">
-    <string>QEMU VM name</string>
+    <string>QEMU VM名称</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a descriptive name for your new QEMU virtual machine.</string>
+    <string>请选择您的新QEMU虚拟机一个描述性名称。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="uiNameLabel">
       <property name="text">
-       <string>Name:</string>
+       <string>名称：</string>
       </property>
      </widget>
     </item>
@@ -109,7 +109,7 @@
     <item row="1" column="0" colspan="2">
      <widget class="QCheckBox" name="uiLegacyASACheckBox">
       <property name="text">
-       <string>This is a legacy ASA VM</string>
+       <string>这是一ge ASA的虚拟机</string>
       </property>
      </widget>
     </item>
@@ -117,16 +117,16 @@
   </widget>
   <widget class="QWizardPage" name="uiBinaryMemoryWizardPage">
    <property name="title">
-    <string>QEMU binary and memory</string>
+    <string>QEMU镜像与内存</string>
    </property>
    <property name="subTitle">
-    <string>Please check the Qemu binary is correctly set and the virtual machine has enough memory to work.</string>
+    <string>请检查QEMU二进制是正确设置和虚拟机有足够的内存来工作。 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QLabel" name="uiQemuListLabel">
       <property name="text">
-       <string>Qemu binary:</string>
+       <string>镜像文件：</string>
       </property>
      </widget>
     </item>
@@ -167,10 +167,10 @@
   </widget>
   <widget class="QWizardPage" name="uiDiskWizardPage">
    <property name="title">
-    <string>Disk image</string>
+    <string>磁盘镜像</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a base disk image for your virtual machine.</string>
+    <string>请为虚拟机选择一个基本磁盘映像。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
@@ -178,7 +178,7 @@
       <item>
        <widget class="QRadioButton" name="uiHdaDiskExistingImageRadioButton">
         <property name="text">
-         <string>Existing image</string>
+         <string>导入的镜像</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -188,7 +188,7 @@
       <item>
        <widget class="QRadioButton" name="uiNewImageRadioButton_2">
         <property name="text">
-         <string>New Image</string>
+         <string>新的镜像</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -215,7 +215,7 @@
       <item>
        <widget class="QLabel" name="uiHdaDiskImageLabel">
         <property name="text">
-         <string>Disk image (hda):</string>
+         <string>磁盘镜像：</string>
         </property>
        </widget>
       </item>
@@ -235,7 +235,7 @@
       <item>
        <widget class="QToolButton" name="uiHdaDiskImageToolButton">
         <property name="text">
-         <string>&amp;Browse...</string>
+         <string>  浏览  </string>
         </property>
         <property name="toolButtonStyle">
          <enum>Qt::ToolButtonTextOnly</enum>
@@ -245,7 +245,7 @@
       <item>
        <widget class="QToolButton" name="uiHdaDiskImageCreateToolButton">
         <property name="text">
-         <string>&amp;Create</string>
+         <string>  创建  </string>
         </property>
        </widget>
       </item>
@@ -255,10 +255,10 @@
   </widget>
   <widget class="QWizardPage" name="uiInitrdKernelImageWizardPage">
    <property name="title">
-    <string>Linux boot specific settings</string>
+    <string>Linux启动特异性参数</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a initrd and a kernel image.</string>
+    <string>请选择一个initrd和内核镜像。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
@@ -266,7 +266,7 @@
       <item>
        <widget class="QRadioButton" name="uiLinuxExistingImageRadioButton">
         <property name="text">
-         <string>Existing image</string>
+         <string>导入的镜像</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -276,7 +276,7 @@
       <item>
        <widget class="QRadioButton" name="uiNewImageRadioButton_4">
         <property name="text">
-         <string>New Image</string>
+         <string>新的镜像</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -314,7 +314,7 @@
         <item>
          <widget class="QToolButton" name="uiInitrdImageToolButton">
           <property name="text">
-           <string>&amp;Browse...</string>
+           <string>  浏览  </string>
           </property>
           <property name="toolButtonStyle">
            <enum>Qt::ToolButtonTextOnly</enum>
@@ -326,7 +326,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="uiKernelImageLabel">
         <property name="text">
-         <string>Kernel image (vmlinuz):</string>
+         <string>内核（vmlinuz）：</string>
         </property>
        </widget>
       </item>
@@ -341,7 +341,7 @@
         <item>
          <widget class="QToolButton" name="uiKernelImageToolButton">
           <property name="text">
-           <string>&amp;Browse...</string>
+           <string>  浏览  </string>
           </property>
           <property name="toolButtonStyle">
            <enum>Qt::ToolButtonTextOnly</enum>
@@ -353,7 +353,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="uiInitrdLabel">
         <property name="text">
-         <string>Initial RAM disk (initrd):</string>
+         <string>初始化内存盘（initrd）：</string>
         </property>
        </widget>
       </item>

@@ -27,5 +27,5 @@ def test_render_svg():
 
 
 def test_render_png():
-    renderer = QImageSvgRenderer('resources/images/gns3_icon_256x256.png')
+    renderer = QImageSvgRenderer('resources/images/MNSS.ico')
     assert renderer.isValid()

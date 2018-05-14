@@ -122,7 +122,7 @@ class Dynamips(Module):
             if dynamips_path:
                 self._settings["dynamips_path"] = os.path.abspath(dynamips_path)
             else:
-                self._settings["dynamips_path"] = ""
+                self._settings["dynamips_path"] = os.path.join(os.getcwd(),r'dynamips\dynamips.exe')
 
         self._loadIOSRouters()
 

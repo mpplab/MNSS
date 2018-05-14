@@ -21,13 +21,13 @@
      </property>
      <widget class="QWidget" name="uiGeneralSettingsTabWidget">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QCheckBox" name="uiUseLocalServercheckBox">
          <property name="text">
-          <string>Use the local server</string>
+          <string>使用本地服务器</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -37,7 +37,7 @@
        <item>
         <widget class="QLabel" name="uiDynamipsPathLabel">
          <property name="text">
-          <string>Path to Dynamips:</string>
+          <string>Dynamips的路径:</string>
          </property>
         </widget>
        </item>
@@ -56,7 +56,7 @@
          <item>
           <widget class="QToolButton" name="uiDynamipsPathToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -68,7 +68,7 @@
        <item>
         <widget class="QCheckBox" name="uiAllocateAuxConsolePortsCheckBox">
          <property name="text">
-          <string>Allocate AUX console ports</string>
+          <string>分配AUX控制台端口</string>
          </property>
         </widget>
        </item>
@@ -89,13 +89,13 @@
      </widget>
      <widget class="QWidget" name="uiAdvancedSettingsTabWidget">
       <attribute name="title">
-       <string>Advanced settings</string>
+       <string>高级设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QGroupBox" name="uiMemoryUsageOptimisationGroupBox">
          <property name="title">
-          <string>Memory usage optimisation</string>
+          <string>优化内存使用</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
@@ -104,7 +104,7 @@
              <string>The ghost IOS feature is a solution that helps to decrease memory usage by sharing an IOS image between different router instances.</string>
             </property>
             <property name="text">
-             <string>Enable ghost IOS support</string>
+             <string>启用Ghost IOS支持</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -117,7 +117,7 @@
              <string>The mmap feature tells Dynamips to use disk files instead of real memory for router instances.</string>
             </property>
             <property name="text">
-             <string>Enable mmap support</string>
+             <string>启用mmap的支持</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -130,7 +130,7 @@
              <string>The sparse memory feature reduces the amount of virtual memory used by router instances.</string>
             </property>
             <property name="text">
-             <string>Enable sparse memory support</string>
+             <string>启用稀疏内存支持</string>
             </property>
             <property name="checked">
              <bool>false</bool>
@@ -175,7 +175,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

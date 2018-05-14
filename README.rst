@@ -15,4 +15,3 @@ Installation
 -------------
 Double-click MNSS.exe
 Then click 'next' to end 
-

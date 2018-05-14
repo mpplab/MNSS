@@ -6,34 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>411</height>
+    <width>590</width>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New IOU device template</string>
+   <string>新添IOU设备模板</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your new IOU device.</string>
+    <string>请选择服务器类型来运行你的新IOU设备。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QGroupBox" name="uiServerTypeGroupBox">
       <property name="title">
-       <string>Server type</string>
+       <string>服务器类型</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QRadioButton" name="uiRemoteRadioButton">
          <property name="text">
-          <string>Run this IOU device on a remote computers</string>
+          <string>运行远端电脑上的IOU设备</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -43,14 +43,14 @@
        <item>
         <widget class="QRadioButton" name="uiVMRadioButton">
          <property name="text">
-          <string>Run this IOU device on the GNS3 VM</string>
+          <string>运行GNS VM上的IOU设备</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="uiLocalRadioButton">
          <property name="text">
-          <string>Run this IOU device on my local computer</string>
+          <string>运行本地IOU设备</string>
          </property>
         </widget>
        </item>
@@ -60,13 +60,13 @@
     <item row="1" column="0">
      <widget class="QGroupBox" name="uiRemoteServersGroupBox">
       <property name="title">
-       <string>Remote server</string>
+       <string>云端服务器</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="0" column="0">
         <widget class="QLabel" name="uiRemoteServersLabel">
          <property name="text">
-          <string>Run on:</string>
+          <string>路径：</string>
          </property>
         </widget>
        </item>
@@ -90,10 +90,10 @@
   </widget>
   <widget class="QWizardPage" name="uiNameWizardPage">
    <property name="title">
-    <string>Name and image</string>
+    <string>名称和镜像</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a descriptive name for the new IOU device and add an IOU image.</string>
+    <string>请为新的IOu设备选择一个描述性的名称和图像添加一个镜像</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -104,7 +104,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="uiNameLabel">
         <property name="text">
-         <string>Name:</string>
+         <string>名称：</string>
         </property>
        </widget>
       </item>
@@ -122,7 +122,7 @@
        <bool>false</bool>
       </property>
       <property name="title">
-       <string>Image</string>
+       <string>镜像</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -130,7 +130,7 @@
          <item>
           <widget class="QRadioButton" name="uiExistingImageRadioButton">
            <property name="text">
-            <string>Existing image</string>
+            <string>导入的镜像</string>
            </property>
            <property name="checked">
             <bool>true</bool>
@@ -140,7 +140,7 @@
          <item>
           <widget class="QRadioButton" name="uiNewImageRadioButton">
            <property name="text">
-            <string>New Image</string>
+            <string>新的镜像</string>
            </property>
            <property name="checked">
             <bool>false</bool>
@@ -170,7 +170,7 @@
          <item row="1" column="0">
           <widget class="QLabel" name="uiTypeLabel">
            <property name="text">
-            <string>Type:</string>
+            <string>类别：</string>
            </property>
           </widget>
          </item>
@@ -180,7 +180,7 @@
          <item row="2" column="0">
           <widget class="QLabel" name="uiIOUImageLabel">
            <property name="text">
-            <string>IOU image:</string>
+            <string>IOU镜像：</string>
            </property>
           </widget>
          </item>
@@ -195,7 +195,7 @@
            <item>
             <widget class="QToolButton" name="uiIOUImageToolButton">
              <property name="text">
-              <string>&amp;Browse...</string>
+              <string>  浏览  </string>
              </property>
              <property name="toolButtonStyle">
               <enum>Qt::ToolButtonTextOnly</enum>

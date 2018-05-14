@@ -62,7 +62,7 @@ class GeneralPreferencesPage(QtWidgets.QWidget, Ui_GeneralPreferencesPageWidget)
         self.uiDefaultLabelColorPushButton.clicked.connect(self._setDefaultLabelColorSlot)
         self.uiBrowseConfigurationPushButton.clicked.connect(self._browseConfigurationDirectorySlot)
         self._default_label_color = QtGui.QColor(QtCore.Qt.black)
-#         self.uiStyleComboBox.addItems(STYLES)
+        # self.uiStyleComboBox.addItems(STYLES)
 
         self.uiCloseConsoleWindowsOnDeleteCheckBox.hide()  # FIXME: not implemented
         self.uiBringConsoleWindowToFrontCheckBox.hide()  # FIXME: not implemented
@@ -261,9 +261,9 @@ class GeneralPreferencesPage(QtWidgets.QWidget, Ui_GeneralPreferencesPageWidget)
         self.uiSlowStartAllSpinBox.setValue(settings["slow_device_start_all"])
         self.uiTelnetConsoleCommandLineEdit.setText(settings["telnet_console_command"])
         self.uiTelnetConsoleCommandLineEdit.setCursorPosition(0)
-#         index = self.uiStyleComboBox.findText(settings["style"])
-#         if index != -1:
-#             self.uiStyleComboBox.setCurrentIndex(index)
+        # index = self.uiStyleComboBox.findText(settings["style"])
+        # if index != -1:
+        #     self.uiStyleComboBox.setCurrentIndex(index)
         self.uiSerialConsoleCommandLineEdit.setText(settings["serial_console_command"])
         self.uiSerialConsoleCommandLineEdit.setCursorPosition(0)
         self.uiCloseConsoleWindowsOnDeleteCheckBox.setChecked(settings["auto_close_console"])
@@ -319,7 +319,7 @@ class GeneralPreferencesPage(QtWidgets.QWidget, Ui_GeneralPreferencesPageWidget)
 
         new_general_settings = {"auto_launch_project_dialog": self.uiLaunchNewProjectDialogCheckBox.isChecked(),
                                 "auto_screenshot": self.uiAutoScreenshotCheckBox.isChecked(),
-                                "style": '',
+                                "style": "Classic",
                                 "experimental_features": self.uiExperimentalFeaturesCheckBox.isChecked(),
                                 "check_for_update": self.uiCheckForUpdateCheckBox.isChecked(),
                                 "link_manual_mode": self.uiLinkManualModeCheckBox.isChecked(),

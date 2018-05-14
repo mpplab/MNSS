@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/ui/setup_wizard.ui'
+# Form implementation generated from reading ui file 'setup_wizard.ui'
 #
-# Created: Thu May  5 16:41:20 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -71,10 +70,6 @@ class Ui_SetupWizard(object):
         self.uiVMwareBannerButton.setObjectName("uiVMwareBannerButton")
         self.horizontalLayout_2.addWidget(self.uiVMwareBannerButton)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
-        self.uiGNS3VMDownloadLinkUrlLabel = QtWidgets.QLabel(self.uiVMWizardPage)
-        self.uiGNS3VMDownloadLinkUrlLabel.setOpenExternalLinks(True)
-        self.uiGNS3VMDownloadLinkUrlLabel.setObjectName("uiGNS3VMDownloadLinkUrlLabel")
-        self.verticalLayout_2.addWidget(self.uiGNS3VMDownloadLinkUrlLabel)
         self.uiVMNameLabel = QtWidgets.QLabel(self.uiVMWizardPage)
         self.uiVMNameLabel.setObjectName("uiVMNameLabel")
         self.verticalLayout_2.addWidget(self.uiVMNameLabel)
@@ -130,15 +125,9 @@ class Ui_SetupWizard(object):
         self.uiAddQemuVMcheckBox = QtWidgets.QCheckBox(self.uiAddVMsWizardPage)
         self.uiAddQemuVMcheckBox.setGeometry(QtCore.QRect(9, 65, 219, 22))
         self.uiAddQemuVMcheckBox.setObjectName("uiAddQemuVMcheckBox")
-        self.uiAddVirtualBoxVMcheckBox = QtWidgets.QCheckBox(self.uiAddVMsWizardPage)
-        self.uiAddVirtualBoxVMcheckBox.setGeometry(QtCore.QRect(9, 93, 249, 22))
-        self.uiAddVirtualBoxVMcheckBox.setObjectName("uiAddVirtualBoxVMcheckBox")
         self.uiAddVMwareVMcheckBox = QtWidgets.QCheckBox(self.uiAddVMsWizardPage)
-        self.uiAddVMwareVMcheckBox.setGeometry(QtCore.QRect(9, 121, 233, 22))
+        self.uiAddVMwareVMcheckBox.setGeometry(QtCore.QRect(9, 93, 233, 22))
         self.uiAddVMwareVMcheckBox.setObjectName("uiAddVMwareVMcheckBox")
-        self.uiAddDockerVMCheckBox = QtWidgets.QCheckBox(self.uiAddVMsWizardPage)
-        self.uiAddDockerVMCheckBox.setGeometry(QtCore.QRect(10, 150, 233, 22))
-        self.uiAddDockerVMCheckBox.setObjectName("uiAddDockerVMCheckBox")
         SetupWizard.addPage(self.uiAddVMsWizardPage)
 
         self.retranslateUi(SetupWizard)
@@ -146,34 +135,31 @@ class Ui_SetupWizard(object):
 
     def retranslateUi(self, SetupWizard):
         _translate = QtCore.QCoreApplication.translate
-        SetupWizard.setWindowTitle(_translate("SetupWizard", "Setup Wizard"))
-        self.uiServerWizardPage.setTitle(_translate("SetupWizard", "Server"))
-        self.uiServerWizardPage.setSubTitle(_translate("SetupWizard", "Please choose a server type to run your GNS3 network simulations. The GNS3 VM is strongly recommended on Windows and Mac OS X."))
+        SetupWizard.setWindowTitle(_translate("SetupWizard", "配置向导"))
+        self.uiServerWizardPage.setTitle(_translate("SetupWizard", "服务器"))
+        self.uiServerWizardPage.setSubTitle(_translate("SetupWizard", "请选择服务器类型来运行MNSS网络仿真（推荐使用本地服务器）。"))
         self.uiVMRadioButton.setToolTip(_translate("SetupWizard", "Dynamips, IOU, VPCS and Qemu will use this virtual machine."))
-        self.uiVMRadioButton.setText(_translate("SetupWizard", "Local GNS3 VM"))
+        self.uiVMRadioButton.setText(_translate("SetupWizard", "本地GNS VM"))
         self.uiLocalRadioButton.setToolTip(_translate("SetupWizard", "Eveything that is supported by your system will run on your computer."))
-        self.uiLocalRadioButton.setText(_translate("SetupWizard", "Local server"))
-        self.uiShowCheckBox.setText(_translate("SetupWizard", "Don\'t show this again"))
+        self.uiLocalRadioButton.setText(_translate("SetupWizard", "本地服务器"))
+        self.uiShowCheckBox.setText(_translate("SetupWizard", "不在显示此向导"))
         self.uiVMWizardPage.setTitle(_translate("SetupWizard", "GNS3 VM"))
-        self.uiVMWizardPage.setSubTitle(_translate("SetupWizard", "In order to run the GNS3 VM you must first have VMware or VirtualBox installed and the GNS3 VM.ova imported in one of these."))
-        self.uiVirtualizationSoftwarLabel.setText(_translate("SetupWizard", "Virtualization software:"))
+        self.uiVMWizardPage.setSubTitle(_translate("SetupWizard", "为了运行GNS3 VM必须安装VMware与VirtualBox，并且需要GNS3 vm.ova镜像。"))
+        self.uiVirtualizationSoftwarLabel.setText(_translate("SetupWizard", "虚拟化软件："))
         self.uiVmwareRadioButton.setToolTip(_translate("SetupWizard", "VMware is recommended to run Qemu based appliances (required for KVM)."))
-        self.uiVmwareRadioButton.setText(_translate("SetupWizard", "VMware (recommended)"))
+        self.uiVmwareRadioButton.setText(_translate("SetupWizard", "VMware (推荐)"))
         self.uiVirtualBoxRadioButton.setToolTip(_translate("SetupWizard", "Use VirtualBox if you intend to only use Dynamips, IOU or VPCS."))
         self.uiVirtualBoxRadioButton.setText(_translate("SetupWizard", "VirtualBox"))
-        self.uiGNS3VMDownloadLinkUrlLabel.setText(_translate("SetupWizard", "<html><head/><body><p>The GNS3 VM can be <a href=\"https://github.com/GNS3/gns3-gui/releases/download/v1.4.1/GNS3.VM.VMware.Workstation.1.4.1.zip\"><span style=\" text-decoration: underline; color:#0000ff;\">downloaded here</span></a>. Import the VM in your virtualization software and hit refresh.</p></body></html>"))
-        self.uiVMNameLabel.setText(_translate("SetupWizard", "VM name:"))
-        self.uiRefreshPushButton.setText(_translate("SetupWizard", "&Refresh"))
-        self.uiCPULabel.setText(_translate("SetupWizard", "vCPU cores:"))
-        self.uiRAMLabel.setText(_translate("SetupWizard", "RAM size:"))
+        self.uiVMNameLabel.setText(_translate("SetupWizard", "VM名称:"))
+        self.uiRefreshPushButton.setText(_translate("SetupWizard", "刷新"))
+        self.uiCPULabel.setText(_translate("SetupWizard", "虚拟CPU内核："))
+        self.uiRAMLabel.setText(_translate("SetupWizard", "RAM大小:"))
         self.uiRAMSpinBox.setSuffix(_translate("SetupWizard", " MB"))
-        self.uiAddVMsWizardPage.setTitle(_translate("SetupWizard", "Add virtual machines"))
-        self.uiAddVMsWizardPage.setSubTitle(_translate("SetupWizard", "Now that you have configured the server type you can choose to add one or more virtual machines (VMs) of different types."))
-        self.uiAddIOSRouterCheckBox.setText(_translate("SetupWizard", "&Add an IOS router using a real IOS image (supported by Dynamips)"))
-        self.uiAddIOUDeviceCheckBox.setText(_translate("SetupWizard", "&Add an IOU (IOS on UNIX) device using a L3 or L2 IOU image"))
-        self.uiAddQemuVMcheckBox.setText(_translate("SetupWizard", "&Add a Qemu virtual machine"))
-        self.uiAddVirtualBoxVMcheckBox.setText(_translate("SetupWizard", "&Add a VirtualBox virtual machine"))
-        self.uiAddVMwareVMcheckBox.setText(_translate("SetupWizard", "&Add a VMware virtual machine"))
-        self.uiAddDockerVMCheckBox.setText(_translate("SetupWizard", "&Add a Docker container"))
+        self.uiAddVMsWizardPage.setTitle(_translate("SetupWizard", "添加虚拟设备"))
+        self.uiAddVMsWizardPage.setSubTitle(_translate("SetupWizard", "既然您已经配置了服务器类型，您可以选择添加一个或多个不同类型的虚拟机（VM）。"))
+        self.uiAddIOSRouterCheckBox.setText(_translate("SetupWizard", "使用IOS镜像添加一个IOS路由器（支持Dynamips）"))
+        self.uiAddIOUDeviceCheckBox.setText(_translate("SetupWizard", "使用的L2或L3的镜像添加IOU设备"))
+        self.uiAddQemuVMcheckBox.setText(_translate("SetupWizard", "添加QEMU虚拟机"))
+        self.uiAddVMwareVMcheckBox.setText(_translate("SetupWizard", "添加医院信息系统及其他终端系统"))
 
-from . import resources_rc
+from .import resources_rc

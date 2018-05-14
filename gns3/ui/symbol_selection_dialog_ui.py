@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/symbol_selection_dialog.ui'
+# Form implementation generated from reading ui file 'symbol_selection_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.5
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_SymbolSelectionDialog(object):
-
     def setupUi(self, SymbolSelectionDialog):
         SymbolSelectionDialog.setObjectName("SymbolSelectionDialog")
         SymbolSelectionDialog.resize(521, 655)
@@ -79,7 +77,7 @@ class Ui_SymbolSelectionDialog(object):
         self.horizontalLayout.addItem(spacerItem2)
         self.uiButtonBox = QtWidgets.QDialogButtonBox(SymbolSelectionDialog)
         self.uiButtonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.uiButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
+        self.uiButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Apply|QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.uiButtonBox.setObjectName("uiButtonBox")
         self.horizontalLayout.addWidget(self.uiButtonBox)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
@@ -93,15 +91,15 @@ class Ui_SymbolSelectionDialog(object):
 
     def retranslateUi(self, SymbolSelectionDialog):
         _translate = QtCore.QCoreApplication.translate
-        SymbolSelectionDialog.setWindowTitle(_translate("SymbolSelectionDialog", "Symbol selection"))
-        self.uiCustomSymbolRadioButton.setText(_translate("SymbolSelectionDialog", "Use a custom symbol"))
-        self.uiBuiltInSymbolRadioButton.setText(_translate("SymbolSelectionDialog", "Symbols library"))
-        self.uiCustomSymbolGroupBox.setTitle(_translate("SymbolSelectionDialog", "Custom symbol"))
-        self.uiSymbolLabel.setText(_translate("SymbolSelectionDialog", "Path:"))
-        self.uiSymbolToolButton.setText(_translate("SymbolSelectionDialog", "&Browse..."))
-        self.uiBuiltInGroupBox.setTitle(_translate("SymbolSelectionDialog", "Symbols"))
-        self.uiBuiltinSymbolOnlyCheckBox.setText(_translate("SymbolSelectionDialog", "Show only built-in symbols"))
-        self.uiSearchLabel.setText(_translate("SymbolSelectionDialog", "Search:"))
-        self.label.setText(_translate("SymbolSelectionDialog", "You can add your own symbols in the symbols directory."))
+        SymbolSelectionDialog.setWindowTitle(_translate("SymbolSelectionDialog", "图标的选择"))
+        self.uiCustomSymbolRadioButton.setText(_translate("SymbolSelectionDialog", "使用自定义图标"))
+        self.uiBuiltInSymbolRadioButton.setText(_translate("SymbolSelectionDialog", "图标库"))
+        self.uiCustomSymbolGroupBox.setTitle(_translate("SymbolSelectionDialog", "自定义图标"))
+        self.uiSymbolLabel.setText(_translate("SymbolSelectionDialog", "路径："))
+        self.uiSymbolToolButton.setText(_translate("SymbolSelectionDialog", "  浏览  "))
+        self.uiBuiltInGroupBox.setTitle(_translate("SymbolSelectionDialog", "风格"))
+        self.uiBuiltinSymbolOnlyCheckBox.setText(_translate("SymbolSelectionDialog", "仅显示内置图标"))
+        self.uiSearchLabel.setText(_translate("SymbolSelectionDialog", "搜寻："))
+        self.label.setText(_translate("SymbolSelectionDialog", "你可以在目录中添加自己的图标。"))
 
-from . import resources_rc
+from .import resources_rc

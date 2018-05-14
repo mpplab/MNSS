@@ -14,19 +14,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New server</string>
+   <string>新的服务器</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Server settings</string>
+      <string>服务器设备</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiServerProtocolLabel">
         <property name="text">
-         <string>Protocol:</string>
+         <string>协  议：</string>
         </property>
        </widget>
       </item>
@@ -56,7 +56,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="uiServerHostLabel">
         <property name="text">
-         <string>Host:</string>
+         <string>主机地址：</string>
         </property>
        </widget>
       </item>
@@ -70,7 +70,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="uiServerPortLabel">
         <property name="text">
-         <string>Port:</string>
+         <string>端口号：</string>
         </property>
        </widget>
       </item>
@@ -96,14 +96,14 @@
       <item row="3" column="0" colspan="3">
        <widget class="QCheckBox" name="uiEnableAuthenticationCheckBox">
         <property name="text">
-         <string>Enable authentication</string>
+         <string>启用身份验证</string>
         </property>
        </widget>
       </item>
       <item row="4" column="0" colspan="2">
        <widget class="QLabel" name="uiServerUserLabel">
         <property name="text">
-         <string>User:</string>
+         <string>用户名：</string>
         </property>
        </widget>
       </item>
@@ -120,7 +120,7 @@
       <item row="5" column="0" colspan="2">
        <widget class="QLabel" name="uiServerPasswordLabel">
         <property name="text">
-         <string>Password:</string>
+         <string>密  码：</string>
         </property>
        </widget>
       </item>

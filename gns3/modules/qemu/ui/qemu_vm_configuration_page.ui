@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QEMU VM configuration</string>
+   <string>QEMU VM配置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="uiGeneralSettingsTab">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="4" column="0">
@@ -39,7 +39,7 @@
          <item>
           <widget class="QToolButton" name="uiSymbolToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -70,7 +70,7 @@
        <item row="2" column="0">
         <widget class="QLabel" name="uiSymbolLabel">
          <property name="text">
-          <string>Symbol:</string>
+          <string>图标：</string>
          </property>
         </widget>
        </item>
@@ -94,35 +94,35 @@
        <item row="8" column="0">
         <widget class="QLabel" name="uiConsoleTypeLabel">
          <property name="text">
-          <string>Console type:</string>
+          <string>连接类型：</string>
          </property>
         </widget>
        </item>
        <item row="7" column="0">
         <widget class="QLabel" name="uiBootPriorityLabel">
          <property name="text">
-          <string>Boot priority:</string>
+          <string>优先启动：</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="uiQemuListLabel">
          <property name="text">
-          <string>Qemu binary:</string>
+          <string>QEMU的二进制：</string>
          </property>
         </widget>
        </item>
        <item row="9" column="0">
         <widget class="QLabel" name="uiConsolePortLabel">
          <property name="text">
-          <string>Console port:</string>
+          <string>端口号：</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="uiCategoryLabel">
          <property name="text">
-          <string>Category:</string>
+          <string>类别：</string>
          </property>
         </widget>
        </item>
@@ -149,7 +149,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="uiNameLabel">
          <property name="text">
-          <string>Name:</string>
+          <string>名称：</string>
          </property>
         </widget>
        </item>
@@ -186,7 +186,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="uiDefaultNameFormatLabel">
          <property name="text">
-          <string>Default name format:</string>
+          <string>默认名称格式：</string>
          </property>
         </widget>
        </item>
@@ -209,7 +209,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiHdaDiskImageLabel">
             <property name="text">
-             <string>Disk image:</string>
+             <string>磁盘镜像：</string>
             </property>
            </widget>
           </item>
@@ -221,7 +221,7 @@
             <item>
              <widget class="QToolButton" name="uiHdaDiskImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -231,7 +231,7 @@
             <item>
              <widget class="QToolButton" name="uiHdaDiskImageCreateToolButton">
               <property name="text">
-               <string>Create...</string>
+               <string>  创建  </string>
               </property>
              </widget>
             </item>
@@ -240,7 +240,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiHdaDiskInterfaceLabel">
             <property name="text">
-             <string>Disk interface:</string>
+             <string>磁盘接口：</string>
             </property>
            </widget>
           </item>
@@ -259,7 +259,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiHdbDiskImageLabel">
             <property name="text">
-             <string>Disk image:</string>
+             <string>磁盘镜像：</string>
             </property>
            </widget>
           </item>
@@ -271,7 +271,7 @@
             <item>
              <widget class="QToolButton" name="uiHdbDiskImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -281,7 +281,7 @@
             <item>
              <widget class="QToolButton" name="uiHdbDiskImageCreateToolButton">
               <property name="text">
-               <string>Create...</string>
+               <string>  创建  </string>
               </property>
              </widget>
             </item>
@@ -290,7 +290,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiHdbDiskInterfaceLabel">
             <property name="text">
-             <string>Disk interface:</string>
+             <string>磁盘接口：</string>
             </property>
            </widget>
           </item>
@@ -309,7 +309,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiHdcDiskImageLabel">
             <property name="text">
-             <string>Disk image:</string>
+             <string>磁盘镜像：</string>
             </property>
            </widget>
           </item>
@@ -321,7 +321,7 @@
             <item>
              <widget class="QToolButton" name="uiHdcDiskImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -331,7 +331,7 @@
             <item>
              <widget class="QToolButton" name="uiHdcDiskImageCreateToolButton">
               <property name="text">
-               <string>Create...</string>
+               <string>  创建  </string>
               </property>
              </widget>
             </item>
@@ -340,7 +340,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiHdcDiskInterfaceLabel">
             <property name="text">
-             <string>Disk interface:</string>
+             <string>磁盘接口：</string>
             </property>
            </widget>
           </item>
@@ -359,7 +359,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiHddDiskImageLabel">
             <property name="text">
-             <string>Disk image:</string>
+             <string>磁盘镜像：</string>
             </property>
            </widget>
           </item>
@@ -371,7 +371,7 @@
             <item>
              <widget class="QToolButton" name="uiHddDiskImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -381,7 +381,7 @@
             <item>
              <widget class="QToolButton" name="uiHddDiskImageCreateToolButton">
               <property name="text">
-               <string>Create...</string>
+               <string>  创建  </string>
               </property>
              </widget>
             </item>
@@ -390,7 +390,7 @@
           <item row="1" column="0" rowspan="2">
            <widget class="QLabel" name="uiHddDiskInterfaceLabel">
             <property name="text">
-             <string>Disk interface:</string>
+             <string>磁盘接口：</string>
             </property>
            </widget>
           </item>
@@ -429,7 +429,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiCdromImageLabel">
             <property name="text">
-             <string>Image:</string>
+             <string>镜像：</string>
             </property>
            </widget>
           </item>
@@ -441,7 +441,7 @@
             <item>
              <widget class="QToolButton" name="uiCdromImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -470,7 +470,7 @@
      </widget>
      <widget class="QWidget" name="uiNetworkTab">
       <attribute name="title">
-       <string>Network</string>
+       <string>网络</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_5">
        <item row="6" column="1">
@@ -486,7 +486,7 @@
        <item row="7" column="0" colspan="2">
         <widget class="QCheckBox" name="uiLegacyNetworkingCheckBox">
          <property name="text">
-          <string>Use the legacy networking mode</string>
+          <string>使用遗留网络模式</string>
          </property>
         </widget>
        </item>
@@ -496,14 +496,14 @@
        <item row="3" column="0">
         <widget class="QLabel" name="uiPortSegmentSizeLabel">
          <property name="text">
-          <string>Segment size:</string>
+          <string>段的大小：</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="uiAdapterTypesLabel">
          <property name="text">
-          <string>Type:</string>
+          <string>类别：</string>
          </property>
         </widget>
        </item>
@@ -520,14 +520,14 @@
        <item row="0" column="0">
         <widget class="QLabel" name="uiAdaptersLabel">
          <property name="text">
-          <string>Adapters:</string>
+          <string>适配器：</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="uiMacAddrLabel">
          <property name="text">
-          <string>Base MAC:</string>
+          <string>MAC基础：</string>
          </property>
         </widget>
        </item>
@@ -537,7 +537,7 @@
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;{0} - the port number, from 0 to the number of adapters-1.&lt;/p&gt;&lt;p&gt;{1} - the segment number, from 0 to the number of segments-1.&lt;/p&gt;&lt;p&gt;{port0} - named alias for {0}.&lt;/p&gt;&lt;p&gt;{port1} - the port number, from 1 to the number of adapters.&lt;/p&gt;&lt;p&gt;{segment0} - named alias for {1}.&lt;/p&gt;&lt;p&gt;{segment1} - the segment number, from 1 to the number of segments.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Name format:</string>
+          <string>名称格式：</string>
          </property>
         </widget>
        </item>
@@ -580,7 +580,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="uiFirstPortNameLabel">
          <property name="text">
-          <string>First port name:</string>
+          <string>第一个端口名：</string>
          </property>
         </widget>
        </item>
@@ -591,64 +591,64 @@
      </widget>
      <widget class="QWidget" name="uiAdvancedSettingsTab">
       <attribute name="title">
-       <string>Advanced settings</string>
+       <string>优化配置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QGroupBox" name="uiLinuxBootGroupBox">
          <property name="title">
-          <string>Linux boot specific settings</string>
+          <string>Linux启动特异性参数</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="uiKernelImageLineEdit"/>
+          <item row="2" column="1" colspan="2">
+           <widget class="QLineEdit" name="uiKernelCommandLineEdit"/>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="uiKernelCommandLineLabel">
+          <item row="1" column="0">
+           <widget class="QLabel" name="uiKernelImageLabel">
             <property name="text">
-             <string>Kernel command line:</string>
+             <string>内核镜像：</string>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="uiInitrdLabel">
             <property name="text">
-             <string>Initial RAM disk (initrd):</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="uiKernelImageLabel">
-            <property name="text">
-             <string>Kernel image:</string>
+             <string>初始化内存盘（initrd）：</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QLineEdit" name="uiInitrdLineEdit"/>
           </item>
-          <item row="0" column="2">
-           <widget class="QToolButton" name="uiInitrdToolButton">
-            <property name="text">
-             <string>&amp;Browse...</string>
-            </property>
-            <property name="toolButtonStyle">
-             <enum>Qt::ToolButtonTextOnly</enum>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="2">
            <widget class="QToolButton" name="uiKernelImageToolButton">
             <property name="text">
-             <string>&amp;Browse...</string>
+             <string>  浏览  </string>
             </property>
             <property name="toolButtonStyle">
              <enum>Qt::ToolButtonTextOnly</enum>
             </property>
            </widget>
           </item>
-          <item row="2" column="1" colspan="2">
-           <widget class="QLineEdit" name="uiKernelCommandLineEdit"/>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="uiKernelImageLineEdit"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QToolButton" name="uiInitrdToolButton">
+            <property name="text">
+             <string>  浏览  </string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextOnly</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="uiKernelCommandLineLabel">
+            <property name="text">
+             <string>内核命令行：</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -656,13 +656,13 @@
        <item>
         <widget class="QGroupBox" name="uiOptimizationGroupBox">
          <property name="title">
-          <string>Optimizations</string>
+          <string>优化</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0" colspan="2">
            <widget class="QCheckBox" name="uiActivateCPUThrottlingCheckBox">
             <property name="text">
-             <string>Activate CPU throttling</string>
+             <string>激活CPU节流</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -672,7 +672,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiCPUThrottlingLabel">
             <property name="text">
-             <string>Percentage of CPU allowed:</string>
+             <string>CPU允许百分比：</string>
             </property>
            </widget>
           </item>
@@ -695,7 +695,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="uiProcessPriorityLabel">
             <property name="text">
-             <string>Process priority:</string>
+             <string>进程的优先级：</string>
             </property>
            </widget>
           </item>
@@ -748,13 +748,13 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Additional settings</string>
+          <string>额外的设置</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QLabel" name="uiQemuOptionsLabel">
             <property name="text">
-             <string>Options:</string>
+             <string>选项：</string>
             </property>
            </widget>
           </item>
@@ -767,14 +767,14 @@
              <bool>true</bool>
             </property>
             <property name="text">
-             <string>Use as a linked base VM</string>
+             <string>作为链接的基础VM使用</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0" colspan="2">
            <widget class="QCheckBox" name="uiACPIShutdownCheckBox">
             <property name="text">
-             <string>Enable ACPI shutdown (experimental)</string>
+             <string>启用关闭ACPI（实验）</string>
             </property>
            </widget>
           </item>

@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/dynamips/ui/frame_relay_switch_configuration_page.ui'
+# Form implementation generated from reading ui file 'frame_relay_switch_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_frameRelaySwitchConfigPageWidget(object):
-
     def setupUi(self, frameRelaySwitchConfigPageWidget):
         frameRelaySwitchConfigPageWidget.setObjectName("frameRelaySwitchConfigPageWidget")
         frameRelaySwitchConfigPageWidget.resize(499, 405)
@@ -135,17 +133,18 @@ class Ui_frameRelaySwitchConfigPageWidget(object):
 
     def retranslateUi(self, frameRelaySwitchConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        frameRelaySwitchConfigPageWidget.setWindowTitle(_translate("frameRelaySwitchConfigPageWidget", "Frame Relay Switch"))
-        self.uiGeneralGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "General"))
-        self.uiNameLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "Name:"))
-        self.uiFrameRelayMappingGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "Mapping"))
-        self.uiMappingTreeWidget.headerItem().setText(0, _translate("frameRelaySwitchConfigPageWidget", "Port:DLCI"))
-        self.uiMappingTreeWidget.headerItem().setText(1, _translate("frameRelaySwitchConfigPageWidget", "Port:DLCI"))
-        self.uiFrameRelaySourceGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "Source"))
-        self.uiSourcePortLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "Port:"))
+        frameRelaySwitchConfigPageWidget.setWindowTitle(_translate("frameRelaySwitchConfigPageWidget", "帧中继交换机"))
+        self.uiGeneralGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "常规"))
+        self.uiNameLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "名称："))
+        self.uiFrameRelayMappingGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "映射"))
+        self.uiMappingTreeWidget.headerItem().setText(0, _translate("frameRelaySwitchConfigPageWidget", "端口:DLCI"))
+        self.uiMappingTreeWidget.headerItem().setText(1, _translate("frameRelaySwitchConfigPageWidget", "端口:DLCI"))
+        self.uiFrameRelaySourceGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "源端"))
+        self.uiSourcePortLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "端口："))
         self.uiSourceDLCILabel.setText(_translate("frameRelaySwitchConfigPageWidget", "DLCI:"))
-        self.uiFrameRelayDestinationGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "Destination"))
-        self.uiDestinationPortLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "Port:"))
+        self.uiFrameRelayDestinationGroupBox.setTitle(_translate("frameRelaySwitchConfigPageWidget", "目的端"))
+        self.uiDestinationPortLabel.setText(_translate("frameRelaySwitchConfigPageWidget", "端口："))
         self.uiDestinationDLCILabel.setText(_translate("frameRelaySwitchConfigPageWidget", "DLCI:"))
-        self.uiAddPushButton.setText(_translate("frameRelaySwitchConfigPageWidget", "&Add"))
-        self.uiDeletePushButton.setText(_translate("frameRelaySwitchConfigPageWidget", "&Delete"))
+        self.uiAddPushButton.setText(_translate("frameRelaySwitchConfigPageWidget", "添加"))
+        self.uiDeletePushButton.setText(_translate("frameRelaySwitchConfigPageWidget", "删除"))
+

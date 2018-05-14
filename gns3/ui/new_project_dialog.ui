@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New project</string>
+   <string>新建项目</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -23,7 +23,7 @@
    <property name="sizeConstraint">
     <enum>QLayout::SetFixedSize</enum>
    </property>
-   <item row="2" column="2">
+   <item row="2" column="1">
     <widget class="QDialogButtonBox" name="uiButtonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -36,21 +36,14 @@
    <item row="2" column="0">
     <widget class="QPushButton" name="uiOpenProjectPushButton">
      <property name="text">
-      <string>&amp;Open a project</string>
+      <string>打开</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="uiRecentProjectsPushButton">
-     <property name="text">
-      <string>&amp;Recent projects...</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="4">
+   <item row="0" column="0" colspan="3">
     <widget class="QGroupBox" name="uiProjectGroupBox">
      <property name="title">
-      <string>Project</string>
+      <string>项目</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -62,7 +55,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Name:</string>
+         <string>项目名称</string>
         </property>
         <property name="textFormat">
          <enum>Qt::AutoText</enum>
@@ -81,7 +74,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Location:</string>
+         <string>存储路径</string>
         </property>
        </widget>
       </item>
@@ -91,7 +84,7 @@
       <item row="1" column="3">
        <widget class="QToolButton" name="uiLocationBrowserToolButton">
         <property name="text">
-         <string>Browse...</string>
+         <string>  浏览  </string>
         </property>
        </widget>
       </item>

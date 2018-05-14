@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/first.iml" filepath="$PROJECT_DIR$/.idea/first.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../learnpy/.idea/learnpy.iml" filepath="$PROJECT_DIR$/../learnpy/.idea/learnpy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../machinestudy/.idea/machinestudy.iml" filepath="$PROJECT_DIR$/../machinestudy/.idea/machinestudy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../second/.idea/second.iml" filepath="$PROJECT_DIR$/../second/.idea/second.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../testim001/.idea/testim001.iml" filepath="$PROJECT_DIR$/../testim001/.idea/testim001.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/1/.idea/1.iml" filepath="$USER_HOME$/Desktop/1/.idea/1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/backups.iml" filepath="$PROJECT_DIR$/.idea/backups.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/exam/.idea/exam.iml" filepath="$USER_HOME$/Desktop/exam/.idea/exam.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/untitled/.idea/untitled.iml" filepath="$USER_HOME$/Desktop/untitled/.idea/untitled.iml" />
     </modules>
   </component>
 </project>

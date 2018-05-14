@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/new_server_dialog.ui'
+# Form implementation generated from reading ui file 'new_server_dialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
@@ -88,16 +88,16 @@ class Ui_NewServerDialog(object):
 
     def retranslateUi(self, NewServerDialog):
         _translate = QtCore.QCoreApplication.translate
-        NewServerDialog.setWindowTitle(_translate("NewServerDialog", "New server"))
-        self.groupBox.setTitle(_translate("NewServerDialog", "Server settings"))
-        self.uiServerProtocolLabel.setText(_translate("NewServerDialog", "Protocol:"))
+        NewServerDialog.setWindowTitle(_translate("NewServerDialog", "新的服务器"))
+        self.groupBox.setTitle(_translate("NewServerDialog", "服务器设备"))
+        self.uiServerProtocolLabel.setText(_translate("NewServerDialog", "协  议："))
         self.uiServerProtocolComboBox.setCurrentText(_translate("NewServerDialog", "HTTP"))
         self.uiServerProtocolComboBox.setItemText(0, _translate("NewServerDialog", "HTTP"))
         self.uiServerProtocolComboBox.setItemText(1, _translate("NewServerDialog", "HTTPS"))
-        self.uiServerHostLabel.setText(_translate("NewServerDialog", "Host:"))
+        self.uiServerHostLabel.setText(_translate("NewServerDialog", "主机地址："))
         self.uiServerHostLineEdit.setText(_translate("NewServerDialog", "192.168.56.101"))
-        self.uiServerPortLabel.setText(_translate("NewServerDialog", "Port:"))
-        self.uiEnableAuthenticationCheckBox.setText(_translate("NewServerDialog", "Enable authentication"))
-        self.uiServerUserLabel.setText(_translate("NewServerDialog", "User:"))
-        self.uiServerPasswordLabel.setText(_translate("NewServerDialog", "Password:"))
+        self.uiServerPortLabel.setText(_translate("NewServerDialog", "端口号："))
+        self.uiEnableAuthenticationCheckBox.setText(_translate("NewServerDialog", "启用身份验证"))
+        self.uiServerUserLabel.setText(_translate("NewServerDialog", "用户名："))
+        self.uiServerPasswordLabel.setText(_translate("NewServerDialog", "密  码："))
 

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>IOS on UNIX</string>
+   <string>IOU设置</string>
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -21,13 +21,13 @@
      </property>
      <widget class="QWidget" name="uiGeneralSettingsTabWidget">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QGroupBox" name="uiLocalServerGroupBox">
          <property name="title">
-          <string>Local server</string>
+          <string>本地服务器</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="5" column="0" colspan="2">
@@ -45,7 +45,7 @@
             <item>
              <widget class="QToolButton" name="uiIouyapPathToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -57,14 +57,14 @@
           <item row="4" column="0">
            <widget class="QLabel" name="uiIouyapPathLabel">
             <property name="text">
-             <string>Path to iouyap:</string>
+             <string>iouyap路径：</string>
             </property>
            </widget>
           </item>
           <item row="3" column="0">
            <widget class="QCheckBox" name="uiLicensecheckBox">
             <property name="text">
-             <string>Check for a valid IOU license key</string>
+             <string>检查是否有一个有效的借据的许可证密钥</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -74,7 +74,7 @@
           <item row="0" column="0">
            <widget class="QCheckBox" name="uiUseLocalServercheckBox">
             <property name="text">
-             <string>Use the local server (Linux only)</string>
+             <string>使用本地服务器（仅限于Linux）</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -87,13 +87,13 @@
        <item>
         <widget class="QGroupBox" name="uiAnyServerGroupBox">
          <property name="title">
-          <string>Any server</string>
+          <string>任意的服务器：</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
            <widget class="QLabel" name="uiIOURCPathLabel">
             <property name="text">
-             <string>Path to IOURC (license, pushed to servers):</string>
+             <string>IOURC的路径（许可证）：</string>
             </property>
            </widget>
           </item>
@@ -112,7 +112,7 @@
             <item>
              <widget class="QToolButton" name="uiIOURCPathToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -159,7 +159,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

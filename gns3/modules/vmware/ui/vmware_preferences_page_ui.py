@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/vmware/ui/vmware_preferences_page.ui'
+# Form implementation generated from reading ui file 'vmware_preferences_page.ui'
 #
-# Created: Tue May 31 11:28:22 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -21,6 +20,7 @@ class Ui_VMwarePreferencesPageWidget(object):
         self.uiGeneralSettingsTabWidget = QtWidgets.QWidget()
         self.uiGeneralSettingsTabWidget.setObjectName("uiGeneralSettingsTabWidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.uiGeneralSettingsTabWidget)
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.uiUseLocalServercheckBox = QtWidgets.QCheckBox(self.uiGeneralSettingsTabWidget)
         self.uiUseLocalServercheckBox.setChecked(True)
@@ -56,6 +56,7 @@ class Ui_VMwarePreferencesPageWidget(object):
         self.uiNetworkTab = QtWidgets.QWidget()
         self.uiNetworkTab.setObjectName("uiNetworkTab")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.uiNetworkTab)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.uiManagedVMnetRangeGroupBox = QtWidgets.QGroupBox(self.uiNetworkTab)
         self.uiManagedVMnetRangeGroupBox.setObjectName("uiManagedVMnetRangeGroupBox")
@@ -115,20 +116,20 @@ class Ui_VMwarePreferencesPageWidget(object):
 
     def retranslateUi(self, VMwarePreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        VMwarePreferencesPageWidget.setWindowTitle(_translate("VMwarePreferencesPageWidget", "VMware"))
-        self.uiUseLocalServercheckBox.setText(_translate("VMwarePreferencesPageWidget", "Use the local server"))
-        self.uiVmrunPathLabel.setText(_translate("VMwarePreferencesPageWidget", "Path to vmrun:"))
-        self.uiHostTypeLabel.setText(_translate("VMwarePreferencesPageWidget", "Host type:"))
-        self.uiVmrunPathToolButton.setText(_translate("VMwarePreferencesPageWidget", "&Browse..."))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("VMwarePreferencesPageWidget", "General settings"))
-        self.uiManagedVMnetRangeGroupBox.setTitle(_translate("VMwarePreferencesPageWidget", "Managed VMnet interfaces (VMnet8 excluded)"))
+        VMwarePreferencesPageWidget.setWindowTitle(_translate("VMwarePreferencesPageWidget", "医院信息系统及其他终端系统配置"))
+        self.uiUseLocalServercheckBox.setText(_translate("VMwarePreferencesPageWidget", "使用本地服务器"))
+        self.uiVmrunPathLabel.setText(_translate("VMwarePreferencesPageWidget", "vmrun路径:"))
+        self.uiHostTypeLabel.setText(_translate("VMwarePreferencesPageWidget", "主机的类型："))
+        self.uiVmrunPathToolButton.setText(_translate("VMwarePreferencesPageWidget", "  浏览  "))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("VMwarePreferencesPageWidget", "常规设置"))
+        self.uiManagedVMnetRangeGroupBox.setTitle(_translate("VMwarePreferencesPageWidget", "管理VM虚拟接口（VMnet vmnet8除外）"))
         self.uiVMnetStartRangeSpinBox.setPrefix(_translate("VMwarePreferencesPageWidget", "vmnet"))
-        self.uiToLabel.setText(_translate("VMwarePreferencesPageWidget", "to"))
+        self.uiToLabel.setText(_translate("VMwarePreferencesPageWidget", "到"))
         self.uiVMnetEndRangeSpinBox.setPrefix(_translate("VMwarePreferencesPageWidget", "vmnet"))
-        self.uiConfigureVmnetPushButton.setText(_translate("VMwarePreferencesPageWidget", "&Configure"))
-        self.uiResetVmnetPushButton.setText(_translate("VMwarePreferencesPageWidget", "&Reset"))
+        self.uiConfigureVmnetPushButton.setText(_translate("VMwarePreferencesPageWidget", "设置"))
+        self.uiResetVmnetPushButton.setText(_translate("VMwarePreferencesPageWidget", "重置"))
         self.uiBlockHostTrafficCheckBox.setToolTip(_translate("VMwarePreferencesPageWidget", "Block network traffic originating from the host OS to be injected in vmnet interfaces. Currently supported on Windows only and is recommended."))
-        self.uiBlockHostTrafficCheckBox.setText(_translate("VMwarePreferencesPageWidget", "Block network traffic originating from the host OS"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiNetworkTab), _translate("VMwarePreferencesPageWidget", "Network"))
-        self.uiRestoreDefaultsPushButton.setText(_translate("VMwarePreferencesPageWidget", "Restore defaults"))
+        self.uiBlockHostTrafficCheckBox.setText(_translate("VMwarePreferencesPageWidget", "阻止来自主机操作系统网络流量"))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiNetworkTab), _translate("VMwarePreferencesPageWidget", "网络设置"))
+        self.uiRestoreDefaultsPushButton.setText(_translate("VMwarePreferencesPageWidget", "重置"))
 

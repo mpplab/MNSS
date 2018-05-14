@@ -27,6 +27,7 @@ from ..pages.packet_capture_preferences_page import PacketCapturePreferencesPage
 from ..modules import MODULES
 from gns3.globalvar import GlobalVar
 
+
 class PreferencesDialog(QtWidgets.QDialog, Ui_PreferencesDialog):
 
     """
@@ -45,8 +46,8 @@ class PreferencesDialog(QtWidgets.QDialog, Ui_PreferencesDialog):
         # We adapt the max size to the screen resolution
         # We need to manually do that otherwise on small screen the windows
         # could be bigger than the screen instead of displaying scrollbars
-        height = QtWidgets.QDesktopWidget().screenGeometry().height() - 100
-        width = QtWidgets.QDesktopWidget().screenGeometry().width() - 100
+        height = QtWidgets.QDesktopWidget().screenGeometry().height() - 200
+        width = QtWidgets.QDesktopWidget().screenGeometry().width() - 200
 
         # 980 is the default width
         if self.width() > width:
@@ -64,7 +65,7 @@ class PreferencesDialog(QtWidgets.QDialog, Ui_PreferencesDialog):
         self._loadPreferencePages()
 
         # select the first available page
-        self.uiTreeWidget.setCurrentItem(self._items[GlobalVar.globalvarmark])
+        self.uiTreeWidget.setCurrentItem(self._items[GlobalVar.globalmarket])
 
         # set the maximum width based on the content of column 0
         self.uiTreeWidget.setMaximumWidth(self.uiTreeWidget.sizeHintForColumn(0) + 10)
@@ -97,67 +98,20 @@ class PreferencesDialog(QtWidgets.QDialog, Ui_PreferencesDialog):
 
         # load module preference pages
         for module in MODULES:
-            if str(module) == "<class 'gns3.modules.vpcs.VPCS'>" :
-                preference_pages = module.preferencePages()
-                parent = self.uiTreeWidget
-                for cls in preference_pages:
-                    preferences_page = cls()
-                    preferences_page.loadPreferences()
-                    name = preferences_page.windowTitle()
-                    item = QtWidgets.QTreeWidgetItem(parent)
-                    item.setText(0, name)
-                    item.setData(0, QtCore.Qt.UserRole, preferences_page)
-                    self.uiStackedWidget.addWidget(preferences_page)
-                    self._items.append(item)
-                    if cls is preference_pages[0]:
-                        parent = item
-                    self._watchForChanges(preferences_page)
-            elif str(module) == "<class 'gns3.modules.vmware.VMware'>" :
-                preference_pages = module.preferencePages()
-                parent = self.uiTreeWidget
-                for cls in preference_pages:
-                    preferences_page = cls()
-                    preferences_page.loadPreferences()
-                    name = preferences_page.windowTitle()
-                    item = QtWidgets.QTreeWidgetItem(parent)
-                    item.setText(0, name)
-                    item.setData(0, QtCore.Qt.UserRole, preferences_page)
-                    self.uiStackedWidget.addWidget(preferences_page)
-                    self._items.append(item)
-                    if cls is preference_pages[0]:
-                        parent = item
-                    self._watchForChanges(preferences_page)
-            elif str(module) == "<class 'gns3.modules.dynamips.Dynamips'>" :
-                preference_pages = module.preferencePages()
-                parent = self.uiTreeWidget
-                for cls in preference_pages:
-                    preferences_page = cls()
-                    preferences_page.loadPreferences()
-                    name = preferences_page.windowTitle()
-                    item = QtWidgets.QTreeWidgetItem(parent)
-                    item.setText(0, name)
-                    item.setData(0, QtCore.Qt.UserRole, preferences_page)
-                    self.uiStackedWidget.addWidget(preferences_page)
-                    self._items.append(item)
-                    if cls is preference_pages[0]:
-                        parent = item
-                    self._watchForChanges(preferences_page)
-            elif str(module) == "<class 'gns3.modules.iou.IOU'>":
-                preference_pages = module.preferencePages()
-                parent = self.uiTreeWidget
-                for cls in preference_pages:
-                    preferences_page = cls()
-                    preferences_page.loadPreferences()
-                    name = preferences_page.windowTitle()
-                    item = QtWidgets.QTreeWidgetItem(parent)
-                    item.setText(0, name)
-                    item.setData(0, QtCore.Qt.UserRole, preferences_page)
-                    self.uiStackedWidget.addWidget(preferences_page)
-                    self._items.append(item)
-                    if cls is preference_pages[0]:
-                        parent = item
-                    self._watchForChanges(preferences_page)
-               
+            preference_pages = module.preferencePages()
+            parent = self.uiTreeWidget
+            for cls in preference_pages:
+                preferences_page = cls()
+                preferences_page.loadPreferences()
+                name = preferences_page.windowTitle()
+                item = QtWidgets.QTreeWidgetItem(parent)
+                item.setText(0, name)
+                item.setData(0, QtCore.Qt.UserRole, preferences_page)
+                self.uiStackedWidget.addWidget(preferences_page)
+                self._items.append(item)
+                if cls is preference_pages[0]:
+                    parent = item
+                self._watchForChanges(preferences_page)
 
         # expand all items by default
         self.uiTreeWidget.expandAll()
@@ -235,8 +189,8 @@ class PreferencesDialog(QtWidgets.QDialog, Ui_PreferencesDialog):
 
         if self._modified:
             reply = QtWidgets.QMessageBox.warning(self,
-                                                  "Preferences",
-                                                  "You have unsaved preferences.\n\nContinue without saving?",
+                                                  "设置",
+                                                  "您尚未保存配置\n\n是否继续？",
                                                   QtWidgets.QMessageBox.Yes,
                                                   QtWidgets.QMessageBox.No)
             if reply == QtWidgets.QMessageBox.No:

@@ -47,7 +47,7 @@ class SetupWizard(QtWidgets.QWizard, Ui_SetupWizard):
             self.setOptions(QtWidgets.QWizard.NoDefaultButton)
 
         self._server = Servers.instance().localServer()
-        self.uiGNS3VMDownloadLinkUrlLabel.setText('')
+        # self.uiGNS3VMDownloadLinkUrlLabel.setText('')
         self.uiRefreshPushButton.clicked.connect(self._refreshVMListSlot)
         self.uiVmwareRadioButton.clicked.connect(self._listVMwareVMsSlot)
         self.uiVirtualBoxRadioButton.clicked.connect(self._listVirtualBoxVMsSlot)

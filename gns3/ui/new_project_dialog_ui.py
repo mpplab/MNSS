@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/new_project_dialog.ui'
+# Form implementation generated from reading ui file 'new_project_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -21,13 +21,10 @@ class Ui_NewProjectDialog(object):
         self.uiButtonBox.setOrientation(QtCore.Qt.Horizontal)
         self.uiButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.uiButtonBox.setObjectName("uiButtonBox")
-        self.gridLayout_2.addWidget(self.uiButtonBox, 2, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.uiButtonBox, 2, 1, 1, 1)
         self.uiOpenProjectPushButton = QtWidgets.QPushButton(NewProjectDialog)
         self.uiOpenProjectPushButton.setObjectName("uiOpenProjectPushButton")
         self.gridLayout_2.addWidget(self.uiOpenProjectPushButton, 2, 0, 1, 1)
-        self.uiRecentProjectsPushButton = QtWidgets.QPushButton(NewProjectDialog)
-        self.uiRecentProjectsPushButton.setObjectName("uiRecentProjectsPushButton")
-        self.gridLayout_2.addWidget(self.uiRecentProjectsPushButton, 2, 1, 1, 1)
         self.uiProjectGroupBox = QtWidgets.QGroupBox(NewProjectDialog)
         self.uiProjectGroupBox.setObjectName("uiProjectGroupBox")
         self.gridLayout = QtWidgets.QGridLayout(self.uiProjectGroupBox)
@@ -58,7 +55,7 @@ class Ui_NewProjectDialog(object):
         self.uiLocationBrowserToolButton = QtWidgets.QToolButton(self.uiProjectGroupBox)
         self.uiLocationBrowserToolButton.setObjectName("uiLocationBrowserToolButton")
         self.gridLayout.addWidget(self.uiLocationBrowserToolButton, 1, 3, 1, 1)
-        self.gridLayout_2.addWidget(self.uiProjectGroupBox, 0, 0, 1, 4)
+        self.gridLayout_2.addWidget(self.uiProjectGroupBox, 0, 0, 1, 3)
 
         self.retranslateUi(NewProjectDialog)
         self.uiButtonBox.accepted.connect(NewProjectDialog.accept)
@@ -69,11 +66,10 @@ class Ui_NewProjectDialog(object):
 
     def retranslateUi(self, NewProjectDialog):
         _translate = QtCore.QCoreApplication.translate
-        NewProjectDialog.setWindowTitle(_translate("NewProjectDialog", "New project"))
-        self.uiOpenProjectPushButton.setText(_translate("NewProjectDialog", "&Open a project"))
-        self.uiRecentProjectsPushButton.setText(_translate("NewProjectDialog", "&Recent projects..."))
-        self.uiProjectGroupBox.setTitle(_translate("NewProjectDialog", "Project"))
-        self.uiNameLabel.setText(_translate("NewProjectDialog", "Name:"))
-        self.uiLocationLabel.setText(_translate("NewProjectDialog", "Location:"))
-        self.uiLocationBrowserToolButton.setText(_translate("NewProjectDialog", "Browse..."))
+        NewProjectDialog.setWindowTitle(_translate("NewProjectDialog", "新建项目"))
+        self.uiOpenProjectPushButton.setText(_translate("NewProjectDialog", "打开"))
+        self.uiProjectGroupBox.setTitle(_translate("NewProjectDialog", "项目"))
+        self.uiNameLabel.setText(_translate("NewProjectDialog", "项目名称"))
+        self.uiLocationLabel.setText(_translate("NewProjectDialog", "存储路径"))
+        self.uiLocationBrowserToolButton.setText(_translate("NewProjectDialog", "  浏览  "))
 

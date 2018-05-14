@@ -41,6 +41,7 @@ from .settings import SERVERS_SETTINGS
 from .local_server_config import LocalServerConfig
 from .progress import Progress
 from .utils.sudo import sudo
+from gns3.globalvar import GlobalVar
 
 from collections import OrderedDict
 
@@ -74,6 +75,7 @@ class Servers(QtCore.QObject):
         self._loadSettings()
         self._pid_path = os.path.join(LocalConfig.configDirectory(), "gns3_server.pid")
         self.registerLocalServer()
+        GlobalVar.totalserverpath = self._settings
 
     def servers(self):
         """
@@ -111,10 +113,9 @@ class Servers(QtCore.QObject):
         """
 
         local_server_path = shutil.which("gns3server")
-        
 
         if local_server_path is None:
-            return ""
+            return os.path.join(os.getcwd(), r'gns3server.exe')
         return os.path.abspath(local_server_path)
 
     @staticmethod
@@ -128,7 +129,7 @@ class Servers(QtCore.QObject):
         ubridge_path = shutil.which("ubridge")
 
         if ubridge_path is None:
-            return ""
+            return os.path.join(os.getcwd(),r'ubridge.exe')
         path = os.path.abspath(ubridge_path)
         return path
 
@@ -235,10 +236,9 @@ class Servers(QtCore.QObject):
         self._settings = LocalConfig.instance().loadSectionSettings("Servers", SERVERS_SETTINGS)
 
         local_server_settings = self._settings["local_server"]
-#         if not os.path.exists(local_server_settings["path"]):
-#             local_server_settings["path"] = self._findLocalServer(self)
-        serverpath =  os.path.join(os.getcwd() ,"GNS3" , "gns3server.exe")
-        local_server_settings["path"] = serverpath
+        if not os.path.exists(local_server_settings["path"]):
+            local_server_settings["path"] = self._findLocalServer(self)
+
         if not os.path.exists(local_server_settings["ubridge_path"]):
             local_server_settings["ubridge_path"] = self._findUbridge(self)
 
@@ -549,7 +549,7 @@ class Servers(QtCore.QObject):
                 args = shlex.split(command)
                 self._local_server_process = subprocess.Popen(args)
         except (OSError, subprocess.SubprocessError) as e:
-            log.warning('Could not start local server "{}": {}'.format(command, e))
+            log.warning('无法打开本地服务器"{}": {}'.format(command, e))
             return False
 
         log.info("Local server process has started (PID={})".format(self._local_server_process.pid))
@@ -601,8 +601,8 @@ class Servers(QtCore.QObject):
                         from .main_window import MainWindow
                         main_window = MainWindow.instance()
                         proceed = QtWidgets.QMessageBox.question(main_window,
-                                                                 "Local server",
-                                                                 "The Local server cannot be stopped, would you like to kill it?",
+                                                                 "本地服务器",
+                                                                 "本地服务区无法停止，您想强制退出吗?",
                                                                  QtWidgets.QMessageBox.Yes,
                                                                  QtWidgets.QMessageBox.No)
 

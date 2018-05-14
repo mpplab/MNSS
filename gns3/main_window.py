@@ -28,7 +28,8 @@ import json
 import glob
 import logging
 import subprocess
-from ftplib import FTP
+import requests
+import threading
 
 from .local_config import LocalConfig
 from .modules import MODULES
@@ -69,18 +70,14 @@ from .utils.analytics import AnalyticsClient
 from .dialogs.appliance_wizard import ApplianceWizard
 from .dialogs.new_appliance_dialog import NewApplianceDialog
 from .registry.appliance import ApplianceError
-from gns3.ui.NewDownload import NewDownload
-from gns3.ui.NewHospitalSystem import NewHospitalSystem
-from gns3.globalvar import GlobalVar
-from gns3.ui.userlogin import userlogin 
-import urllib.request
-from gns3.ui.login import login
-from gns3.ui.error import error
-
-log = logging.getLogger(__name__)
 from PyQt5.QtCore import Qt
-_XFER_FILE = 'FILE'  
-_XFER_DIR = 'DIR'  
+from gns3.login import login
+from PyQt5.QtGui import QPixmap
+from gns3.globalvar import GlobalVar
+from gns3.download import wget,newthreading
+from gns3.document import docu
+log = logging.getLogger(__name__)
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
@@ -89,9 +86,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     :param parent: parent widget
     """
-    state = 2
-    a = True
-    newpath = ''
+
     # signal to tell the view if the user is adding a link or not
     adding_link_signal = QtCore.pyqtSignal(bool)
 
@@ -100,6 +95,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # signal to tell the windows is ready to load his first project
     ready_signal = QtCore.pyqtSignal()
+
+    # mouse move
+    mousematch = True
 
     SUPPORTED_IMAGE_FORMATS = [
         "svg",
@@ -114,65 +112,92 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         "xbm",
         "xpm"
     ]
+
     def mousePressEvent(self, event):
-        if self.a == True:
-            if event.button()==Qt.LeftButton:
-                self.m_drag=True
-                self.m_DragPosition=event.globalPos()-self.pos()
+        if self.mousematch == True:
+            if event.button() == Qt.LeftButton:
+                self.m_drag = True
+                self.m_DragPosition = event.globalPos() - self.pos()
                 event.accept()
         else:
             pass
 
     def mouseMoveEvent(self, QMouseEvent):
-        if self.a == True:
+        if self.mousematch == True:
             if Qt.LeftButton and self.m_drag:
-                self.move(QMouseEvent.globalPos()-self.m_DragPosition)
+                self.move(QMouseEvent.globalPos() - self.m_DragPosition)
                 QMouseEvent.accept()
         else:
             pass
-        
+
     def mouseReleaseEvent(self, QMouseEvent):
-        if self.a == True:
-            self.m_drag=False
+        if self.mousematch == True:
+            self.m_drag = False
         else:
-            pass  
-        
+            pass
+
+    def timerEvent(self, event):
+        for i in GlobalVar.downloadobjectlist:
+            i.progressbar.setValue(i.suspendsize)
+
+
     def __init__(self, parent=None):
+
         super().__init__(parent)
         self.setupUi(self)
-        self.setWindowIcon(QtGui.QIcon(":/images/MNSS.ico"))
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.iconlogo.setStyleSheet("border-image: url(:/images/MNSS.ico);")
+        self.spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         dialog = login(self)
         dialog.show()
+        dialog.password.setStyleSheet("lineedit-password-character:42")
         dialog.exec_()
-        
-        self.judge()
-  
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.ftp = None
-        if GlobalVar.imagepath == "":
+        from PyQt5.QtCore import QBasicTimer
+        self.timer = QBasicTimer()
+        self.timer.start(100,self)
+        GlobalVar.area = self.scrollAreaWidgetContents
+        try:
+            with open('download.txt','r') as f:
+                initdownload = eval(f.read())
+                for i in initdownload.keys():
+                    GlobalVar.nowurllist.add(i)
+                    newpath = os.path.join(GlobalVar.iospath, i.split('/')[-1])
+                    newmisstion = wget(i, initdownload[i], newpath, GlobalVar.area)
+                    GlobalVar.downloadobjectlist.append(newmisstion)
+                    newgame = newthreading(newmisstion)
+                    # newgame = multiprocessing.Process(target=newmisstion.download)
+                    newgame.start()
+        except Exception as e:
+            pass
+
+            req = requests.get(GlobalVar.headportrait)
+            photo = QPixmap()
+            photo.loadFromData(req.content)
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(photo), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.uilogin.setIcon(icon)
+
+        if GlobalVar.name == '':
             pass
         else:
-            self.updates()
+            self.uilogin.setText(GlobalVar.name)
 
+        self.judge()
         MainWindow._instance = self
         self._settings = {}
         HTTPClient.setProgressCallback(Progress.instance(self))
-        self.uiShowConsole.setChecked(True)
+
         self.uiShowTopology.setChecked(True)
         self.uiShowServer.setChecked(True)
-        self.uiShowConsole.setChecked(True)
-        self.uiShowTopology.setChecked(True)
-        self.uiShowServer.setChecked(True)
-        self.uiAddLinkAction.setCheckable(True) 
-        self.uiAddNoteAction.setCheckable(True) 
-        self.uiDrawEllipseAction.setCheckable(True) 
-        self.uiDrawRectangleAction.setCheckable(True) 
-        self.uiShowPortNamesAction.setCheckable(True) 
-        self.uiStartAllAction.setCheckable(True) 
-        self.uiSuspendAllAction.setCheckable(True) 
+        self.uiAddLinkAction.setCheckable(True)
+        self.uiAddNoteAction.setCheckable(True)
+        self.uiDrawEllipseAction.setCheckable(True)
+        self.uiDrawRectangleAction.setCheckable(True)
+        self.uiShowPortNamesAction.setCheckable(True)
+        self.uiStartAllAction.setCheckable(True)
+        self.uiSuspendAllAction.setCheckable(True)
         self.uiStopAllAction.setCheckable(True)
-        self.pushButton_9.setCheckable(True) 
-        
+        self.uiMaximumAction.setCheckable(True)
 
         self._project = None
         self._createTemporaryProject()
@@ -183,7 +208,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self._max_recent_files = 5
         self._soft_exit = True
         self._project_dialog = None
-#         self._recent_file_actions = []
+        # self._recent_file_actions = []
         self._start_time = time.time()
         local_config = LocalConfig.instance()
         local_config.config_changed_signal.connect(self._localConfigChangedSlot)
@@ -196,6 +221,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.restoreGeometry(QtCore.QByteArray().fromBase64(self._settings["geometry"].encode()))
         self.restoreState(QtCore.QByteArray().fromBase64(self._settings["state"].encode()))
 
+        # populate the view -> docks menu
+        # self.uiDocksMenu.addAction(self.uiTopologySummaryDockWidget.toggleViewAction())
+        # self.uiDocksMenu.addAction(self.uiServerSummaryDockWidget.toggleViewAction())
+        # self.uiDocksMenu.addAction(self.uiConsoleDockWidget.toggleViewAction())
+        # self.uiDocksMenu.addAction(self.uiNodesDockWidget.toggleViewAction())
         # Make sure the dock widget is not open
         self.uiNodesDockWidget.setVisible(False)
 
@@ -206,44 +236,39 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self._pictures_dir = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.PicturesLocation)
 
         # add recent file actions to the File menu
-#         for i in range(0, self._max_recent_files):
-#             action = QtWidgets.QAction(self.tabWidget)
-#             action.setVisible(False)
-#             action.triggered.connect(self.openRecentFileSlot)
-#             self._recent_file_actions.append(action)
-#         self.uiFileMenu.insertActions(self.uiQuitAction, self._recent_file_actions)
-#         self._recent_file_actions_separator = self.uiFileMenu.insertSeparator(self.uiQuitAction)
-#         self._recent_file_actions_separator.setVisible(False)
-#         self._updateRecentFileActions()
+        # for i in range(0, self._max_recent_files):
+        #     action = QtWidgets.QAction(self.uiFileMenu)
+        #     action.setVisible(False)
+        #     action.triggered.connect(self.openRecentFileSlot)
+        #     self._recent_file_actions.append(action)
+        # self.uiFileMenu.insertActions(self.uiQuitAction, self._recent_file_actions)
+        # self._recent_file_actions_separator = self.uiFileMenu.insertSeparator(self.uiQuitAction)
+        # self._recent_file_actions_separator.setVisible(False)
+        # self._updateRecentFileActions()
 
         # set the window icon
-        
+        self.setWindowIcon(QtGui.QIcon(":/images/MNSS.ico"))
 
         # restore the style
-#         self._setStyle(self._settings.get("style"))
+        self._setStyle(self._settings.get("style"))
 
         if self._settings["hide_new_appliance_template_button"]:
             self.uiNewAppliancePushButton.hide()
 
-        self.setWindowTitle("[*] GNS3")
+        getpath = LocalConfig()
+        GlobalVar.path = getpath._settings["Servers"]["local_server"]["images_path"]
+
+        # self.setWindowTitle("[*] GNS3")
 
         # load initial stuff once the event loop isn't busy
         self.run_later(0, self.startupLoading)
-        
+
     def judge(self):
         if GlobalVar.loginmark == True:
             pass
         else:
             sys.exit(0)
-            
-    def updates(self):
-        imagepath = urllib.request.pathname2url(GlobalVar.imagepath) 
-        realpath = imagepath[3:]
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("{}".format(realpath)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setText("{}".format(GlobalVar.dictuser["username"]))
-        
+
     def _loadSettings(self):
         """
         Loads the settings from the persistent settings file.
@@ -289,150 +314,123 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         Connect widgets to slots
         """
-        self.uiTopologySummaryDockWidget.visibilityChanged['bool'].connect(lambda: self.hidedockwidget(1))
-        self.uiServerSummaryDockWidget.visibilityChanged['bool'].connect(lambda: self.hidedockwidget(2))
-        self.uiConsoleDockWidget.visibilityChanged['bool'].connect(lambda: self.hidedockwidget(3))
-        self.uiShowTopology.clicked.connect(lambda: self.showdockwidget(1))
-        self.uiShowServer.clicked.connect(lambda: self.showdockwidget(2))
-        self.uiShowConsole.clicked.connect(lambda: self.showdockwidget(3))
-        self.pushButton_50.clicked.connect(self._showSlot)
-        self.pushButton_51.clicked.connect(self._showSlot)
-        self.pushButton_47.clicked.connect(self._showSlot)
-        self.pushButton_52.clicked.connect(self._showSlot)
+
+        self.uiShowTopology.clicked.connect(lambda: self._showdockwidget(1))
+        self.uiShowServer.clicked.connect(lambda: self._showdockwidget(2))
+
         # file menu connections
         self.uiNewProjectAction.clicked.connect(self._newProjectActionSlot)
         self.uiOpenProjectAction.clicked.connect(self.openProjectActionSlot)
-        self.pushButton.clicked.connect(self._openpersonSlot)
-#         self.uiOpenApplianceAction.clicked.connect(self.openApplianceActionSlot)
-        self.uiSaveProjectAction.clicked.connect(self._saveProjectActionSlot)
-#         self.pushButton_44.clicked.connect(self._saveProjectActionSlot)
         self.uiSaveProjectAsAction.clicked.connect(self._saveProjectAsActionSlot)
-        self.uiExportProjectAction.clicked.connect(self._exportProjectActionSlot)
         self.uiImportProjectAction.clicked.connect(self._importProjectActionSlot)
-#         self.uiImportExportConfigsAction.clicked.connect(self._importExportConfigsActionSlot)
-        self.uiScreenshotAction.clicked.connect(self._screenshotActionSlot)
-        self.uiQuitAction.clicked.connect(self.close)
-#         self.uiSnapshotAction.clicked.connect(self._snapshotActionSlot)
-        self.pushButton_4.clicked.connect(self.showMinimized)
-        self.pushButton_53.clicked.connect(self._showguideSlot)
-        self.pushButton_30.clicked.connect(self._showdownloadSlot)
-        self.pushButton_28.clicked.connect(self._showuploadSlot)
+        self.uiExportProjectAction.clicked.connect(self._exportProjectActionSlot)
+        self.uiQuitAction.clicked.connect(self._close)
+
         # edit menu connections
-#         self.uiSelectAllAction.triggered.connect(self._selectAllActionSlot)
-#         self.uiSelectNoneAction.triggered.connect(self._selectNoneActionSlot)
-        self.uiPreferencesAction.clicked.connect(self._showPreferencesSlot0)
-        self.pushButton_5.clicked.connect(self._showPreferencesSlot1)
-        self.pushButton_49.clicked.connect(self._showPreferencesSlot2)
-        self.pushButton_7.clicked.connect(self._showPreferencesSlot3)
-        self.uiDynamipsAction.clicked.connect(self._showPreferencesSlot4)
-        self.uifUnixAction.clicked.connect(self._showPreferencesSlot5)
-        self.uiVMAction.clicked.connect(self._showPreferencesSlot6)
-        self.pushButton_6.clicked.connect(self._showPreferencesSlot7)
-        self.UiIOUAction.clicked.connect(self._showPreferencesSlot8)
-        self.pushButton_8.clicked.connect(self._showPreferencesSlot9)
+        self.uigeneralPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(0))
+        self.uiserverPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(1))
+        self.uiwiresharkPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(2))
+        self.uivpcsPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(3))
+        self.uidynamipsPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(4))
+        self.uiunixPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(6))
+        self.uivmwarePreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(12))
+        self.uirouterPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(5))
+        self.uiiouPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(7))
+        self.uihospitalPreferencesAction.clicked.connect(lambda:self._preferencesActionSlot(13))
 
-        # view menu connections
-        self.pushButton_2.clicked.connect(self.close)
-        self.pushButton_9.clicked.connect(self._fullScreenActionSlot)
-        self.uiZoomInAction.clicked.connect(self._zoomInActionSlot)
-        self.uiZoomOutAction.clicked.connect(self._zoomOutActionSlot)
-#         self.uiZoomResetAction.triggered.connect(self._zoomResetActionSlot)
-#         self.uiFitInViewAction.clicked.connect(self._fitInViewActionSlot)
-        self.uiShowLayersAction.clicked.connect(self._showLayersActionSlot)
-#         self.uiResetPortLabelsAction.triggered.connect(self._resetPortLabelsActionSlot)
-        self.uiShowPortNamesAction.clicked.connect(self._showPortNamesActionSlot)
-        self.uiShowGridAction.clicked.connect(self._showGridActionSlot)
-        
-        self.uiShowConsole.clicked.connect(self._showConsoleActionSlot)
-        self.uiShowTopology.clicked.connect(self._showTopologyActionSlot)
-        self.uiShowServer.clicked.connect(self._showServerActionSlot)
-
-        # control menu connections
+        # work menu connections
         self.uiStartAllAction.clicked.connect(self._startAllActionSlot)
         self.uiSuspendAllAction.clicked.connect(self._suspendAllActionSlot)
         self.uiStopAllAction.clicked.connect(self._stopAllActionSlot)
         self.uiReloadAllAction.clicked.connect(self._reloadAllActionSlot)
-#         self.uiAuxConsoleAllAction.triggered.connect(self._auxConsoleAllActionSlot)
-        self.uiConsoleAllAction.clicked.connect(self._consoleAllActionSlot)
-
-        # device menu is contextual and is build on-the-fly
-#         self.uiDeviceMenu.aboutToShow.connect(self._deviceMenuActionSlot)
-
-        # tools menu connections
-#         self.uiVPCSAction.clicked.connect(self._vpcsActionSlot)
-
-        # annotate menu connections
-        self.uiAddNoteAction.clicked.connect(self._addNoteActionSlot)
+        self.uiAddLinkAction.clicked.connect(self._addLinkActionSlot)
+        self.uiShowPortNamesAction.clicked.connect(self._showPortNamesActionSlot)
+        self.uiConfigAllAction.clicked.connect(self._consoleAllActionSlot)
+        self.uiZoomInAction.clicked.connect(self._zoomInActionSlot)
+        self.uiZoomOutAction.clicked.connect(self._zoomOutActionSlot)
+        self.uiScreenshotAction.clicked.connect(self._screenshotActionSlot)
+        self.uiShowLayersAction.clicked.connect(self._showLayersActionSlot)
+        self.uiShowGridAction.clicked.connect(self._showGridActionSlot)
         self.uiInsertImageAction.clicked.connect(self._insertImageActionSlot)
         self.uiDrawRectangleAction.clicked.connect(self._drawRectangleActionSlot)
         self.uiDrawEllipseAction.clicked.connect(self._drawEllipseActionSlot)
-#         self.uiEditReadmeAction.clicked.connect(self._editReadmeActionSlot)
+        self.uiAddNoteAction.clicked.connect(self._addNoteActionSlot)
+
+        # course menu connections
+        self.uiWareAction.clicked.connect(lambda:self._onlineActionSlot("http://ware.imnss.net"))
+        self.uiExamAction.clicked.connect(lambda:self._onlineActionSlot("http://exam.imnss.net"))
+        self.uiStorageAction.clicked.connect(lambda:self._onlineActionSlot("http://storage.imnss.net"))
+        self.uiPaperAction.clicked.connect(lambda:self._onlineActionSlot("http://paper.imnss.net"))
+        self.uiToolsAction.clicked.connect(lambda:self._onlineActionSlot("http://tools.imnss.net"))
+        self.uiiMNSSAction.clicked.connect(lambda:self._onlineActionSlot("http://www.imnss.net"))
 
         # help menu connections
-        self.uiOnlineHelpAction.clicked.connect(self._onlineHelpActionSlot)
         self.uiCheckForUpdateAction.clicked.connect(self._checkForUpdateActionSlot)
-#         self.uiSetupWizard.triggered.connect(self._setupWizardActionSlot)
-#         self.uiLabInstructionsAction.triggered.connect(self._labInstructionsActionSlot)
-#         self.uiAboutQtAction.triggered.connect(self._aboutQtActionSlot)
-        self.uiAboutAction.clicked.connect(self._aboutActionSlot)
+        self.uiOnlineHelpAction.clicked.connect(lambda:self._onlineActionSlot("http://mnss.imnss.net"))
         self.uiExportDebugInformationAction.clicked.connect(self._exportDebugInformationSlot)
         self.uiDoctorAction.clicked.connect(self._doctorSlot)
-#         self.uiAcademyAction.triggered.connect(self._academyActionSlot)
-#         self.uiIOUVMConverterAction.clicked.connect(self._IOUVMConverterActionSlot)
-        # New appliance button
-        self.uiNewAppliancePushButton.clicked.connect(self._newApplianceActionSlot)
+        self.uiAboutAction.clicked.connect(self._aboutActionSlot)
+        self.uiGuideAction.clicked.connect(self._showdocuSlot)
+        self.uiFeedbackAction.clicked.connect(lambda:self._onlineActionSlot("http://www.imnss.net/about.html"))
+        # self.uiFeedbackAction.clicked.connect(self._pass)
 
         # browsers tool bar connections
         self.uiBrowseRoutersAction.clicked.connect(self._browseRoutersActionSlot)
         self.uiBrowseSwitchesAction.clicked.connect(self._browseSwitchesActionSlot)
-        self.uiBrowseEndDevicesAction.clicked.connect(self._browseEndDevicesActionSlot)
+        self.uiBrowseClientDevicesAction.clicked.connect(self._browseClientActionSlot)
+        self.uiBrowseServerDevicesAction.clicked.connect(self._browseServerActionSlot)
         self.uiBrowseSecurityDevicesAction.clicked.connect(self._browseSecurityDevicesActionSlot)
         self.uiBrowseHISDevicesAction.clicked.connect(self._browseHISDevicesActionSlot)
         self.uiBrowseLISDevicesAction.clicked.connect(self._browseLISDevicesActionSlot)
         self.uiBrowsePACSDevicesAction.clicked.connect(self._browsePACSDevicesActionSlot)
-        self.uiAddLinkAction.clicked.connect(self._addLinkActionSlot)
+        self.uiBrowseConnectDevicesAction.clicked.connect(self._browserConnectionActionSlot)
 
         # connect the signal to the view
         self.adding_link_signal.connect(self.uiGraphicsView.addingLinkSlot)
-
+        self.uiminimumAction.clicked.connect(self.showMinimized)
+        self.uiMaximumAction.clicked.connect(self._fullScreenActionSlot)
+        self.uicloseAction.clicked.connect(self._close)
         # project
         self.project_new_signal.connect(self.project_created)
 
         self.ready_signal.connect(self._readySlot)
 
-    def showdockwidget(self, n):
+        #downloadflush
+        self.showtab.tabBarClicked['int'].connect(self._flush)
+
+        # New appliance button
+        # self.uiNewAppliancePushButton.clicked.connect(self._newApplianceActionSlot)
+
+    def _showdockwidget(self, n):
         if n == 1:
             if self.uiTopologySummaryDockWidget.isHidden():
                 self.uiTopologySummaryDockWidget.show()
             else:
                 self.uiTopologySummaryDockWidget.hide()
-        elif n == 2:
+        else:
             if self.uiServerSummaryDockWidget.isHidden():
                 self.uiServerSummaryDockWidget.show()
             else:
                 self.uiServerSummaryDockWidget.hide()
-        else:
-            if self.uiConsoleDockWidget.isHidden():
-                self.uiConsoleDockWidget.show()
-            else:
-                self.uiConsoleDockWidget.hide()
 
-    def hidedockwidget(self, n):
-        if n == 1:
-            if self.uiTopologySummaryDockWidget.isHidden():
-                self.uiShowTopology.setChecked(False)
-            else:
-                self.uiShowTopology.setChecked(True)
-        elif n ==2:
-            if self.uiServerSummaryDockWidget.isHidden():
-                self.uiShowServer.setChecked(False)
-            else:
-                self.uiShowServer.setChecked(True)
-        else:
-            if self.uiConsoleDockWidget.isHidden():
-                self.uiShowConsole.setChecked(False)
-            else:
-                self.uiShowConsole.setChecked(True)
+    def _pass(self):
+        # for i in GlobalVar.downloadobjectlist:
+        #     i.mark = False
+        print(GlobalVar.totalLocalConfig._settings)
+        # from gns3.download import progressbar
+        # progressbar()
+        pass
+        # LocalConfig().saveSectionSettings(GlobalVar.section,GlobalVar.settings)
+        # local_config._settings['Dynamips']['routers'] = GlobalVar.settings
+
+    def _close(self):
+        for i in GlobalVar.downloadobjectlist:
+            i.thread_stop = True
+        GlobalVar().quitdownload()
+        self.close()
+
+    def reflush(self):
+        print('ok')
 
     def project(self):
         """
@@ -440,6 +438,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
 
         return self._project
+
+    def _showdocuSlot(self):
+        """
+        Show install document
+        """
+
+        dialog = docu(self)
+        dialog.show()
+        dialog.exec_()
 
     def setProject(self, project):
         """
@@ -503,11 +510,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self._project.setTopologyFile(new_project_settings["project_path"])
         self.saveProject(new_project_settings["project_path"])
         self.project_new_signal.emit(self._project.topologyFile())
-                                     
-    def _showSlot(self):
-        dialog = error(self)
-        dialog.show()
-        dialog.exec_()
+
     def _newProjectActionSlot(self):
         """
         Slot called to create a new project.
@@ -538,9 +541,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def _IOUVMConverterActionSlot(self):
         command = shutil.which("gns3-iouvm-converter")
-#         if command is None:
-#             QtWidgets.QMessageBox.critical(self, "GNS3 IOU VM Converter", "gns3-iouvm-converter not found")
-#             return
+        if command is None:
+            QtWidgets.QMessageBox.critical(self, "GNS3 IOU VM Converter", "gns3-iouvm-converter not found")
+            return
         try:
             subprocess.Popen([command])
         except (OSError, subprocess.SubprocessError) as e:
@@ -574,6 +577,26 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                                         "GNS3 Project (*.gns3)")
         if path:
             self.loadPath(path)
+
+    def _flush(self,tab):
+        if tab == 0:
+            try:
+                self.downloadarea.removeItem(self.spacerItem)
+            except Exception as e:
+                pass
+        elif tab == 1:
+            try:
+                self.downloadarea.removeItem(self.spacerItem)
+            except Exception as e:
+                pass
+            for i in GlobalVar.downloadobjectlist:
+                try:
+                    self.downloadarea.removeItem(i.layout)
+                except Exception as e:
+                    pass
+            for i in GlobalVar.downloadobjectlist:
+                self.downloadarea.addItem(i.layout)
+            self.downloadarea.addItem(self.spacerItem)
 
     def openRecentFileSlot(self):
         """
@@ -801,11 +824,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if not self.windowState() & QtCore.Qt.WindowFullScreen:
             # switch to full screen
             self.setWindowState(self.windowState() | QtCore.Qt.WindowFullScreen)
-            self.a = False
+            self.mousematch = False
         else:
             # switch back to normal
             self.setWindowState(self.windowState() & ~QtCore.Qt.WindowFullScreen)
-            self.a = True
+            self.mousematch = True
 
     def _zoomInActionSlot(self):
         """
@@ -851,24 +874,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         NoteItem.show_layer = self.uiShowLayersAction.isChecked()
         for item in self.uiGraphicsView.items():
             item.update()
-        
-    def _showConsoleActionSlot(self):
-        if self.uiConsoleDockWidget.isHidden() is True:
-            self.uiConsoleDockWidget.show()
-        else:
-            pass
-        
-    def _showTopologyActionSlot(self):
-        if self.uiTopologySummaryDockWidget.isHidden() is True:
-            self.uiTopologySummaryDockWidget.show()
-        else:
-            pass
-            
-    def _showServerActionSlot(self):
-        if self.uiServerSummaryDockWidget.isHidden() is True:
-            self.uiServerSummaryDockWidget.show()
-        else:
-            pass
 
     def _resetPortLabelsActionSlot(self):
         """
@@ -884,6 +889,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         Slot called to show the port names on the scene.
         """
+
         LinkItem.showPortLabels(self.uiShowPortNamesAction.isChecked())
         for item in self.uiGraphicsView.scene().items():
             if isinstance(item, LinkItem):
@@ -893,24 +899,28 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
         Slot called when starting all the nodes.
         """
+        self.uiSuspendAllAction.setChecked(False)
+        self.uiStopAllAction.setChecked(False)
         for item in self.uiGraphicsView.scene().items():
             if isinstance(item, NodeItem) and hasattr(item.node(), "start") and item.node().initialized():
                 item.node().start()
-
 
     def _suspendAllActionSlot(self):
         """
         Slot called when suspending all the nodes.
         """
+        self.uiStartAllAction.setChecked(False)
+        self.uiStopAllAction.setChecked(False)
         for item in self.uiGraphicsView.scene().items():
             if isinstance(item, NodeItem) and hasattr(item.node(), "suspend") and item.node().initialized():
                 item.node().suspend()
-
 
     def _stopAllActionSlot(self):
         """
         Slot called when stopping all the nodes.
         """
+        self.uiStartAllAction.setChecked(False)
+        self.uiSuspendAllAction.setChecked(False)
         for item in self.uiGraphicsView.scene().items():
             if isinstance(item, NodeItem) and hasattr(item.node(), "stop") and item.node().initialized():
                 item.node().stop()
@@ -1050,12 +1060,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.uiGraphicsView.addEllipse(self.uiDrawEllipseAction.isChecked())
 
-    def _onlineHelpActionSlot(self):
+    def _onlineActionSlot(self,url):
         """
         Slot to launch a browser pointing to the documentation page.
         """
 
-        QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://gns3.com/support/docs"))
+        QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
 
     def _checkForUpdateActionSlot(self, silent=False):
         """
@@ -1102,107 +1112,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
 
         QtWidgets.QMessageBox.aboutQt(self)
-        
-    def _showdownloadSlot(self):
-        """
-        Slot to display the GNS3 download dialog.
-        """
-
-        dialog = NewHospitalSystem(self)
-        dialog.show()
-        dialog.exec_()
-    
-    def _showuploadSlot(self):
-        self._saveProjectActionSlot()
-        self.ftp = FTP()
-        self.ftp.connect("139.196.202.32",428)
-        self.ftp.login("gns3@163.com","gns3**")
-        filename = GlobalVar.uploadpath
-        self.ftp.cwd("TR")
-        self.newpath = os.path.basename(filename)
-        self.ftp.mkd(self.newpath)
-        self.ftp.cwd(self.newpath)
-        srcDir = filename
-        self.upload(srcDir) 
-        
-    def setFtpParams(self, ip, uname, pwd, port = 428, timeout = 60):          
-        self.ip = ip  
-        self.uname = uname  
-        self.pwd = pwd  
-        self.port = port  
-        self.timeout = timeout  
-      
-    def initEnv(self):  
-        if self.ftp is None:  
-            self.ftp = FTP()   
-            self.ftp.connect(self.ip, self.port, self.timeout)  
-            self.ftp.login(self.uname, self.pwd)
-            self.ftp.cwd("{}".format(self.newpath))    
-      
-    def clearEnv(self):  
-        if self.ftp:  
-            self.ftp.close()  
-            self.ftp = None  
-      
-    def uploadDir(self, localdir='./', remotedir='./'):  
-        if not os.path.isdir(localdir):    
-            return  
-        self.ftp.cwd(remotedir)   
-        for file in os.listdir(localdir):  
-            src = os.path.join(localdir, file)  
-            if os.path.isfile(src):  
-                self.uploadFile(src, file)  
-            elif os.path.isdir(src):  
-                try:    
-                    self.ftp.mkd(file)    
-                except:    
-                    sys.stderr.write('the dir is exists %s'%file)  
-                self.uploadDir(src, file)  
-        self.ftp.cwd('..')  
-      
-    def uploadFile(self, localpath, remotepath='./'):  
-        if not os.path.isfile(localpath):    
-            return   
-        self.ftp.storbinary('STOR ' + remotepath, open(localpath, 'rb'))  
-      
-    def __filetype(self, src):  
-        if os.path.isfile(src):  
-            index = src.rfind('\\')  
-            if index == -1:  
-                index = src.rfind('/')                  
-            return _XFER_FILE, src[index+1:]  
-        elif os.path.isdir(src):  
-            return _XFER_DIR, ''          
-      
-    def upload(self, src):  
-        filetype, filename = self.__filetype(src)  
-          
-        self.initEnv()  
-        if filetype == _XFER_DIR:  
-            self.srcDir = src              
-            self.uploadDir(self.srcDir)  
-        elif filetype == _XFER_FILE:  
-            self.uploadFile(src, filename)
-        self.clearEnv()
-        
-    def _openpersonSlot(self):
-        """
-        Slot to display the GNS3 guide dialog.
-        """
-        
-        dialog = userlogin(self)
-        dialog.show()
-        dialog.exec_()
-        self.updates()
-        
-    def _showguideSlot(self):
-        """
-        Slot to display the GNS3 guide dialog.
-        """
-
-        dialog = NewDownload(self)
-        dialog.show()
-        dialog.exec_()
 
     def _aboutActionSlot(self):
         """
@@ -1238,7 +1147,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         QtGui.QDesktopServices.openUrl(QtCore.QUrl("http://academy.gns3.com/"))
 
-    def _showNodesDockWidget(self, title, category, marker=4):
+    def _showNodesDockWidget(self, title, category, marked):
         """
         Makes the NodesDockWidget appear with the appropriate title and the devices
         from the specified category listed.
@@ -1255,16 +1164,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.uiNodesDockWidget.setWindowTitle(title)
             self.uiNodesDockWidget.setVisible(True)
             self.uiNodesView.clear()
-            if marker == 0:
-                self.uiNodesView.ROUTERpopulateNodesView(category)
-            elif marker == 1:
-                self.uiNodesView.HISpopulateNodesView(category)
-            elif marker == 2:
-                self.uiNodesView.LISpopulateNodesView(category)
-            elif marker == 3:
-                self.uiNodesView.PACSpopulateNodesView(category)
-            elif marker == 4:
+            if marked == 'router':
+                self.uiNodesView.ROUTERpopulateNodesView(category,marked)
+            elif marked == 'switch':
+                self.uiNodesView.SWITCHpopulateNodesView(category,marked)
+            elif marked == 'security':
+                self.uiNodesView.SECURITYpopulateNodesView(category,marked)
+            elif marked == 'connection':
                 self.uiNodesView.populateNodesView(category)
+            else:
+                self.uiNodesView.VMpopulateNodesView(category,marked)
 
     def _localConfigChangedSlot(self):
         """
@@ -1278,48 +1187,67 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         Slot to browse all the routers.
         """
 
-        self._showNodesDockWidget("Routers", Node.routers, 0)
+        self._showNodesDockWidget("路由器", Node.routers,'router')
 
     def _browseSwitchesActionSlot(self):
         """
         Slot to browse all the switches.
         """
 
-        self._showNodesDockWidget("Switches", Node.switches)
-
-    def _browseEndDevicesActionSlot(self):
-        """
-        Slot to browse all the end devices.
-        """
-
-        self._showNodesDockWidget("End devices", Node.end_devices)
+        self._showNodesDockWidget("交换机", Node.switches,'switch')
 
     def _browseSecurityDevicesActionSlot(self):
         """
         Slot to browse all the security devices.
         """
 
-        self._showNodesDockWidget("Security devices", Node.security_devices)
+        self._showNodesDockWidget("防火墙", Node.security_devices,'security')
 
     def _browseHISDevicesActionSlot(self):
         """
         Slot to browse HIS devices.
         """
-        self._showNodesDockWidget("HIS devices", None, 1)
+        self._showNodesDockWidget("HIS系统", None, 'his')
 
-        
     def _browseLISDevicesActionSlot(self):
         """
         Slot to browse LIS devices.
         """
-        self._showNodesDockWidget("LIS devices", None, 2)
+        self._showNodesDockWidget("LIS系统", None, 'lis')
 
-        
     def _browsePACSDevicesActionSlot(self):
         """
         Slot to browse PACS devices.
         """
-        self._showNodesDockWidget("PACS devices", None, 3)
+        self._showNodesDockWidget("PACS系统", None, 'pacs')
+
+    def _browseClientActionSlot(self):
+        """
+        Slot to browse client devices.
+        """
+
+        self._showNodesDockWidget("客户端设备", Node.routers,'client')
+
+    def _browseServerActionSlot(self):
+        """
+        Slot to browse server devices.
+        """
+
+        self._showNodesDockWidget("服务端设备", Node.routers,'server')
+
+    def _browserConnectionActionSlot(self):
+        """
+        Slot to browse all the devices.
+        """
+
+        self._showNodesDockWidget("桥接设备", None,'connection')
+
+    def _browseEndDevicesActionSlot(self,category):
+        """
+        Slot to browse all the end devices.
+        """
+
+        self._showNodesDockWidget(category, Node.end_devices,'end')
 
     def _addLinkActionSlot(self):
         """
@@ -1330,54 +1258,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.adding_link_signal.emit(False)
         else:
             self.adding_link_signal.emit(True)
-            
-    def _showPreferencesSlot0(self):
-        GlobalVar.globalvarmark = 0
-        self._preferencesActionSlot()
-        
-    def _showPreferencesSlot1(self):
-        GlobalVar.globalvarmark = 1
-        self._preferencesActionSlot()
-    
-    def _showPreferencesSlot2(self):
-        GlobalVar.globalvarmark = 2
-        self._preferencesActionSlot()
-    
-    def _showPreferencesSlot3(self):
-        GlobalVar.globalvarmark = 3
-        self._preferencesActionSlot()
-    
-    def _showPreferencesSlot4(self):
-        GlobalVar.globalvarmark = 4
-        self._preferencesActionSlot()
-    
-    def _showPreferencesSlot5(self):
-        GlobalVar.globalvarmark = 6
-        self._preferencesActionSlot()
-        
-    def _showPreferencesSlot6(self):
-        GlobalVar.globalvarmark = 8
-        self._preferencesActionSlot()
-        
-    def _showPreferencesSlot7(self):
-        GlobalVar.globalvarmark = 5
-        self._preferencesActionSlot()
-        
-    def _showPreferencesSlot8(self):
-        GlobalVar.globalvarmark = 7
-        self._preferencesActionSlot()
-        
-    def _showPreferencesSlot9(self):
-        GlobalVar.globalvarmark = 9
-        self._preferencesActionSlot()
-        
 
-    def _preferencesActionSlot(self):
+    def _preferencesActionSlot(self,market):
         """
         Slot to show the preferences dialog.
         """
 
         with Progress.instance().context(min_duration=0):
+            GlobalVar.globalmarket = market
             dialog = PreferencesDialog(self)
             dialog.restoreGeometry(QtCore.QByteArray().fromBase64(self._settings["preferences_dialog_geometry"].encode()))
             dialog.show()
@@ -1505,7 +1393,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 destination_file = "untitled.gns3"
             else:
                 destination_file = os.path.basename(self._project.topologyFile())
-            reply = QtWidgets.QMessageBox.warning(self, "Unsaved changes", 'Save changes to project "{}" before closing?'.format(destination_file),
+            reply = QtWidgets.QMessageBox.warning(self, "未保存修改", '你有尚未保存的项目"{}"'.format(destination_file),
                                                   QtWidgets.QMessageBox.Discard | QtWidgets.QMessageBox.Save | QtWidgets.QMessageBox.Cancel)
             if reply == QtWidgets.QMessageBox.Save:
                 if self._project.temporary():
@@ -1521,7 +1409,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         """
 
         if not LocalConfig.instance().isMainGui():
-            reply = QtWidgets.QMessageBox.warning(self, "GNS3", "Another GNS3 GUI is already running. Continue?",
+            reply = QtWidgets.QMessageBox.warning(self, "MNSS", "您已打开MNSS，是否继续？",
                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
             if reply == QtWidgets.QMessageBox.No:
                 self.close()
@@ -1556,14 +1444,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         server = servers.localServer()
         if servers.shouldLocalServerAutoStart():
                 if not servers.localServerAutoStart():
-                    QtWidgets.QMessageBox.critical(self, "Local server", "Could not start the local server process: {}".format(servers.localServerPath()))
+                    QtWidgets.QMessageBox.critical(self, "本地服服务器", "无法打开本地服务进程: {}".format(servers.localServerPath()))
                     return
 
                 worker = WaitForConnectionWorker(server.host(), server.port())
                 progress_dialog = ProgressDialog(worker,
-                                                 "Local server",
-                                                 "Connecting to server {} on port {}...".format(server.host(), server.port()),
-                                                 "Cancel", busy=True, parent=self)
+                                                 "本地Server",
+                                                 "正在连接服务器 {} : {}...".format(server.host(), server.port()),
+                                                 "取消", busy=True, parent=self)
                 progress_dialog.show()
                 if not progress_dialog.exec_():
                     return
@@ -1571,9 +1459,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # show the setup wizard
         if not self._settings["hide_setup_wizard"] and not gns3_vm.isRunning():
             with Progress.instance().context(min_duration=0):
-                setup_wizard = SetupWizard(self)
-                setup_wizard.show()
-                setup_wizard.exec_()
+                pass
+                # setup_wizard = SetupWizard(self)
+                # setup_wizard.show()
+                # setup_wizard.exec_()
 
         self._analytics_client.sendScreenView("Main Window")
         self._createTemporaryProject()
@@ -1664,7 +1553,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         project_dir = file_dialog.selectedFiles()[0]
         project_name = os.path.basename(project_dir)
         topology_file_path = os.path.join(project_dir, project_name + ".gns3")
-        GlobalVar.uploadpath = project_dir
         old_topology_file_path = os.path.join(project_dir, default_project_name + ".gns3")
 
         # create the destination directory for project files
@@ -1864,7 +1752,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.setWindowFilePath(path)
             self.setWindowTitle("{path}[*] - GNS3".format(path=os.path.basename(path)))
             self._updateRecentFileSettings(path)
-#             self._updateRecentFileActions()
+            # self._updateRecentFileActions()
 
         self.setWindowModified(False)
 
@@ -2080,11 +1968,11 @@ It is your responsability to check if you have the right to distribute the image
 
         return False
 
-    def _getStyleIcon(self, normal_file, active_file):
+    def _getStyleIcon(self, normalon_file, normaloff_file = None):
 
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(normal_file), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(active_file), QtGui.QIcon.Active, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(normalon_file), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap(normaloff_file), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         return icon
 
     def _setLegacyStyle(self):
@@ -2092,40 +1980,7 @@ It is your responsability to check if you have the right to distribute the image
         Sets the legacy GUI style.
         """
 
-        self.setStyleSheet("")
-        self.uiNewProjectAction.setIcon(QtGui.QIcon(":/icons/new-project.svg"))
-        self.uiOpenProjectAction.setIcon(QtGui.QIcon(":/icons/open.svg"))
-        self.uiOpenApplianceAction.setIcon(QtGui.QIcon(":/icons/open.svg"))
-        self.uiSaveProjectAction.setIcon(QtGui.QIcon(":/icons/save.svg"))
-        self.uiSaveProjectAsAction.setIcon(QtGui.QIcon(":/icons/save-as.svg"))
-        self.uiImportExportConfigsAction.setIcon(QtGui.QIcon(":/icons/import_export_configs.svg"))
-        self.uiImportProjectAction.setIcon(QtGui.QIcon(":/icons/import_config.svg"))
-        self.uiExportProjectAction.setIcon(QtGui.QIcon(":/icons/export_config.svg"))
-        self.uiScreenshotAction.setIcon(QtGui.QIcon(":/icons/camera-photo.svg"))
-        self.uiSnapshotAction.setIcon(QtGui.QIcon(":/icons/snapshot.svg"))
-        self.uiQuitAction.setIcon(QtGui.QIcon(":/icons/quit.svg"))
-        self.uiPreferencesAction.setIcon(QtGui.QIcon(":/icons/applications.svg"))
-        self.uiZoomInAction.setIcon(QtGui.QIcon(":/icons/zoom-in.png"))
-        self.uiZoomOutAction.setIcon(QtGui.QIcon(":/icons/zoom-out.png"))
-        self.uiShowPortNamesAction.setIcon(QtGui.QIcon(":/icons/show-interface-names.svg"))
-        self.uiStartAllAction.setIcon(self._getStyleIcon(":/icons/start.svg", ":/icons/start-hover.svg"))
-        self.uiSuspendAllAction.setIcon(self._getStyleIcon(":/icons/pause.svg", ":/icons/pause-hover.svg"))
-        self.uiStopAllAction.setIcon(self._getStyleIcon(":/icons/stop.svg", ":/icons/stop-hover.svg"))
-        self.uiReloadAllAction.setIcon(QtGui.QIcon(":/icons/reload.svg"))
-        self.uiAuxConsoleAllAction.setIcon(QtGui.QIcon(":/icons/aux-console.svg"))
-        self.uiConsoleAllAction.setIcon(QtGui.QIcon(":/icons/console.svg"))
-        self.uiAddNoteAction.setIcon(QtGui.QIcon(":/icons/add-note.svg"))
-        self.uiInsertImageAction.setIcon(QtGui.QIcon(":/icons/image.svg"))
-        self.uiDrawRectangleAction.setIcon(self._getStyleIcon(":/icons/rectangle.svg", ":/icons/rectangle-hover.svg"))
-        self.uiDrawEllipseAction.setIcon(self._getStyleIcon(":/icons/ellipse.svg", ":/icons/ellipse-hover.svg"))
-        self.uiEditReadmeAction.setIcon(QtGui.QIcon(":/icons/edit.svg"))
-        self.uiOnlineHelpAction.setIcon(QtGui.QIcon(":/icons/help.svg"))
-        self.uiBrowseRoutersAction.setIcon(self._getStyleIcon(":/icons/router.png", ":/icons/router-hover.png"))
-        self.uiBrowseSwitchesAction.setIcon(self._getStyleIcon(":/icons/switch.png", ":/icons/switch-hover.png"))
-        self.uiBrowseEndDevicesAction.setIcon(self._getStyleIcon(":/icons/PC.png", ":/icons/PC-hover.png"))
-        self.uiBrowseSecurityDevicesAction.setIcon(self._getStyleIcon(":/icons/firewall.png", ":/icons/firewall-hover.png"))
-        self.uiBrowseAllDevicesAction.setIcon(self._getStyleIcon(":/icons/browse-all-icons.png", ":/icons/browse-all-icons-hover.png"))
-        self.uiAddLinkAction.setIcon(self._getStyleIcon(":/icons/connection-new.svg", ":/charcoal_icons/connection-new-hover.svg"))
+        pass
 
     def _setClassicStyle(self):
         """
@@ -2133,92 +1988,69 @@ It is your responsability to check if you have the right to distribute the image
         """
 
         self.setStyleSheet("")
-#         self.uiNewProjectAction.setIcon(self._getStyleIcon(":/classic_icons/new-project.svg", ":/classic_icons/new-project-hover.svg"))
-#         self.uiOpenProjectAction.setIcon(self._getStyleIcon(":/classic_icons/open.svg", ":/classic_icons/open-hover.svg"))
-#         self.uiOpenApplianceAction.setIcon(self._getStyleIcon(":/classic_icons/open.svg", ":/classic_icons/open-hover.svg"))
-#         self.uiSaveProjectAction.setIcon(self._getStyleIcon(":/classic_icons/save-project.svg", ":/classic_icons/save-project-hover.svg"))
-#         self.uiSaveProjectAsAction.setIcon(self._getStyleIcon(":/classic_icons/save-as-project.svg", ":/classic_icons/save-as-project-hover.svg"))
-#         self.uiImportExportConfigsAction.setIcon(self._getStyleIcon(":/classic_icons/import_export_configs.svg", ":/classic_icons/import_export_configs-hover.svg"))
-#         self.uiImportProjectAction.setIcon(self._getStyleIcon(":/classic_icons/import.svg", ":/classic_icons/import-hover.svg"))
-#         self.uiExportProjectAction.setIcon(self._getStyleIcon(":/classic_icons/export.svg", ":/classic_icons/export-hover.svg"))
-#         self.uiScreenshotAction.setIcon(self._getStyleIcon(":/classic_icons/camera-photo.svg", ":/classic_icons/camera-photo-hover.svg"))
-#         self.uiSnapshotAction.setIcon(self._getStyleIcon(":/classic_icons/snapshot.svg", ":/classic_icons/snapshot-hover.svg"))
-#         self.uiQuitAction.setIcon(self._getStyleIcon(":/classic_icons/quit.svg", ":/classic_icons/quit-hover.svg"))
-#         self.uiPreferencesAction.setIcon(self._getStyleIcon(":/classic_icons/preferences.svg", ":/classic_icons/preferences-hover.svg"))
-#         self.uiZoomInAction.setIcon(self._getStyleIcon(":/classic_icons/zoom-in.svg", ":/classic_icons/zoom-in-hover.svg"))
-#         self.uiZoomOutAction.setIcon(self._getStyleIcon(":/classic_icons/zoom-out.svg", ":/classic_icons/zoom-out-hover.svg"))
-#         self.uiShowPortNamesAction.setIcon(self._getStyleIcon(":/classic_icons/show-interface-names.svg", ":/classic_icons/show-interface-names-hover.svg"))
-#         self.uiStartAllAction.setIcon(self._getStyleIcon(":/classic_icons/start.svg", ":/classic_icons/start-hover.svg"))
-#         self.uiSuspendAllAction.setIcon(self._getStyleIcon(":/classic_icons/pause.svg", ":/classic_icons/pause-hover.svg"))
-#         self.uiStopAllAction.setIcon(self._getStyleIcon(":/classic_icons/stop.svg", ":/classic_icons/stop-hover.svg"))
-#         self.uiReloadAllAction.setIcon(self._getStyleIcon(":/classic_icons/reload.svg", ":/classic_icons/reload-hover.svg"))
-#         self.uiAuxConsoleAllAction.setIcon(self._getStyleIcon(":/classic_icons/aux-console.svg", ":/classic_icons/aux-console-hover.svg"))
-#         self.uiConsoleAllAction.setIcon(self._getStyleIcon(":/classic_icons/console.svg", ":/classic_icons/console-hover.svg"))
-#         self.uiAddNoteAction.setIcon(self._getStyleIcon(":/classic_icons/add-note.svg", ":/classic_icons/add-note-hover.svg"))
-#         self.uiInsertImageAction.setIcon(self._getStyleIcon(":/classic_icons/image.svg", ":/classic_icons/image-hover.svg"))
-#         self.uiDrawRectangleAction.setIcon(self._getStyleIcon(":/classic_icons/rectangle.svg", ":/classic_icons/rectangle-hover.svg"))
-#         self.uiDrawEllipseAction.setIcon(self._getStyleIcon(":/classic_icons/ellipse.svg", ":/classic_icons/ellipse-hover.svg"))
-#         self.uiEditReadmeAction.setIcon(self._getStyleIcon(":/classic_icons/edit.svg", ":/classic_icons/edit.svg"))
-#         self.uiOnlineHelpAction.setIcon(self._getStyleIcon(":/classic_icons/help.svg", ":/classic_icons/help-hover.svg"))
-#         self.uiBrowseRoutersAction.setIcon(self._getStyleIcon(":/classic_icons/router.svg", ":/classic_icons/router-hover.svg"))
-#         self.uiBrowseSwitchesAction.setIcon(self._getStyleIcon(":/classic_icons/switch.svg", ":/classic_icons/switch-hover.svg"))
-#         self.uiBrowseEndDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/pc.svg", ":/classic_icons/pc-hover.svg"))
-#         self.uiBrowseSecurityDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/firewall.svg", ":/classic_icons/firewall-hover.svg"))
-#         self.uiBrowseAllDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/browse-all-icons.svg", ":/classic_icons/browse-all-icons-hover.svg"))
-
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/classic_icons/add-link.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(":/classic_icons/add-link-hover.svg"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(":/classic_icons/add-link-cancel.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-#         self.uiAddLinkAction.setIcon(icon)
+        self.uiNewProjectAction.setIcon(self._getStyleIcon(":/images/new.png"))
+        self.uiOpenProjectAction.setIcon(self._getStyleIcon(":/classic_icons/open.svg"))
+        self.uiSaveProjectAsAction.setIcon(self._getStyleIcon(":/images/save.png"))
+        self.uiImportProjectAction.setIcon(self._getStyleIcon(":/images/import.png"))
+        self.uiExportProjectAction.setIcon(self._getStyleIcon(":/images/export.png"))
+        self.uiQuitAction.setIcon(self._getStyleIcon(":/images/exit.png"))
+        self.uigeneralPreferencesAction.setIcon(self._getStyleIcon(":/images/generalPreferences.png"))
+        self.uiserverPreferencesAction.setIcon(self._getStyleIcon(":/images/serverPreferences.png"))
+        self.uiwiresharkPreferencesAction.setIcon(self._getStyleIcon(":/images/wiresharkPreferences.png"))
+        self.uivpcsPreferencesAction.setIcon(self._getStyleIcon(":/images/vpcsPreferences.png"))
+        self.uidynamipsPreferencesAction.setIcon(self._getStyleIcon(":/images/dynamipsPreferences.png"))
+        self.uiunixPreferencesAction.setIcon(self._getStyleIcon(":/images/unixPreferences.png"))
+        self.uivmwarePreferencesAction.setIcon(self._getStyleIcon(":/images/vmwarePreferences.png"))
+        self.uirouterPreferencesAction.setIcon(self._getStyleIcon(":/images/routerPreferences.png"))
+        self.uiiouPreferencesAction.setIcon(self._getStyleIcon(":/images/iouPreferences.png"))
+        self.uihospitalPreferencesAction.setIcon(self._getStyleIcon(":/images/hospitalPreferences.png"))
+        self.uiStartAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/start-hover.svg",":/charcoal_icons/start.svg"))
+        self.uiSuspendAllAction.setIcon(self._getStyleIcon(":/classic_icons/pause-hover.svg",":/classic_icons/pause.svg"))
+        self.uiStopAllAction.setIcon(self._getStyleIcon(":/classic_icons/stop-hover.svg",":/classic_icons/stop.svg"))
+        self.uiReloadAllAction.setIcon(self._getStyleIcon(":/classic_icons/reload.svg"))
+        self.uiAddLinkAction.setIcon(self._getStyleIcon(":/classic_icons/add-link-cancel.svg", ":/classic_icons/add-link.svg"))
+        self.uiShowPortNamesAction.setIcon(self._getStyleIcon(":/classic_icons/show-interface-names-hover.svg",":/classic_icons/show-interface-names.svg"))
+        self.uiZoomInAction.setIcon(self._getStyleIcon(":/classic_icons/zoom-in.svg"))
+        self.uiZoomOutAction.setIcon(self._getStyleIcon(":/classic_icons/zoom-out.svg"))
+        self.uiScreenshotAction.setIcon(self._getStyleIcon(":/classic_icons/camera-photo.svg"))
+        self.uiInsertImageAction.setIcon(self._getStyleIcon(":/classic_icons/image.svg"))
+        self.uiAddNoteAction.setIcon(self._getStyleIcon(":/classic_icons/add-note.svg"))
+        self.uiDrawEllipseAction.setIcon(self._getStyleIcon(":/classic_icons/ellipse.svg"))
+        self.uiDrawRectangleAction.setIcon(self._getStyleIcon(":/classic_icons/rectangle.svg"))
+        self.uiGuideAction.setIcon(self._getStyleIcon(":/images/guide.png"))
+        self.uiCheckForUpdateAction.setIcon(self._getStyleIcon(":/images/update.png"))
+        self.uiOnlineHelpAction.setIcon(self._getStyleIcon(":/images/online.png"))
+        self.uiExportDebugInformationAction.setIcon(self._getStyleIcon(":/images/debugstepout.png"))
+        self.uiDoctorAction.setIcon(self._getStyleIcon(":/images/doctor.png"))
+        self.uiAboutAction.setIcon(self._getStyleIcon(":/images/about.png"))
+        self.uiFeedbackAction.setIcon(self._getStyleIcon(":/images/feedback.png"))
+        self.uiBrowseRoutersAction.setIcon(self._getStyleIcon(":/classic_icons/router.svg"))
+        self.uiBrowseSwitchesAction.setIcon(self._getStyleIcon(":/classic_icons/switch-hover.svg"))
+        self.uiBrowseSecurityDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/firewall.svg"))
+        self.uiBrowseClientDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/pc.svg"))
+        self.uiBrowseServerDevicesAction.setIcon(self._getStyleIcon(":/classic_icons/pc.svg"))
+        self.uiBrowseHISDevicesAction.setIcon(self._getStyleIcon(":/images/His.png"))
+        self.uiBrowseLISDevicesAction.setIcon(self._getStyleIcon(":/images/Lis.png"))
+        self.uiBrowsePACSDevicesAction.setIcon(self._getStyleIcon(":/images/Pacs.png"))
+        self.uiBrowseClientDevicesAction.setIcon(self._getStyleIcon(":/images/Client.png"))
+        self.uiBrowseServerDevicesAction.setIcon(self._getStyleIcon(":/images/Server.png"))
+        self.uiBrowseConnectDevicesAction.setIcon(self._getStyleIcon(":/images/connection.png"))
+        self.uiminimumAction.setIcon(self._getStyleIcon(":/images/minimum.png"))
+        self.uiMaximumAction.setIcon(self._getStyleIcon(":/images/RestoreDown.png",":/images/maximization.png"))
+        self.uicloseAction.setIcon(self._getStyleIcon(":/images/close.png"))
+        self.uiShowTopology.setIcon(self._getStyleIcon(":/images/topology.png"))
+        self.uiShowServer.setIcon(self._getStyleIcon(":/images/sever.png"))
+        self.uiConfigAllAction.setIcon(self._getStyleIcon(":/classic_icons/console.svg", ":/classic_icons/console-hover.svg"))
+        self.uiWareAction.setIcon(self._getStyleIcon(":/images/ware.png"))
+        self.uiExamAction.setIcon(self._getStyleIcon(":/images/exam.png"))
+        self.uiStorageAction.setIcon(self._getStyleIcon(":/images/storage.png"))
+        self.uiPaperAction.setIcon(self._getStyleIcon(":/images/paper.png"))
+        self.uiToolsAction.setIcon(self._getStyleIcon(":/images/tools.png"))
+        self.uiiMNSSAction.setIcon(self._getStyleIcon(":/images/iMNSS.png"))
 
     def _setCharcoalStyle(self):
         """
         Sets the charcoal GUI style.
         """
 
-        stylefile = QtCore.QFile(":/styles/charcoal.css")
-        stylefile.open(QtCore.QFile.ReadOnly)
-        style = QtCore.QTextStream(stylefile).readAll()
-        if sys.platform.startswith("darwin"):
-            style += "QDockWidget::title {text-align: center; background-color: #535353}"
-
-        self.setStyleSheet(style)
-        self.uiNewProjectAction.setIcon(self._getStyleIcon(":/charcoal_icons/new-project.svg", ":/charcoal_icons/new-project-hover.svg"))
-        self.uiOpenProjectAction.setIcon(self._getStyleIcon(":/charcoal_icons/open.svg", ":/charcoal_icons/open-hover.svg"))
-        self.uiOpenApplianceAction.setIcon(self._getStyleIcon(":/charcoal_icons/open.svg", ":/charcoal_icons/open-hover.svg"))
-        self.uiSaveProjectAction.setIcon(self._getStyleIcon(":/charcoal_icons/save-project.svg", ":/charcoal_icons/save-project-hover.svg"))
-        self.uiSaveProjectAsAction.setIcon(self._getStyleIcon(":/charcoal_icons/save-as-project.svg", ":/charcoal_icons/save-as-project-hover.svg"))
-        self.uiImportExportConfigsAction.setIcon(self._getStyleIcon(":/charcoal_icons/import_export_configs.svg", ":/charcoal_icons/import_export_configs-hover.svg"))
-        self.uiImportProjectAction.setIcon(self._getStyleIcon(":/charcoal_icons/import.svg", ":/charcoal_icons/import-hover.svg"))
-        self.uiExportProjectAction.setIcon(self._getStyleIcon(":/charcoal_icons/export.svg", ":/charcoal_icons/export-hover.svg"))
-        self.uiScreenshotAction.setIcon(self._getStyleIcon(":/charcoal_icons/camera-photo.svg", ":/charcoal_icons/camera-photo-hover.svg"))
-        self.uiSnapshotAction.setIcon(self._getStyleIcon(":/charcoal_icons/snapshot.svg", ":/charcoal_icons/snapshot-hover.svg"))
-        self.uiQuitAction.setIcon(self._getStyleIcon(":/charcoal_icons/quit.svg", ":/charcoal_icons/quit-hover.svg"))
-        self.uiPreferencesAction.setIcon(self._getStyleIcon(":/charcoal_icons/preferences.svg", ":/charcoal_icons/preferences-hover.svg"))
-        self.uiZoomInAction.setIcon(self._getStyleIcon(":/charcoal_icons/zoom-in.svg", ":/charcoal_icons/zoom-in-hover.svg"))
-        self.uiZoomOutAction.setIcon(self._getStyleIcon(":/charcoal_icons/zoom-out.svg", ":/charcoal_icons/zoom-out-hover.svg"))
-        self.uiShowPortNamesAction.setIcon(self._getStyleIcon(":/charcoal_icons/show-interface-names.svg", ":/charcoal_icons/show-interface-names-hover.svg"))
-        self.uiStartAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/start.svg", ":/charcoal_icons/start-hover.svg"))
-        self.uiSuspendAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/pause.svg", ":/charcoal_icons/pause-hover.svg"))
-        self.uiStopAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/stop.svg", ":/charcoal_icons/stop-hover.svg"))
-        self.uiReloadAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/reload.svg", ":/charcoal_icons/reload-hover.svg"))
-        self.uiAuxConsoleAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/aux-console.svg", ":/charcoal_icons/aux-console-hover.svg"))
-        self.uiConsoleAllAction.setIcon(self._getStyleIcon(":/charcoal_icons/console.svg", ":/charcoal_icons/console-hover.svg"))
-        self.uiAddNoteAction.setIcon(self._getStyleIcon(":/charcoal_icons/add-note.svg", ":/charcoal_icons/add-note-hover.svg"))
-        self.uiInsertImageAction.setIcon(self._getStyleIcon(":/charcoal_icons/image.svg", ":/charcoal_icons/image-hover.svg"))
-        self.uiDrawRectangleAction.setIcon(self._getStyleIcon(":/charcoal_icons/rectangle.svg", ":/charcoal_icons/rectangle-hover.svg"))
-        self.uiDrawEllipseAction.setIcon(self._getStyleIcon(":/charcoal_icons/ellipse.svg", ":/charcoal_icons/ellipse-hover.svg"))
-        self.uiEditReadmeAction.setIcon(self._getStyleIcon(":/charcoal_icons/edit.svg", ":/charcoal_icons/edit.svg"))
-        self.uiOnlineHelpAction.setIcon(self._getStyleIcon(":/charcoal_icons/help.svg", ":/charcoal_icons/help-hover.svg"))
-        self.uiBrowseRoutersAction.setIcon(self._getStyleIcon(":/charcoal_icons/router.svg", ":/charcoal_icons/router-hover.svg"))
-        self.uiBrowseSwitchesAction.setIcon(self._getStyleIcon(":/charcoal_icons/switch.svg", ":/charcoal_icons/switch-hover.svg"))
-        self.uiBrowseEndDevicesAction.setIcon(self._getStyleIcon(":/charcoal_icons/pc.svg", ":/charcoal_icons/pc-hover.svg"))
-        self.uiBrowseSecurityDevicesAction.setIcon(self._getStyleIcon(":/charcoal_icons/firewall.svg", ":/charcoal_icons/firewall-hover.svg"))
-        self.uiBrowseAllDevicesAction.setIcon(self._getStyleIcon(":/charcoal_icons/browse-all-icons.svg", ":/charcoal_icons/browse-all-icons-hover.svg"))
-
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/charcoal_icons/add-link-1.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(":/charcoal_icons/add-link-1-hover.svg"), QtGui.QIcon.Active, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap(":/charcoal_icons/add-link-1-cancel.svg"), QtGui.QIcon.Normal, QtGui.QIcon.On)
-        self.uiAddLinkAction.setIcon(icon)
+        pass

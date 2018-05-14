@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/qemu/ui/qemu_preferences_page.ui'
+# Form implementation generated from reading ui file 'qemu_preferences_page.ui'
 #
-# Created: Thu May  5 18:51:18 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -21,6 +20,7 @@ class Ui_QemuPreferencesPageWidget(object):
         self.uiServerSettingsTabWidget = QtWidgets.QWidget()
         self.uiServerSettingsTabWidget.setObjectName("uiServerSettingsTabWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.uiServerSettingsTabWidget)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.uiUseLocalServercheckBox = QtWidgets.QCheckBox(self.uiServerSettingsTabWidget)
         self.uiUseLocalServercheckBox.setChecked(True)
@@ -49,8 +49,8 @@ class Ui_QemuPreferencesPageWidget(object):
     def retranslateUi(self, QemuPreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
         QemuPreferencesPageWidget.setWindowTitle(_translate("QemuPreferencesPageWidget", "QEMU"))
-        self.uiUseLocalServercheckBox.setText(_translate("QemuPreferencesPageWidget", "Use the local server"))
-        self.uiKVMAccelerationCheckBox.setText(_translate("QemuPreferencesPageWidget", "Enable KVM acceleration"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiServerSettingsTabWidget), _translate("QemuPreferencesPageWidget", "General settings"))
-        self.uiRestoreDefaultsPushButton.setText(_translate("QemuPreferencesPageWidget", "Restore defaults"))
+        self.uiUseLocalServercheckBox.setText(_translate("QemuPreferencesPageWidget", "使用本地服务器"))
+        self.uiKVMAccelerationCheckBox.setText(_translate("QemuPreferencesPageWidget", "KVM加速度"))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiServerSettingsTabWidget), _translate("QemuPreferencesPageWidget", "常规设置"))
+        self.uiRestoreDefaultsPushButton.setText(_translate("QemuPreferencesPageWidget", "重置"))
 

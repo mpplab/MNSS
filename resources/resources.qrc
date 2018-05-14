@@ -1,13 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>symbols/router.svg</file>
-        <file>symbols/gateway.svg</file>
         <file>symbols/iosv_virl.svg</file>
         <file>symbols/label_switch_router.svg</file>
         <file>symbols/optical_router.svg</file>
-        <file>symbols/edge_label_switch_router.svg</file>
-        <file>symbols/router_firewall.svg</file>
-        <file>symbols/router.awp.svg</file>
         <file>symbols/PIX_firewall.svg</file>
         <file>symbols/firewall.svg</file>
         <file>symbols/computer.svg</file>
@@ -16,27 +12,14 @@
         <file>symbols/vpcs_guest.svg</file>
         <file>symbols/vmware_guest.svg</file>
         <file>symbols/docker_guest.svg</file>
-        <file>symbols/server.svg</file>
-		<file>symbols/oldrouter.svg</file>
-        <file>symbols/router_netflow.svg</file>
-        <file>symbols/access_server.svg</file>
-        <file>symbols/printer.svg</file>
-        <file>symbols/dslam.svg</file>
-        <file>symbols/sip_server.svg</file>
-        <file>symbols/PBX.svg</file>
-        <file>symbols/ip_phone.svg</file>
-        <file>symbols/voice_access_server.svg</file>
-        <file>symbols/call_manager.svg</file>
         <file>symbols/voice_router.svg</file>
         <file>symbols/ids.svg</file>
         <file>symbols/asa.svg</file>
-        <file>symbols/route_switch_processor.svg</file>
         <file>symbols/multilayer_switch.svg</file>
         <file>symbols/iosv_l2_virl.svg</file>
         <file>symbols/lightweight_ap.svg</file>
         <file>symbols/wlan_controller.svg</file>
         <file>symbols/atm_switch.svg</file>
-        <file>symbols/atm_bridge.svg</file>
         <file>symbols/frame_relay_switch.svg</file>
         <file>symbols/ethernet_switch.svg</file>
         <file>symbols/access_point.svg</file>
@@ -78,34 +61,9 @@
         <file>icons/save-as-project.svg</file>
         <file>icons/help.svg</file>
         <file>icons/quit.svg</file>
-		<file>icons/upload.png</file>
-		<file>icons/download.png</file>
-		<file>icons/setup.png</file>
-		<file>icons/server.png</file>
-		<file>icons/wireshark.png</file>
-		<file>icons/vpcs.png</file>
-		<file>icons/router.png</file>
-		<file>icons/hospital.png</file>
-		<file>icons/update.png</file>
-		<file>icons/online.png</file>
-		<file>icons/debugstepout.png</file>
-		<file>icons/doctorshezhi.png</file>
-		<file>icons/about.png</file>
-		<file>icons/guide.png</file>
-		<file>icons/example.png</file>
-		<file>icons/internet.png</file>
-		<file>icons/security.png</file>
-		<file>icons/hospitals.png</file>
-		<file>icons/iou.png</file>
-		<file>icons/vpcsshezhi.png</file>
-		<file>icons/close1.png</file>
-		<file>icons/close2.png</file>
-		<file>icons/maximization.png</file>
-		<file>icons/restoredown.png</file>
-		<file>icons/minimum.png</file>
         <file>icons/applications.svg</file>
         <file>icons/calculate.svg</file>
-        <file>icons/console_port.svg</file>
+        <file>icons/wireshark.png</file>
         <file>icons/virtualbox.png</file>
         <file>icons/qemu.svg</file>
         <file>icons/rtv.png</file>
@@ -154,7 +112,6 @@
         <file>classic_icons/add-note.svg</file>
         <file>classic_icons/add-note-hover.svg</file>
         <file>classic_icons/edit.svg</file>
-        <file>classic_icons/edit-hover.svg</file>
         <file>classic_icons/browse-all-icons.svg</file>
         <file>classic_icons/browse-all-icons-hover.svg</file>
         <file>classic_icons/camera-photo.svg</file>
@@ -219,7 +176,6 @@
         <file>charcoal_icons/add-note.svg</file>
         <file>charcoal_icons/add-note-hover.svg</file>
         <file>charcoal_icons/edit.svg</file>
-        <file>charcoal_icons/edit-hover.svg</file>
         <file>charcoal_icons/browse-all-icons.svg</file>
         <file>charcoal_icons/browse-all-icons-hover.svg</file>
         <file>charcoal_icons/camera-photo.svg</file>
@@ -279,32 +235,74 @@
         <file>charcoal_icons/quit.svg</file>
         <file>charcoal_icons/quit-hover.svg</file>
         <file>images/vmware_fusion_banner.jpg</file>
-		<file>images/Security.png</file>
+        <file>images/vmware_workstation_banner.jpg</file>
+		<file>images/new.png</file>
+		<file>images/open.svg</file>
+		<file>images/save.png</file>
+		<file>images/import.png</file>
+		<file>images/export.png</file>
+		<file>images/upload.png</file>
+		<file>images/download.png</file>
+		<file>images/exit.png</file>
+		<file>images/generalPreferences.png</file>
+		<file>images/serverPreferences.png</file>
+		<file>images/wiresharkPreferences.png</file>
+		<file>images/vpcsPreferences.png</file>
+		<file>images/dynamipsPreferences.png</file>
+		<file>images/unixPreferences.png</file>
+		<file>images/vmwarePreferences.png</file>
+		<file>images/routerPreferences.png</file>
+		<file>images/iouPreferences.png</file>
+		<file>images/hospitalPreferences.png</file>
+		<file>images/securityCourse.png</file>
+		<file>images/hospitalCourse.png</file>
+		<file>images/internetCourse.png</file>
+		<file>images/example.png</file>
+		<file>images/guide.png</file>
+		<file>images/update.png</file>
+		<file>images/online.png</file>
+		<file>images/debugstepout.png</file>
+		<file>images/doctor.png</file>
+		<file>images/about.png</file>
+		<file>images/feedback.png</file>
 		<file>images/His.png</file>
 		<file>images/Lis.png</file>
-		<file>images/Pacs.svg</file>
-		<file>images/console.png</file>
-		<file>images/exit.png</file>
-		<file>images/imageupdown.png</file>
-		<file>images/export.png</file>
-		<file>images/feedback.png</file>
-		<file>images/import.png</file>
-		<file>images/new.png</file>
-		<file>images/save.png</file>
-		<file>images/saveas.png</file>
-		<file>images/severshow.png</file>
-		<file>images/topology.png</file>
-		<file>images/logo.png</file>
-		<file>images/yonghu.png</file>
-		<file>images/IOU.png</file>
-		<file>images/vmware.png</file>
-		<file>images/dynamips.png</file>
-		<file>images/unix.png</file>
-		<file>images/oldvm.svg</file>
-		<file>images/background.png</file>
+		<file>images/Pacs.png</file>
+        <file>images/Client.png</file>
+        <file>images/Server.png</file>
+		<file>images/minimum.png</file>
+		<file>images/RestoreDown.png</file>
+		<file>images/maximization.png</file>
+		<file>images/close.png</file>
+		<file>images/MNSS.png</file>
 		<file>images/MNSS.ico</file>
-		<file>images/MNSS1.png</file>
-        <file>images/vmware_workstation_banner.jpg</file>
+		<file>images/background.png</file>
+		<file>images/topology.png</file>
+		<file>images/sever.png</file>
+		<file>images/console.png</file>
+        <file>images/Headportrait.png</file>
+		<file>images/exam.png</file>
+		<file>images/ware.png</file>
+		<file>images/storage.png</file>
+        <file>images/paper.png</file>
+        <file>images/tools.png</file>
+        <file>images/iMNSS.png</file>
+        <file>images/MNSSlogo.png</file>
+        <file>images/connection.png</file>
+        <file>symbols/oldrouter.svg</file>
         <file>styles/charcoal.css</file>
+        <file>symbols/oldclient.svg</file>
+        <file>symbols/oldserver.svg</file>
+        <file>symbols/oldhis.svg</file>
+        <file>symbols/oldlis.svg</file>
+        <file>symbols/oldpacs.svg</file>
+        <file>images/connection.png</file>
+        <file>symbols/newclient.svg</file>
+        <file>symbols/newserver.svg</file>
+        <file>symbols/newhis.svg</file>
+        <file>symbols/newlis.svg</file>
+        <file>symbols/newpacs.svg</file>
+        <file>images/run.png</file>
+        <file>images/suspend.png</file>
     </qresource>
 </RCC>

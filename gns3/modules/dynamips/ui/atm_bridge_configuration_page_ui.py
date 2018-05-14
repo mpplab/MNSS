@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/dynamips/ui/atm_bridge_configuration_page.ui'
+# Form implementation generated from reading ui file 'atm_bridge_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_atmBridgeConfigPageWidget(object):
-
     def setupUi(self, atmBridgeConfigPageWidget):
         atmBridgeConfigPageWidget.setObjectName("atmBridgeConfigPageWidget")
         atmBridgeConfigPageWidget.resize(432, 358)
@@ -138,17 +136,18 @@ class Ui_atmBridgeConfigPageWidget(object):
 
     def retranslateUi(self, atmBridgeConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        atmBridgeConfigPageWidget.setWindowTitle(_translate("atmBridgeConfigPageWidget", "ATM Bridge"))
-        self.uiMappingGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "Mapping"))
-        self.uiMappingTreeWidget.headerItem().setText(0, _translate("atmBridgeConfigPageWidget", "Ethernet Port"))
-        self.uiMappingTreeWidget.headerItem().setText(1, _translate("atmBridgeConfigPageWidget", "Port:VPI:VCI"))
-        self.uiEthernetGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "Ethernet side"))
-        self.uiEthernetPortLabel.setText(_translate("atmBridgeConfigPageWidget", "Port:"))
-        self.uiATMGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "ATM side"))
-        self.uiATMPortLabel.setText(_translate("atmBridgeConfigPageWidget", "Port:"))
-        self.uiATMVPILabel.setText(_translate("atmBridgeConfigPageWidget", "VPI:"))
-        self.uiATMVCILabel.setText(_translate("atmBridgeConfigPageWidget", "VCI:"))
-        self.uiAddPushButton.setText(_translate("atmBridgeConfigPageWidget", "&Add"))
-        self.uiDeletePushButton.setText(_translate("atmBridgeConfigPageWidget", "&Delete"))
-        self.uiGeneralGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "General"))
-        self.uiNameLabel.setText(_translate("atmBridgeConfigPageWidget", "Name:"))
+        atmBridgeConfigPageWidget.setWindowTitle(_translate("atmBridgeConfigPageWidget", "ATM桥接"))
+        self.uiMappingGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "映射"))
+        self.uiMappingTreeWidget.headerItem().setText(0, _translate("atmBridgeConfigPageWidget", "以太网端口"))
+        self.uiMappingTreeWidget.headerItem().setText(1, _translate("atmBridgeConfigPageWidget", "端口:VPI:VCI"))
+        self.uiEthernetGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "以太网"))
+        self.uiEthernetPortLabel.setText(_translate("atmBridgeConfigPageWidget", "端口："))
+        self.uiATMGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "ATM"))
+        self.uiATMPortLabel.setText(_translate("atmBridgeConfigPageWidget", "端口："))
+        self.uiATMVPILabel.setText(_translate("atmBridgeConfigPageWidget", "虚路径标识符："))
+        self.uiATMVCILabel.setText(_translate("atmBridgeConfigPageWidget", "虚通道标识符："))
+        self.uiAddPushButton.setText(_translate("atmBridgeConfigPageWidget", "添加"))
+        self.uiDeletePushButton.setText(_translate("atmBridgeConfigPageWidget", "删除"))
+        self.uiGeneralGroupBox.setTitle(_translate("atmBridgeConfigPageWidget", "常规"))
+        self.uiNameLabel.setText(_translate("atmBridgeConfigPageWidget", "名称："))
+

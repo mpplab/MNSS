@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Snapshots</string>
+   <string>快照</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="4">
@@ -23,7 +23,7 @@
    <item row="1" column="0">
     <widget class="QPushButton" name="uiCreatePushButton">
      <property name="text">
-      <string>&amp;Create</string>
+      <string>创建</string>
      </property>
     </widget>
    </item>
@@ -33,7 +33,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Restore</string>
+      <string>恢复</string>
      </property>
     </widget>
    </item>
@@ -53,7 +53,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Delete</string>
+      <string>删除</string>
      </property>
     </widget>
    </item>

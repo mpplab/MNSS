@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/dynamips/ui/ethernet_switch_configuration_page.ui'
+# Form implementation generated from reading ui file 'ethernet_switch_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.5
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_ethernetSwitchConfigPageWidget(object):
-
     def setupUi(self, ethernetSwitchConfigPageWidget):
         ethernetSwitchConfigPageWidget.setObjectName("ethernetSwitchConfigPageWidget")
         ethernetSwitchConfigPageWidget.resize(397, 315)
@@ -121,19 +119,19 @@ class Ui_ethernetSwitchConfigPageWidget(object):
 
     def retranslateUi(self, ethernetSwitchConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        ethernetSwitchConfigPageWidget.setWindowTitle(_translate("ethernetSwitchConfigPageWidget", "Ethernet switch configuration"))
-        self.uiGeneralGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "General"))
-        self.uiNameLabel.setText(_translate("ethernetSwitchConfigPageWidget", "Name:"))
-        self.uiEthernetSwitchPortsGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "Ports"))
-        self.uiPortsTreeWidget.headerItem().setText(0, _translate("ethernetSwitchConfigPageWidget", "Port"))
-        self.uiPortsTreeWidget.headerItem().setText(1, _translate("ethernetSwitchConfigPageWidget", "VLAN"))
-        self.uiPortsTreeWidget.headerItem().setText(2, _translate("ethernetSwitchConfigPageWidget", "Type"))
-        self.uiPortsTreeWidget.headerItem().setText(3, _translate("ethernetSwitchConfigPageWidget", "EtherType"))
-        self.uiEthernetSwitchSettingsGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "Settings"))
-        self.label.setText(_translate("ethernetSwitchConfigPageWidget", "Port:"))
-        self.label_3.setText(_translate("ethernetSwitchConfigPageWidget", "VLAN:"))
-        self.label_2.setText(_translate("ethernetSwitchConfigPageWidget", "Type:"))
-        self.label_4.setText(_translate("ethernetSwitchConfigPageWidget", "QinQ EtherType:"))
+        ethernetSwitchConfigPageWidget.setWindowTitle(_translate("ethernetSwitchConfigPageWidget", "以太网交换机设置"))
+        self.uiGeneralGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "常规"))
+        self.uiNameLabel.setText(_translate("ethernetSwitchConfigPageWidget", "名称："))
+        self.uiEthernetSwitchPortsGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "映射"))
+        self.uiPortsTreeWidget.headerItem().setText(0, _translate("ethernetSwitchConfigPageWidget", "端口"))
+        self.uiPortsTreeWidget.headerItem().setText(1, _translate("ethernetSwitchConfigPageWidget", "虚拟局域网"))
+        self.uiPortsTreeWidget.headerItem().setText(2, _translate("ethernetSwitchConfigPageWidget", "类型"))
+        self.uiPortsTreeWidget.headerItem().setText(3, _translate("ethernetSwitchConfigPageWidget", "以太网类型"))
+        self.uiEthernetSwitchSettingsGroupBox.setTitle(_translate("ethernetSwitchConfigPageWidget", "设置"))
+        self.label.setText(_translate("ethernetSwitchConfigPageWidget", "端口"))
+        self.label_3.setText(_translate("ethernetSwitchConfigPageWidget", "虚拟局域网"))
+        self.label_2.setText(_translate("ethernetSwitchConfigPageWidget", "类型"))
+        self.label_4.setText(_translate("ethernetSwitchConfigPageWidget", "QinQ以太类型："))
         self.uiPortTypeComboBox.setItemText(0, _translate("ethernetSwitchConfigPageWidget", "access"))
         self.uiPortTypeComboBox.setItemText(1, _translate("ethernetSwitchConfigPageWidget", "dot1q"))
         self.uiPortTypeComboBox.setItemText(2, _translate("ethernetSwitchConfigPageWidget", "qinq"))
@@ -141,5 +139,6 @@ class Ui_ethernetSwitchConfigPageWidget(object):
         self.uiPortEtherTypeComboBox.setItemText(1, _translate("ethernetSwitchConfigPageWidget", "0x88A8"))
         self.uiPortEtherTypeComboBox.setItemText(2, _translate("ethernetSwitchConfigPageWidget", "0x9100"))
         self.uiPortEtherTypeComboBox.setItemText(3, _translate("ethernetSwitchConfigPageWidget", "0x9200"))
-        self.uiAddPushButton.setText(_translate("ethernetSwitchConfigPageWidget", "&Add"))
-        self.uiDeletePushButton.setText(_translate("ethernetSwitchConfigPageWidget", "&Delete"))
+        self.uiAddPushButton.setText(_translate("ethernetSwitchConfigPageWidget", "添加"))
+        self.uiDeletePushButton.setText(_translate("ethernetSwitchConfigPageWidget", "删除"))
+

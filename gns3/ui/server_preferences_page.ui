@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Server</string>
+   <string>服务器设置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -51,13 +51,13 @@
        </sizepolicy>
       </property>
       <attribute name="title">
-       <string>Local server</string>
+       <string>本地服务器</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_6">
        <item row="1" column="0" colspan="2">
         <widget class="QGroupBox" name="uiGeneralSettingsGroupBox">
          <property name="title">
-          <string>General settings</string>
+          <string>常规设置</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <property name="sizeConstraint">
@@ -66,7 +66,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiLocalServerPathLabel">
             <property name="text">
-             <string>Server path:</string>
+             <string>Server路径：</string>
             </property>
            </widget>
           </item>
@@ -78,7 +78,7 @@
             <item>
              <widget class="QToolButton" name="uiLocalServerToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -90,7 +90,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="uiUbridgePathLabel">
             <property name="text">
-             <string>Ubridge path:</string>
+             <string>Ubridge路径：</string>
             </property>
            </widget>
           </item>
@@ -102,7 +102,7 @@
             <item>
              <widget class="QToolButton" name="uiUbridgeToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -114,7 +114,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="uiLocalServerHostLabel">
             <property name="text">
-             <string>Host binding:</string>
+             <string>主机绑定：</string>
             </property>
            </widget>
           </item>
@@ -124,7 +124,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="uiLocalServerPortLabel">
             <property name="text">
-             <string>Port:</string>
+             <string>端口号：</string>
             </property>
            </widget>
           </item>
@@ -144,14 +144,14 @@
           <item row="10" column="0">
            <widget class="QCheckBox" name="uiConsoleConnectionsToAnyIPCheckBox">
             <property name="text">
-             <string>Allow console connections to any local IP address</string>
+             <string>允许控制台连接到任何本地IP地址</string>
             </property>
            </widget>
           </item>
           <item row="9" column="0">
            <widget class="QCheckBox" name="uiLocalServerAuthCheckBox">
             <property name="text">
-             <string>Protect server with password (recommended)</string>
+             <string>服务器密码保护（推荐）</string>
             </property>
            </widget>
           </item>
@@ -173,7 +173,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Enable local server</string>
+          <string>允许本地服务器</string>
          </property>
          <property name="checked">
           <bool>false</bool>
@@ -183,7 +183,7 @@
        <item row="2" column="0" colspan="2">
         <widget class="QGroupBox" name="uiConsolePortRangeGroupBox">
          <property name="title">
-          <string>Console port range (5900 =&gt; 6000 is shared with VNC)</string>
+          <string>控制台端口范围（5900 = &gt; 6000共享VNC）</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
@@ -238,7 +238,7 @@
        <item row="3" column="0" colspan="2">
         <widget class="QGroupBox" name="uiUDPPortRangeGroupBox">
          <property name="title">
-          <string>UDP tunneling port range</string>
+          <string>隧道端口范围</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_8">
           <item>
@@ -318,7 +318,7 @@
        </sizepolicy>
       </property>
       <attribute name="title">
-       <string>GNS3 VM server</string>
+       <string>GNS3 VM 服务器</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -336,7 +336,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Enable the GNS3 VM</string>
+          <string>允许GNS3 VM</string>
          </property>
          <property name="checked">
           <bool>false</bool>
@@ -346,7 +346,7 @@
        <item>
         <widget class="QGroupBox" name="uiVirtualizationGroupBox">
          <property name="title">
-          <string>Virtualization software</string>
+          <string>  Virtualization software 虚拟化软体</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="0" column="0">
@@ -413,13 +413,13 @@
        <item>
         <widget class="QGroupBox" name="uiLocalGNS3VMSettingsGroupBox">
          <property name="title">
-          <string>Local GNS3 VM</string>
+          <string>本地GNS3 VM配置</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
            <widget class="QLabel" name="uiVMNameLabel">
             <property name="text">
-             <string>VM name:</string>
+             <string>VM名称:</string>
             </property>
            </widget>
           </item>
@@ -436,28 +436,28 @@
           <item row="0" column="2">
            <widget class="QPushButton" name="uiRefreshPushButton">
             <property name="text">
-             <string>&amp;Refresh</string>
+             <string>重置</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0" colspan="2">
            <widget class="QCheckBox" name="uiHeadlessCheckBox">
             <property name="text">
-             <string>Start VM in headless mode</string>
+             <string>以headless模式开启GNS3 VM</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0" colspan="2">
            <widget class="QCheckBox" name="uiShutdownCheckBox">
             <property name="text">
-             <string>ACPI shutdown VM when closing GNS3</string>
+             <string>ACPI关机时关闭GNS3 VM</string>
             </property>
            </widget>
           </item>
           <item row="3" column="0" colspan="2">
            <widget class="QCheckBox" name="uiAdjustLocalServerIPCheckBox">
             <property name="text">
-             <string>Adjust the local server IP to be in the same subnet</string>
+             <string>将本地服务器IP调整为同一个子网。</string>
             </property>
            </widget>
           </item>
@@ -470,7 +470,7 @@
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="title">
-          <string>Remote GNS3 VM</string>
+          <string>云端GNS3 VM</string>
          </property>
          <property name="flat">
           <bool>false</bool>
@@ -488,7 +488,7 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>Server:</string>
+             <string>服务器：</string>
             </property>
            </widget>
           </item>
@@ -505,7 +505,7 @@
           <item>
            <widget class="QPushButton" name="uiAddServerPushButton">
             <property name="text">
-             <string>Add server</string>
+             <string>添加服务器</string>
             </property>
            </widget>
           </item>
@@ -535,7 +535,7 @@
        </sizepolicy>
       </property>
       <attribute name="title">
-       <string>Remote servers</string>
+       <string>云端服务器</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_5">
        <item row="0" column="0" colspan="2">
@@ -551,22 +551,22 @@
          </property>
          <column>
           <property name="text">
-           <string notr="true">Protocol</string>
+           <string notr="true">协议</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string notr="true">Host</string>
+           <string notr="true">主机地址</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string notr="true">Port</string>
+           <string notr="true">端口</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>User</string>
+           <string>用户</string>
           </property>
          </column>
         </widget>
@@ -576,7 +576,7 @@
          <item>
           <widget class="QPushButton" name="uiAddRemoteServerPushButton">
            <property name="text">
-            <string>&amp;Add</string>
+            <string>添加</string>
            </property>
           </widget>
          </item>
@@ -586,7 +586,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Delete</string>
+            <string>删除</string>
            </property>
           </widget>
          </item>
@@ -642,7 +642,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

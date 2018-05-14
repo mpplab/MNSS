@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Symbol selection</string>
+   <string>图标的选择</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -22,7 +22,7 @@
      <item>
       <widget class="QRadioButton" name="uiCustomSymbolRadioButton">
        <property name="text">
-        <string>Use a custom symbol</string>
+        <string>使用自定义图标</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -32,7 +32,7 @@
      <item>
       <widget class="QRadioButton" name="uiBuiltInSymbolRadioButton">
        <property name="text">
-        <string>Symbols library</string>
+        <string>图标库</string>
        </property>
       </widget>
      </item>
@@ -54,13 +54,13 @@
    <item>
     <widget class="QGroupBox" name="uiCustomSymbolGroupBox">
      <property name="title">
-      <string>Custom symbol</string>
+      <string>自定义图标</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiSymbolLabel">
         <property name="text">
-         <string>Path:</string>
+         <string>路径：</string>
         </property>
        </widget>
       </item>
@@ -72,7 +72,7 @@
         <item>
          <widget class="QToolButton" name="uiSymbolToolButton">
           <property name="text">
-           <string>&amp;Browse...</string>
+           <string>  浏览  </string>
           </property>
           <property name="toolButtonStyle">
            <enum>Qt::ToolButtonTextOnly</enum>
@@ -100,13 +100,13 @@
    <item>
     <widget class="QGroupBox" name="uiBuiltInGroupBox">
      <property name="title">
-      <string>Symbols</string>
+      <string>风格</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QCheckBox" name="uiBuiltinSymbolOnlyCheckBox">
         <property name="text">
-         <string>Show only built-in symbols</string>
+         <string>仅显示内置图标</string>
         </property>
        </widget>
       </item>
@@ -115,7 +115,7 @@
         <item>
          <widget class="QLabel" name="uiSearchLabel">
           <property name="text">
-           <string>Search:</string>
+           <string>搜寻：</string>
           </property>
          </widget>
         </item>
@@ -137,7 +137,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>You can add your own symbols in the symbols directory.</string>
+         <string>你可以在目录中添加自己的图标。</string>
         </property>
        </widget>
       </item>

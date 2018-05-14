@@ -11,29 +11,29 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New VMware VM template</string>
+   <string>新添医院信息系统及其他终端系统向导</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your new VMware VM (Workstation, Player or Fusion).</string>
+    <string>请选择一种服务器类型来运行新的医院信息系统及其他终端系统。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QGroupBox" name="uiServerTypeGroupBox">
       <property name="title">
-       <string>Server type</string>
+       <string>服务器类别</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QRadioButton" name="uiRemoteRadioButton">
          <property name="text">
-          <string>Run this VMware VM on a remote GNS3 computer</string>
+          <string>运行早远端电脑上的医院信息系统及其他终端系统</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -43,7 +43,7 @@
        <item>
         <widget class="QRadioButton" name="uiLocalRadioButton">
          <property name="text">
-          <string>Run this VMware VM on my local computer</string>
+          <string>运行本地的医院信息系统及其他终端系统</string>
          </property>
         </widget>
        </item>
@@ -53,7 +53,7 @@
     <item row="1" column="0">
      <widget class="QGroupBox" name="uiRemoteServersGroupBox">
       <property name="title">
-       <string>Remote servers</string>
+       <string>云端服务器</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_8">
        <item row="0" column="1">
@@ -72,7 +72,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="uiRemoteServersLabel">
          <property name="text">
-          <string>Run on server:</string>
+          <string>路径：</string>
          </property>
         </widget>
        </item>
@@ -83,16 +83,16 @@
   </widget>
   <widget class="QWizardPage" name="uiVirtualBoxWizardPage">
    <property name="title">
-    <string>VMware Virtual Machine</string>
+    <string>医院信息系统及其他终端系统</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a VMware virtual machine from the list.</string>
+    <string>请从列表中选择一个医院信息系统及其他终端系统在VMware中实例化。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="uiVMListLabel">
       <property name="text">
-       <string>VM list:</string>
+       <string>列表：</string>
       </property>
      </widget>
     </item>
@@ -112,7 +112,7 @@
        <bool>true</bool>
       </property>
       <property name="text">
-       <string>Use as a linked base VM (experimental)</string>
+       <string>用作链接的基础VM（实验）</string>
       </property>
      </widget>
     </item>

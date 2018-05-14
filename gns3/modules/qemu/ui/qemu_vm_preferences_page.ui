@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>572</width>
-    <height>514</height>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -102,7 +102,7 @@
          <item>
           <widget class="QPushButton" name="uiNewQemuVMPushButton">
            <property name="text">
-            <string>&amp;New</string>
+            <string>添加</string>
            </property>
           </widget>
          </item>
@@ -112,7 +112,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Edit</string>
+            <string>编辑</string>
            </property>
           </widget>
          </item>
@@ -122,7 +122,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Delete</string>
+            <string>删除</string>
            </property>
           </widget>
          </item>

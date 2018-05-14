@@ -97,28 +97,29 @@ class UpdateManager(QtCore.QObject):
 
     def _gns3UpdateReplySlot(self):
         network_reply = self.sender()
-        if network_reply.error() != QtNetwork.QNetworkReply.NoError:
-            if not self._silent:
-                QtWidgets.QMessageBox.critical(self._parent, "Check For Update", "Cannot check for update: {}".format(network_reply.errorString()))
-            return
-        try:
-            latest_release = bytes(network_reply.readAll()).decode("utf-8").rstrip()
-        except UnicodeDecodeError:
-            log.warning("Invalid answer from the update server")
-            return
-        if re.match(r"^[a-z0-9\.]+$", latest_release) is None:
-            log.warning("Invalid answer from the update server")
-            return
-        if parse_version(version.__version__) < parse_version(latest_release):
-            reply = QtWidgets.QMessageBox.question(self._parent,
-                                                   "Check For Update",
-                                                   "Newer GNS3 version {} is available, do you want to visit our website to download it?".format(latest_release),
-                                                   QtWidgets.QMessageBox.Yes,
-                                                   QtWidgets.QMessageBox.No)
-            if reply == QtWidgets.QMessageBox.Yes:
-                QtGui.QDesktopServices.openUrl(QtCore.QUrl("http://www.gns3.net/download/"))
-        elif not self._silent:
-            QtWidgets.QMessageBox.information(self._parent, "Check For Update", "GNS3 is up-to-date!")
+        QtWidgets.QMessageBox.information(self._parent, "检查更新", "MNSS已经是最新版本!")
+        # if network_reply.error() != QtNetwork.QNetworkReply.NoError:
+        #     if not self._silent:
+        #         QtWidgets.QMessageBox.critical(self._parent, "Check For Update", "Cannot check for update: {}".format(network_reply.errorString()))
+        #     return
+        # try:
+        #     latest_release = bytes(network_reply.readAll()).decode("utf-8").rstrip()
+        # except UnicodeDecodeError:
+        #     log.warning("Invalid answer from the update server")
+        #     return
+        # if re.match(r"^[a-z0-9\.]+$", latest_release) is None:
+        #     log.warning("Invalid answer from the update server")
+        #     return
+        # if parse_version(version.__version__) < parse_version(latest_release):
+        #     reply = QtWidgets.QMessageBox.question(self._parent,
+        #                                            "Check For Update",
+        #                                            "Newer GNS3 version {} is available, do you want to visit our website to download it?".format(latest_release),
+        #                                            QtWidgets.QMessageBox.Yes,
+        #                                            QtWidgets.QMessageBox.No)
+        #     if reply == QtWidgets.QMessageBox.Yes:
+        #         QtGui.QDesktopServices.openUrl(QtCore.QUrl("http://www.gns3.net/download/"))
+        # elif not self._silent:
+        #     QtWidgets.QMessageBox.information(self._parent, "Check For Update", "GNS3 is up-to-date!")
 
     def _pypiReplySlot(self):
         network_reply = self.sender()

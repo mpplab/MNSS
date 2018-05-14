@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/vmware/ui/vmware_vm_configuration_page.ui'
+# Form implementation generated from reading ui file 'vmware_vm_configuration_page.ui'
 #
-# Created: Fri May 27 22:47:07 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -20,6 +19,7 @@ class Ui_VMwareVMConfigPageWidget(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.gridLayout = QtWidgets.QGridLayout(self.tab)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
         self.uiCategoryComboBox = QtWidgets.QComboBox(self.tab)
         self.uiCategoryComboBox.setObjectName("uiCategoryComboBox")
@@ -79,6 +79,7 @@ class Ui_VMwareVMConfigPageWidget(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.tab_2)
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.uiPortNameFormatLineEdit = QtWidgets.QLineEdit(self.tab_2)
         self.uiPortNameFormatLineEdit.setText("")
@@ -137,25 +138,25 @@ class Ui_VMwareVMConfigPageWidget(object):
 
     def retranslateUi(self, VMwareVMConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        VMwareVMConfigPageWidget.setWindowTitle(_translate("VMwareVMConfigPageWidget", "VMware VM configuration"))
-        self.uiSymbolToolButton.setText(_translate("VMwareVMConfigPageWidget", "&Browse..."))
-        self.uiSymbolLabel.setText(_translate("VMwareVMConfigPageWidget", "Symbol:"))
-        self.uiNameLabel.setText(_translate("VMwareVMConfigPageWidget", "Name:"))
-        self.uiBaseVMCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Use as a linked base VM (experimental)"))
-        self.uiEnableConsoleCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Enable remote console"))
-        self.uiConsolePortLabel.setText(_translate("VMwareVMConfigPageWidget", "Console port:"))
-        self.uiCategoryLabel.setText(_translate("VMwareVMConfigPageWidget", "Category:"))
-        self.uiACPIShutdownCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Enable ACPI shutdown"))
-        self.uiHeadlessModeCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Start VM in headless mode"))
-        self.uiDefaultNameFormatLabel.setText(_translate("VMwareVMConfigPageWidget", "Default name format:"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab), _translate("VMwareVMConfigPageWidget", "General settings"))
+        VMwareVMConfigPageWidget.setWindowTitle(_translate("VMwareVMConfigPageWidget", "医院信息系统及其他终端系统配置"))
+        self.uiSymbolToolButton.setText(_translate("VMwareVMConfigPageWidget", "  浏览  "))
+        self.uiSymbolLabel.setText(_translate("VMwareVMConfigPageWidget", "图标："))
+        self.uiNameLabel.setText(_translate("VMwareVMConfigPageWidget", "名称："))
+        self.uiBaseVMCheckBox.setText(_translate("VMwareVMConfigPageWidget", "用作链接的基础VM（实验）"))
+        self.uiEnableConsoleCheckBox.setText(_translate("VMwareVMConfigPageWidget", "启用远程控制台"))
+        self.uiConsolePortLabel.setText(_translate("VMwareVMConfigPageWidget", "控制端口："))
+        self.uiCategoryLabel.setText(_translate("VMwareVMConfigPageWidget", "种类："))
+        self.uiACPIShutdownCheckBox.setText(_translate("VMwareVMConfigPageWidget", "启用ACPI关机"))
+        self.uiHeadlessModeCheckBox.setText(_translate("VMwareVMConfigPageWidget", "以headless模式启动VM"))
+        self.uiDefaultNameFormatLabel.setText(_translate("VMwareVMConfigPageWidget", "默认名称格式："))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab), _translate("VMwareVMConfigPageWidget", "常规设置"))
         self.uiPortNameFormatLabel.setToolTip(_translate("VMwareVMConfigPageWidget", "<html><head/><body><p>{0} - the port number, from 0 to the number of adapters-1.</p><p>{1} - the segment number, from 0 to the number of segments-1.</p><p>{port0} - named alias for {0}.</p><p>{port1} - the port number, from 1 to the number of adapters.</p><p>{segment0} - named alias for {1}.</p><p>{segment1} - the segment number, from 1 to the number of segments.</p></body></html>"))
-        self.uiPortNameFormatLabel.setText(_translate("VMwareVMConfigPageWidget", "Name format:"))
-        self.uiPortSegmentSizeLabel.setText(_translate("VMwareVMConfigPageWidget", "Segment size:"))
-        self.uiAdaptersLabel.setText(_translate("VMwareVMConfigPageWidget", "Adapters:"))
-        self.label.setText(_translate("VMwareVMConfigPageWidget", "Type:"))
-        self.uiUseAnyAdapterCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Allow GNS3 to use any configured VMware adapter"))
-        self.uiFirstPortNameLabel.setText(_translate("VMwareVMConfigPageWidget", "First port name:"))
-        self.uiUseUbridgeCheckBox.setText(_translate("VMwareVMConfigPageWidget", "Use uBridge for network connections"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab_2), _translate("VMwareVMConfigPageWidget", "Network"))
+        self.uiPortNameFormatLabel.setText(_translate("VMwareVMConfigPageWidget", "名称格式："))
+        self.uiPortSegmentSizeLabel.setText(_translate("VMwareVMConfigPageWidget", "段的大小："))
+        self.uiAdaptersLabel.setText(_translate("VMwareVMConfigPageWidget", "适配器："))
+        self.label.setText(_translate("VMwareVMConfigPageWidget", "类别："))
+        self.uiUseAnyAdapterCheckBox.setText(_translate("VMwareVMConfigPageWidget", "允许使用任何虚拟适配器配置MNSS"))
+        self.uiFirstPortNameLabel.setText(_translate("VMwareVMConfigPageWidget", "第一个端口名："))
+        self.uiUseUbridgeCheckBox.setText(_translate("VMwareVMConfigPageWidget", "使用ubridge网络连接"))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab_2), _translate("VMwareVMConfigPageWidget", "网络设置"))
 

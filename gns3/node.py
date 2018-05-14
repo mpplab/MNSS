@@ -65,7 +65,7 @@ class Node(QtCore.QObject):
     switches = 1
     end_devices = 2
     security_devices = 3
-    
+
     def __init__(self, module, server, project):
 
         super().__init__()

@@ -11,29 +11,29 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New IOS router template</string>
+   <string>新建IOS路由器模板</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your new IOS router.</string>
+    <string>请选择一种服务器类型来运行新的IOS路由器。</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QGroupBox" name="uiServerTypeGroupBox">
       <property name="title">
-       <string>Server type</string>
+       <string>服务器类型</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QRadioButton" name="uiRemoteRadioButton">
          <property name="text">
-          <string>Run this IOS router on a remote computer</string>
+          <string>运行远端电脑上的IOS路由器</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -43,14 +43,14 @@
        <item>
         <widget class="QRadioButton" name="uiVMRadioButton">
          <property name="text">
-          <string>Run this IOS router on the GNS3 VM</string>
+          <string>运行GNS3 VM上的IOS路由器</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="uiLocalRadioButton">
          <property name="text">
-          <string>Run this IOS router on my local computer</string>
+          <string>运行本地的IOS路由器</string>
          </property>
         </widget>
        </item>
@@ -60,13 +60,13 @@
     <item>
      <widget class="QGroupBox" name="uiRemoteServersGroupBox">
       <property name="title">
-       <string>Remote server</string>
+       <string>云端服务器</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="0" column="0">
         <widget class="QLabel" name="uiRemoteServersLabel">
          <property name="text">
-          <string>Run on:</string>
+          <string>路径：</string>
          </property>
         </widget>
        </item>
@@ -90,10 +90,10 @@
   </widget>
   <widget class="QWizardPage" name="uiIOSImageWizardPage">
    <property name="title">
-    <string>IOS image</string>
+    <string>IOS镜像</string>
    </property>
    <property name="subTitle">
-    <string>Please choose an IOS image.</string>
+    <string>请选择一个IOS镜像文件</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -101,7 +101,7 @@
       <item>
        <widget class="QRadioButton" name="uiIOSExistingImageRadioButton">
         <property name="text">
-         <string>Existing image</string>
+         <string>导入的镜像</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -111,7 +111,7 @@
       <item>
        <widget class="QRadioButton" name="uiIOSNewImageRadioButton">
         <property name="text">
-         <string>New Image</string>
+         <string>新的镜像</string>
         </property>
         <property name="checked">
          <bool>false</bool>
@@ -136,7 +136,7 @@
     <item>
      <widget class="QLabel" name="uiIOSImageLabel">
       <property name="text">
-       <string>IOS image:</string>
+       <string>IOS镜像：</string>
       </property>
      </widget>
     </item>
@@ -158,7 +158,7 @@
       <item>
        <widget class="QToolButton" name="uiIOSImageToolButton">
         <property name="text">
-         <string>&amp;Browse...</string>
+         <string>  浏览  </string>
         </property>
         <property name="toolButtonStyle">
          <enum>Qt::ToolButtonTextOnly</enum>
@@ -171,10 +171,10 @@
   </widget>
   <widget class="QWizardPage" name="uiNameWizardPage">
    <property name="title">
-    <string>Name and platform</string>
+    <string>名称与平台</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a descriptive name for this new IOS router and verify the platform and chassis.</string>
+    <string>请为这个新的IOS路由器选择一个描述性名称，并验证平台和种类。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
@@ -186,14 +186,14 @@
     <item row="1" column="0">
      <widget class="QLabel" name="uiTypeLabel">
       <property name="text">
-       <string>Platform:</string>
+       <string>平台：</string>
       </property>
      </widget>
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="uiNameLabel">
       <property name="text">
-       <string>Name:</string>
+       <string>名称：</string>
       </property>
      </widget>
     </item>
@@ -203,14 +203,14 @@
     <item row="2" column="0">
      <widget class="QLabel" name="uiChassisLabel">
       <property name="text">
-       <string>Chassis:</string>
+       <string>种类：</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
      <widget class="QCheckBox" name="uiEtherSwitchCheckBox">
       <property name="text">
-       <string>This is an EtherSwitch router</string>
+       <string>这是一个etherswitch路由器</string>
       </property>
      </widget>
     </item>
@@ -218,16 +218,16 @@
   </widget>
   <widget class="QWizardPage" name="uiMemoryWizardPage">
    <property name="title">
-    <string>Memory</string>
+    <string>内存</string>
    </property>
    <property name="subTitle">
-    <string>Please check the amount of memory (RAM) that you allocate to IOS. Too much or not enough RAM could prevent IOS from starting.</string>
+    <string>请检查您分配给IOS的内存（RAM）的数量。RAM太多或不够都可能阻止IOS启动。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QLabel" name="uiRamLabel">
       <property name="text">
-       <string>Default RAM:</string>
+       <string>默认RAM:</string>
       </property>
      </widget>
     </item>
@@ -259,14 +259,14 @@
     <item row="0" column="2">
      <widget class="QPushButton" name="uiTestIOSImagePushButton">
       <property name="text">
-       <string>&amp;Test IOS image</string>
+       <string>测试IOS镜像是否可用</string>
       </property>
      </widget>
     </item>
     <item row="1" column="0" colspan="3">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://tools.cisco.com/ITDIT/CFN/jsp/SearchBySoftware.jsp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Check for minimum and maximum RAM requirement&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://tools.cisco.com/ITDIT/CFN/jsp/SearchBySoftware.jsp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;检查最小和最大ram要求&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="wordWrap">
        <bool>false</bool>
@@ -280,10 +280,10 @@
   </widget>
   <widget class="QWizardPage" name="uiNetworkAdaptersWizardPage">
    <property name="title">
-    <string>Network adapters</string>
+    <string>网络适配器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose the default network adapters that should be inserted into every new instance of this router.</string>
+    <string>请选择应该插入到该路由器的每个新实例中的默认网络适配器。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
@@ -402,10 +402,10 @@
   </widget>
   <widget class="QWizardPage" name="uiWicWizardPage">
    <property name="title">
-    <string>WIC modules</string>
+    <string>WIC模块</string>
    </property>
    <property name="subTitle">
-    <string>Please choose the default WIC modules that should be inserted into every new instance of this router.</string>
+    <string>请选择默认的WIC模块应插入此路由器的每一个新的实例。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
     <item row="0" column="0">
@@ -463,7 +463,7 @@
     <string>Idle-PC</string>
    </property>
    <property name="subTitle">
-    <string>An idle-pc value is necessary to prevent IOS to use 100% of your processor or one of its cores.</string>
+    <string>闲置的PC值是必要的，以防止IOS使用100%的处理器或其核心之一。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
@@ -479,7 +479,7 @@
     <item row="0" column="2">
      <widget class="QPushButton" name="uiIdlePCFinderPushButton">
       <property name="text">
-       <string>Idle-PC finder</string>
+       <string>Idle-PC配置</string>
       </property>
      </widget>
     </item>

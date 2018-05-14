@@ -44,11 +44,11 @@ class NewProjectDialog(QtWidgets.QDialog, Ui_NewProjectDialog):
         self.uiNameLineEdit.textEdited.connect(self._projectNameSlot)
         self.uiLocationBrowserToolButton.clicked.connect(self._projectPathSlot)
         self.uiOpenProjectPushButton.clicked.connect(self._openProjectActionSlot)
-        self.uiRecentProjectsPushButton.clicked.connect(self._showRecentProjectsSlot)
+        # self.uiRecentProjectsPushButton.clicked.connect(self._showRecentProjectsSlot)
 
         if not showed_from_startup:
             self.uiOpenProjectPushButton.hide()
-            self.uiRecentProjectsPushButton.hide()
+            # self.uiRecentProjectsPushButton.hide()
 
     def keyPressEvent(self, e):
         """
@@ -116,17 +116,17 @@ class NewProjectDialog(QtWidgets.QDialog, Ui_NewProjectDialog):
             project_type = "local"
 
             if not project_name:
-                QtWidgets.QMessageBox.critical(self, "New project", "Project name is empty")
+                QtWidgets.QMessageBox.critical(self, "新建工程", "工程名称为空")
                 return
 
             if not project_location:
-                QtWidgets.QMessageBox.critical(self, "New project", "Project location is empty")
+                QtWidgets.QMessageBox.critical(self, "新建工程", "工程位置为空")
                 return
 
             if os.path.isdir(project_location):
                 reply = QtWidgets.QMessageBox.question(self,
-                                                       "New project",
-                                                       "Location {} already exists, overwrite it?".format(project_location),
+                                                       "新建工程",
+                                                       "位置 {} 已经存在, 是否覆盖？".format(project_location),
                                                        QtWidgets.QMessageBox.Yes,
                                                        QtWidgets.QMessageBox.No)
                 if reply == QtWidgets.QMessageBox.No:

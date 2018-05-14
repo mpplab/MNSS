@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ATM Bridge</string>
+   <string>ATM桥接</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="2" rowspan="3">
     <widget class="QGroupBox" name="uiMappingGroupBox">
      <property name="title">
-      <string>Mapping</string>
+      <string>映射</string>
      </property>
      <layout class="QVBoxLayout">
       <item>
@@ -33,12 +33,12 @@
         </property>
         <column>
          <property name="text">
-          <string>Ethernet Port</string>
+          <string>以太网端口</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Port:VPI:VCI</string>
+          <string>端口:VPI:VCI</string>
          </property>
         </column>
        </widget>
@@ -55,13 +55,13 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Ethernet side</string>
+      <string>以太网</string>
      </property>
      <layout class="QGridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiEthernetPortLabel">
         <property name="text">
-         <string>Port:</string>
+         <string>端口：</string>
         </property>
        </widget>
       </item>
@@ -96,13 +96,13 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>ATM side</string>
+      <string>ATM</string>
      </property>
      <layout class="QGridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiATMPortLabel">
         <property name="text">
-         <string>Port:</string>
+         <string>端口：</string>
         </property>
        </widget>
       </item>
@@ -128,7 +128,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="uiATMVPILabel">
         <property name="text">
-         <string>VPI:</string>
+         <string>虚路径标识符：</string>
         </property>
        </widget>
       </item>
@@ -160,7 +160,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="uiATMVCILabel">
         <property name="text">
-         <string>VCI:</string>
+         <string>虚通道标识符：</string>
         </property>
        </widget>
       </item>
@@ -186,7 +186,7 @@
    <item row="3" column="0">
     <widget class="QPushButton" name="uiAddPushButton">
      <property name="text">
-      <string>&amp;Add</string>
+      <string>添加</string>
      </property>
     </widget>
    </item>
@@ -196,7 +196,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Delete</string>
+      <string>删除</string>
      </property>
     </widget>
    </item>
@@ -216,13 +216,13 @@
    <item row="0" column="0" colspan="2">
     <widget class="QGroupBox" name="uiGeneralGroupBox">
      <property name="title">
-      <string>General</string>
+      <string>常规</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiNameLabel">
         <property name="text">
-         <string>Name:</string>
+         <string>名称：</string>
         </property>
        </widget>
       </item>

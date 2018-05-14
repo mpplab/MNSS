@@ -2,8 +2,16 @@
 <ui version="4.0">
  <class>IdlePCDialog</class>
  <widget class="QDialog" name="IdlePCDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>446</width>
+    <height>100</height>
+   </rect>
+  </property>
   <property name="windowTitle">
-   <string>Idle-PC values</string>
+   <string>Idle-PC测试值</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -15,7 +23,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="uiLabel">
      <property name="text">
-      <string>Potentially better Idle-PC values are marked with '*'</string>
+      <string>最佳Idle-pc值用“*”标记：</string>
      </property>
     </widget>
    </item>

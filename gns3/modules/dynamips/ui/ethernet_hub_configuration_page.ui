@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ethernet hub</string>
+   <string>以太网集线器</string>
   </property>
   <layout class="QGridLayout">
    <item row="0" column="1">
@@ -23,13 +23,13 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Settings</string>
+      <string>设置</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiNameLabel">
         <property name="text">
-         <string>Name:</string>
+         <string>名  称：</string>
         </property>
        </widget>
       </item>
@@ -39,7 +39,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="uiPortsLabel">
         <property name="text">
-         <string>Number of ports:</string>
+         <string>端口数：</string>
         </property>
        </widget>
       </item>

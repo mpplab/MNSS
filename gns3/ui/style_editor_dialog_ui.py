@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/style_editor_dialog.ui'
+# Form implementation generated from reading ui file 'style_editor_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_StyleEditorDialog(object):
-
     def setupUi(self, StyleEditorDialog):
         StyleEditorDialog.setObjectName("StyleEditorDialog")
         StyleEditorDialog.resize(328, 252)
@@ -66,7 +64,7 @@ class Ui_StyleEditorDialog(object):
         self.verticalLayout.addWidget(self.uiStyleSettingsGroupBox)
         self.uiButtonBox = QtWidgets.QDialogButtonBox(StyleEditorDialog)
         self.uiButtonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.uiButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Apply | QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok)
+        self.uiButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Apply|QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
         self.uiButtonBox.setObjectName("uiButtonBox")
         self.verticalLayout.addWidget(self.uiButtonBox)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -79,16 +77,16 @@ class Ui_StyleEditorDialog(object):
 
     def retranslateUi(self, StyleEditorDialog):
         _translate = QtCore.QCoreApplication.translate
-        StyleEditorDialog.setWindowTitle(_translate("StyleEditorDialog", "Style editor"))
-        self.uiStyleSettingsGroupBox.setTitle(_translate("StyleEditorDialog", "Style settings"))
-        self.uiColorLabel.setText(_translate("StyleEditorDialog", "Fill color:"))
-        self.uiBorderColorLabel.setText(_translate("StyleEditorDialog", "Border color:"))
-        self.uiBorderWidthLabel.setText(_translate("StyleEditorDialog", "Border width:"))
+        StyleEditorDialog.setWindowTitle(_translate("StyleEditorDialog", "编辑风格"))
+        self.uiStyleSettingsGroupBox.setTitle(_translate("StyleEditorDialog", "风格设置"))
+        self.uiColorLabel.setText(_translate("StyleEditorDialog", "填充颜色："))
+        self.uiBorderColorLabel.setText(_translate("StyleEditorDialog", "边框颜色："))
+        self.uiBorderWidthLabel.setText(_translate("StyleEditorDialog", "边框宽度："))
         self.uiBorderWidthSpinBox.setSuffix(_translate("StyleEditorDialog", " px"))
-        self.uiBorderStyleLabel.setText(_translate("StyleEditorDialog", "Border style:"))
-        self.uiRotationLabel.setText(_translate("StyleEditorDialog", "Rotation:"))
+        self.uiBorderStyleLabel.setText(_translate("StyleEditorDialog", "边框风格："))
+        self.uiRotationLabel.setText(_translate("StyleEditorDialog", "旋转："))
         self.uiRotationSpinBox.setToolTip(_translate("StyleEditorDialog", "Rotation can be ajusted on the scene for a selected item while\n"
-                                                     "editing (notes only) with ALT and \'+\' (or P) / ALT and \'-\' (or M)"))
+"editing (notes only) with ALT and \'+\' (or P) / ALT and \'-\' (or M)"))
         self.uiRotationSpinBox.setSuffix(_translate("StyleEditorDialog", "°"))
 
-from . import resources_rc
+from .import resources_rc

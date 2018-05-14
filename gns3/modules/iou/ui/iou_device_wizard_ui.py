@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/iou/ui/iou_device_wizard.ui'
+# Form implementation generated from reading ui file 'iou_device_wizard.ui'
 #
-# Created: Tue Sep 20 17:45:46 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_IOUDeviceWizard(object):
     def setupUi(self, IOUDeviceWizard):
         IOUDeviceWizard.setObjectName("IOUDeviceWizard")
-        IOUDeviceWizard.resize(586, 411)
+        IOUDeviceWizard.resize(590, 458)
         IOUDeviceWizard.setModal(True)
         self.uiServerWizardPage = QtWidgets.QWizardPage()
         self.uiServerWizardPage.setObjectName("uiServerWizardPage")
@@ -118,22 +117,22 @@ class Ui_IOUDeviceWizard(object):
 
     def retranslateUi(self, IOUDeviceWizard):
         _translate = QtCore.QCoreApplication.translate
-        IOUDeviceWizard.setWindowTitle(_translate("IOUDeviceWizard", "New IOU device template"))
-        self.uiServerWizardPage.setTitle(_translate("IOUDeviceWizard", "Server"))
-        self.uiServerWizardPage.setSubTitle(_translate("IOUDeviceWizard", "Please choose a server type to run your new IOU device."))
-        self.uiServerTypeGroupBox.setTitle(_translate("IOUDeviceWizard", "Server type"))
-        self.uiRemoteRadioButton.setText(_translate("IOUDeviceWizard", "Run this IOU device on a remote computers"))
-        self.uiVMRadioButton.setText(_translate("IOUDeviceWizard", "Run this IOU device on the GNS3 VM"))
-        self.uiLocalRadioButton.setText(_translate("IOUDeviceWizard", "Run this IOU device on my local computer"))
-        self.uiRemoteServersGroupBox.setTitle(_translate("IOUDeviceWizard", "Remote server"))
-        self.uiRemoteServersLabel.setText(_translate("IOUDeviceWizard", "Run on:"))
-        self.uiNameWizardPage.setTitle(_translate("IOUDeviceWizard", "Name and image"))
-        self.uiNameWizardPage.setSubTitle(_translate("IOUDeviceWizard", "Please choose a descriptive name for the new IOU device and add an IOU image."))
-        self.uiNameLabel.setText(_translate("IOUDeviceWizard", "Name:"))
-        self.groupBox.setTitle(_translate("IOUDeviceWizard", "Image"))
-        self.uiExistingImageRadioButton.setText(_translate("IOUDeviceWizard", "Existing image"))
-        self.uiNewImageRadioButton.setText(_translate("IOUDeviceWizard", "New Image"))
-        self.uiTypeLabel.setText(_translate("IOUDeviceWizard", "Type:"))
-        self.uiIOUImageLabel.setText(_translate("IOUDeviceWizard", "IOU image:"))
-        self.uiIOUImageToolButton.setText(_translate("IOUDeviceWizard", "&Browse..."))
+        IOUDeviceWizard.setWindowTitle(_translate("IOUDeviceWizard", "新添IOU设备模板"))
+        self.uiServerWizardPage.setTitle(_translate("IOUDeviceWizard", "服务器"))
+        self.uiServerWizardPage.setSubTitle(_translate("IOUDeviceWizard", "请选择服务器类型来运行你的新IOU设备。"))
+        self.uiServerTypeGroupBox.setTitle(_translate("IOUDeviceWizard", "服务器类型"))
+        self.uiRemoteRadioButton.setText(_translate("IOUDeviceWizard", "运行远端电脑上的IOU设备"))
+        self.uiVMRadioButton.setText(_translate("IOUDeviceWizard", "运行GNS VM上的IOU设备"))
+        self.uiLocalRadioButton.setText(_translate("IOUDeviceWizard", "运行本地IOU设备"))
+        self.uiRemoteServersGroupBox.setTitle(_translate("IOUDeviceWizard", "云端服务器"))
+        self.uiRemoteServersLabel.setText(_translate("IOUDeviceWizard", "路径："))
+        self.uiNameWizardPage.setTitle(_translate("IOUDeviceWizard", "名称和镜像"))
+        self.uiNameWizardPage.setSubTitle(_translate("IOUDeviceWizard", "请为新的IOu设备选择一个描述性的名称和图像添加一个镜像"))
+        self.uiNameLabel.setText(_translate("IOUDeviceWizard", "名称："))
+        self.groupBox.setTitle(_translate("IOUDeviceWizard", "镜像"))
+        self.uiExistingImageRadioButton.setText(_translate("IOUDeviceWizard", "导入的镜像"))
+        self.uiNewImageRadioButton.setText(_translate("IOUDeviceWizard", "新的镜像"))
+        self.uiTypeLabel.setText(_translate("IOUDeviceWizard", "类别："))
+        self.uiIOUImageLabel.setText(_translate("IOUDeviceWizard", "IOU镜像："))
+        self.uiIOUImageToolButton.setText(_translate("IOUDeviceWizard", "  浏览  "))
 

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>VMware</string>
+   <string>医院信息系统及其他终端系统配置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -24,13 +24,13 @@
      </property>
      <widget class="QWidget" name="uiGeneralSettingsTabWidget">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QCheckBox" name="uiUseLocalServercheckBox">
          <property name="text">
-          <string>Use the local server</string>
+          <string>使用本地服务器</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -40,14 +40,14 @@
        <item row="1" column="0">
         <widget class="QLabel" name="uiVmrunPathLabel">
          <property name="text">
-          <string>Path to vmrun:</string>
+          <string>vmrun路径:</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="uiHostTypeLabel">
          <property name="text">
-          <string>Host type:</string>
+          <string>主机的类型：</string>
          </property>
         </widget>
        </item>
@@ -82,7 +82,7 @@
          <item>
           <widget class="QToolButton" name="uiVmrunPathToolButton">
            <property name="text">
-            <string>&amp;Browse...</string>
+            <string>  浏览  </string>
            </property>
            <property name="toolButtonStyle">
             <enum>Qt::ToolButtonTextOnly</enum>
@@ -95,13 +95,13 @@
      </widget>
      <widget class="QWidget" name="uiNetworkTab">
       <attribute name="title">
-       <string>Network</string>
+       <string>网络设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QGroupBox" name="uiManagedVMnetRangeGroupBox">
          <property name="title">
-          <string>Managed VMnet interfaces (VMnet8 excluded)</string>
+          <string>管理VM虚拟接口（VMnet vmnet8除外）</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
@@ -128,7 +128,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>to</string>
+               <string>到</string>
               </property>
              </widget>
             </item>
@@ -151,14 +151,14 @@
             <item>
              <widget class="QPushButton" name="uiConfigureVmnetPushButton">
               <property name="text">
-               <string>&amp;Configure</string>
+               <string>设置</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="uiResetVmnetPushButton">
               <property name="text">
-               <string>&amp;Reset</string>
+               <string>重置</string>
               </property>
              </widget>
             </item>
@@ -183,7 +183,7 @@
              <string>Block network traffic originating from the host OS to be injected in vmnet interfaces. Currently supported on Windows only and is recommended.</string>
             </property>
             <property name="text">
-             <string>Block network traffic originating from the host OS</string>
+             <string>阻止来自主机操作系统网络流量</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -228,7 +228,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

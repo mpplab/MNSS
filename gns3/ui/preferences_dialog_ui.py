@@ -11,9 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_PreferencesDialog(object):
     def setupUi(self, PreferencesDialog):
         PreferencesDialog.setObjectName("PreferencesDialog")
-        PreferencesDialog.resize(980, 680)
-        PreferencesDialog.setMinimumSize(QtCore.QSize(980, 680))
-        PreferencesDialog.setMaximumSize(QtCore.QSize(980, 16777215))
+        PreferencesDialog.resize(820,700)
         PreferencesDialog.setModal(True)
         self.horizontalLayout = QtWidgets.QHBoxLayout(PreferencesDialog)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -59,7 +57,7 @@ class Ui_PreferencesDialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 506, 584))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 458, 599))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -92,6 +90,6 @@ class Ui_PreferencesDialog(object):
 
     def retranslateUi(self, PreferencesDialog):
         _translate = QtCore.QCoreApplication.translate
-        PreferencesDialog.setWindowTitle(_translate("PreferencesDialog", "Preferences"))
+        PreferencesDialog.setWindowTitle(_translate("PreferencesDialog", "配置"))
 
 from .import resources_rc

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/text_editor_dialog.ui'
+# Form implementation generated from reading ui file 'text_editor_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.5.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -75,16 +75,16 @@ class Ui_TextEditorDialog(object):
 
     def retranslateUi(self, TextEditorDialog):
         _translate = QtCore.QCoreApplication.translate
-        TextEditorDialog.setWindowTitle(_translate("TextEditorDialog", "Text editor"))
-        self.uiTextSettingsGroupBox.setTitle(_translate("TextEditorDialog", "Text settings"))
-        self.uiColorLabel.setText(_translate("TextEditorDialog", "Color:"))
-        self.uiRotationLabel.setText(_translate("TextEditorDialog", "Rotation:"))
+        TextEditorDialog.setWindowTitle(_translate("TextEditorDialog", "文本编辑"))
+        self.uiTextSettingsGroupBox.setTitle(_translate("TextEditorDialog", "文本属性设置"))
+        self.uiColorLabel.setText(_translate("TextEditorDialog", "颜色："))
+        self.uiRotationLabel.setText(_translate("TextEditorDialog", "旋转："))
         self.uiRotationSpinBox.setToolTip(_translate("TextEditorDialog", "Rotation can be ajusted on the scene for a selected item while\n"
 "editing (notes only) with ALT and \'+\' (or P) / ALT and \'-\' (or M)"))
         self.uiRotationSpinBox.setSuffix(_translate("TextEditorDialog", "°"))
-        self.uiApplyColorToAllItemsCheckBox.setText(_translate("TextEditorDialog", "Apply the color to all selected items"))
-        self.uiApplyRotationToAllItemsCheckBox.setText(_translate("TextEditorDialog", "Apply the rotation to all selected items"))
-        self.uiApplyTextToAllItemsCheckBox.setText(_translate("TextEditorDialog", "Apply the text below to all selected items"))
-        self.uiFontPushButton.setText(_translate("TextEditorDialog", "&Select font"))
+        self.uiApplyColorToAllItemsCheckBox.setText(_translate("TextEditorDialog", "将颜色应用到所有选中的项目"))
+        self.uiApplyRotationToAllItemsCheckBox.setText(_translate("TextEditorDialog", "将旋转应用到所有选定的项目"))
+        self.uiApplyTextToAllItemsCheckBox.setText(_translate("TextEditorDialog", "将下面的文本应用到所有选定的项目"))
+        self.uiFontPushButton.setText(_translate("TextEditorDialog", "选择字体"))
 
-from . import resources_rc
+from .import resources_rc

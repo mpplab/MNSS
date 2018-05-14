@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Text editor</string>
+   <string>文本编辑</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -20,13 +20,13 @@
    <item>
     <widget class="QGroupBox" name="uiTextSettingsGroupBox">
      <property name="title">
-      <string>Text settings</string>
+      <string>文本属性设置</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiColorLabel">
         <property name="text">
-         <string>Color:</string>
+         <string>颜色：</string>
         </property>
        </widget>
       </item>
@@ -40,7 +40,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="uiRotationLabel">
         <property name="text">
-         <string>Rotation:</string>
+         <string>旋转：</string>
         </property>
        </widget>
       </item>
@@ -73,21 +73,21 @@ editing (notes only) with ALT and '+' (or P) / ALT and '-' (or M)</string>
    <item>
     <widget class="QCheckBox" name="uiApplyColorToAllItemsCheckBox">
      <property name="text">
-      <string>Apply the color to all selected items</string>
+      <string>将颜色应用到所有选中的项目</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QCheckBox" name="uiApplyRotationToAllItemsCheckBox">
      <property name="text">
-      <string>Apply the rotation to all selected items</string>
+      <string>将旋转应用到所有选定的项目</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QCheckBox" name="uiApplyTextToAllItemsCheckBox">
      <property name="text">
-      <string>Apply the text below to all selected items</string>
+      <string>将下面的文本应用到所有选定的项目</string>
      </property>
     </widget>
    </item>
@@ -99,7 +99,7 @@ editing (notes only) with ALT and '+' (or P) / ALT and '-' (or M)</string>
      <item>
       <widget class="QPushButton" name="uiFontPushButton">
        <property name="text">
-        <string>&amp;Select font</string>
+        <string>选择字体</string>
        </property>
       </widget>
      </item>

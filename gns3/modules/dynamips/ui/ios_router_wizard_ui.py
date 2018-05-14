@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/dynamips/ui/ios_router_wizard.ui'
+# Form implementation generated from reading ui file 'ios_router_wizard.ui'
 #
-# Created: Tue Sep 20 17:45:46 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -285,35 +284,35 @@ class Ui_IOSRouterWizard(object):
 
     def retranslateUi(self, IOSRouterWizard):
         _translate = QtCore.QCoreApplication.translate
-        IOSRouterWizard.setWindowTitle(_translate("IOSRouterWizard", "New IOS router template"))
-        self.uiServerWizardPage.setTitle(_translate("IOSRouterWizard", "Server"))
-        self.uiServerWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please choose a server type to run your new IOS router."))
-        self.uiServerTypeGroupBox.setTitle(_translate("IOSRouterWizard", "Server type"))
-        self.uiRemoteRadioButton.setText(_translate("IOSRouterWizard", "Run this IOS router on a remote computer"))
-        self.uiVMRadioButton.setText(_translate("IOSRouterWizard", "Run this IOS router on the GNS3 VM"))
-        self.uiLocalRadioButton.setText(_translate("IOSRouterWizard", "Run this IOS router on my local computer"))
-        self.uiRemoteServersGroupBox.setTitle(_translate("IOSRouterWizard", "Remote server"))
-        self.uiRemoteServersLabel.setText(_translate("IOSRouterWizard", "Run on:"))
-        self.uiIOSImageWizardPage.setTitle(_translate("IOSRouterWizard", "IOS image"))
-        self.uiIOSImageWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please choose an IOS image."))
-        self.uiIOSExistingImageRadioButton.setText(_translate("IOSRouterWizard", "Existing image"))
-        self.uiIOSNewImageRadioButton.setText(_translate("IOSRouterWizard", "New Image"))
-        self.uiIOSImageLabel.setText(_translate("IOSRouterWizard", "IOS image:"))
-        self.uiIOSImageToolButton.setText(_translate("IOSRouterWizard", "&Browse..."))
-        self.uiNameWizardPage.setTitle(_translate("IOSRouterWizard", "Name and platform"))
-        self.uiNameWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please choose a descriptive name for this new IOS router and verify the platform and chassis."))
-        self.uiTypeLabel.setText(_translate("IOSRouterWizard", "Platform:"))
-        self.uiNameLabel.setText(_translate("IOSRouterWizard", "Name:"))
-        self.uiChassisLabel.setText(_translate("IOSRouterWizard", "Chassis:"))
-        self.uiEtherSwitchCheckBox.setText(_translate("IOSRouterWizard", "This is an EtherSwitch router"))
-        self.uiMemoryWizardPage.setTitle(_translate("IOSRouterWizard", "Memory"))
-        self.uiMemoryWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please check the amount of memory (RAM) that you allocate to IOS. Too much or not enough RAM could prevent IOS from starting."))
-        self.uiRamLabel.setText(_translate("IOSRouterWizard", "Default RAM:"))
+        IOSRouterWizard.setWindowTitle(_translate("IOSRouterWizard", "新建IOS路由器模板"))
+        self.uiServerWizardPage.setTitle(_translate("IOSRouterWizard", "服务器"))
+        self.uiServerWizardPage.setSubTitle(_translate("IOSRouterWizard", "请选择一种服务器类型来运行新的IOS路由器。"))
+        self.uiServerTypeGroupBox.setTitle(_translate("IOSRouterWizard", "服务器类型"))
+        self.uiRemoteRadioButton.setText(_translate("IOSRouterWizard", "运行远端电脑上的IOS路由器"))
+        self.uiVMRadioButton.setText(_translate("IOSRouterWizard", "运行GNS3 VM上的IOS路由器"))
+        self.uiLocalRadioButton.setText(_translate("IOSRouterWizard", "运行本地的IOS路由器"))
+        self.uiRemoteServersGroupBox.setTitle(_translate("IOSRouterWizard", "云端服务器"))
+        self.uiRemoteServersLabel.setText(_translate("IOSRouterWizard", "路径："))
+        self.uiIOSImageWizardPage.setTitle(_translate("IOSRouterWizard", "IOS镜像"))
+        self.uiIOSImageWizardPage.setSubTitle(_translate("IOSRouterWizard", "请选择一个IOS镜像文件"))
+        self.uiIOSExistingImageRadioButton.setText(_translate("IOSRouterWizard", "导入的镜像"))
+        self.uiIOSNewImageRadioButton.setText(_translate("IOSRouterWizard", "新的镜像"))
+        self.uiIOSImageLabel.setText(_translate("IOSRouterWizard", "IOS镜像："))
+        self.uiIOSImageToolButton.setText(_translate("IOSRouterWizard", "  浏览  "))
+        self.uiNameWizardPage.setTitle(_translate("IOSRouterWizard", "名称与平台"))
+        self.uiNameWizardPage.setSubTitle(_translate("IOSRouterWizard", "请为这个新的IOS路由器选择一个描述性名称，并验证平台和种类。"))
+        self.uiTypeLabel.setText(_translate("IOSRouterWizard", "平台："))
+        self.uiNameLabel.setText(_translate("IOSRouterWizard", "名称："))
+        self.uiChassisLabel.setText(_translate("IOSRouterWizard", "种类："))
+        self.uiEtherSwitchCheckBox.setText(_translate("IOSRouterWizard", "这是一个etherswitch路由器"))
+        self.uiMemoryWizardPage.setTitle(_translate("IOSRouterWizard", "内存"))
+        self.uiMemoryWizardPage.setSubTitle(_translate("IOSRouterWizard", "请检查您分配给IOS的内存（RAM）的数量。RAM太多或不够都可能阻止IOS启动。"))
+        self.uiRamLabel.setText(_translate("IOSRouterWizard", "默认RAM:"))
         self.uiRamSpinBox.setSuffix(_translate("IOSRouterWizard", " MiB"))
-        self.uiTestIOSImagePushButton.setText(_translate("IOSRouterWizard", "&Test IOS image"))
-        self.label.setText(_translate("IOSRouterWizard", "<html><head/><body><p><a href=\"http://tools.cisco.com/ITDIT/CFN/jsp/SearchBySoftware.jsp\"><span style=\" text-decoration: underline; color:#0000ff;\">Check for minimum and maximum RAM requirement</span></a></p></body></html>"))
-        self.uiNetworkAdaptersWizardPage.setTitle(_translate("IOSRouterWizard", "Network adapters"))
-        self.uiNetworkAdaptersWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please choose the default network adapters that should be inserted into every new instance of this router."))
+        self.uiTestIOSImagePushButton.setText(_translate("IOSRouterWizard", "测试IOS镜像是否可用"))
+        self.label.setText(_translate("IOSRouterWizard", "<html><head/><body><p><a href=\"http://tools.cisco.com/ITDIT/CFN/jsp/SearchBySoftware.jsp\"><span style=\" text-decoration: underline; color:#0000ff;\">检查最小和最大ram要求</span></a></p></body></html>"))
+        self.uiNetworkAdaptersWizardPage.setTitle(_translate("IOSRouterWizard", "网络适配器"))
+        self.uiNetworkAdaptersWizardPage.setSubTitle(_translate("IOSRouterWizard", "请选择应该插入到该路由器的每个新实例中的默认网络适配器。"))
         self.uiSlot0Label.setText(_translate("IOSRouterWizard", "slot 0:"))
         self.uiSlot1Label.setText(_translate("IOSRouterWizard", "slot 1:"))
         self.uiSlot2Label.setText(_translate("IOSRouterWizard", "slot 2:"))
@@ -321,13 +320,13 @@ class Ui_IOSRouterWizard(object):
         self.uiSlot4Label.setText(_translate("IOSRouterWizard", "slot 4:"))
         self.uiSlot5Label.setText(_translate("IOSRouterWizard", "slot 5:"))
         self.uiSlot6Label.setText(_translate("IOSRouterWizard", "slot 6:"))
-        self.uiWicWizardPage.setTitle(_translate("IOSRouterWizard", "WIC modules"))
-        self.uiWicWizardPage.setSubTitle(_translate("IOSRouterWizard", "Please choose the default WIC modules that should be inserted into every new instance of this router."))
+        self.uiWicWizardPage.setTitle(_translate("IOSRouterWizard", "WIC模块"))
+        self.uiWicWizardPage.setSubTitle(_translate("IOSRouterWizard", "请选择默认的WIC模块应插入此路由器的每一个新的实例。"))
         self.uiWic0Label.setText(_translate("IOSRouterWizard", "wic 0:"))
         self.uiWic1Label.setText(_translate("IOSRouterWizard", "wic 1:"))
         self.uiWic2Label.setText(_translate("IOSRouterWizard", "wic 2:"))
         self.uiIdlePCWizardPage.setTitle(_translate("IOSRouterWizard", "Idle-PC"))
-        self.uiIdlePCWizardPage.setSubTitle(_translate("IOSRouterWizard", "An idle-pc value is necessary to prevent IOS to use 100% of your processor or one of its cores."))
+        self.uiIdlePCWizardPage.setSubTitle(_translate("IOSRouterWizard", "闲置的PC值是必要的，以防止IOS使用100%的处理器或其核心之一。"))
         self.uiIdlepcLabel.setText(_translate("IOSRouterWizard", "Idle-PC:"))
-        self.uiIdlePCFinderPushButton.setText(_translate("IOSRouterWizard", "Idle-PC finder"))
+        self.uiIdlePCFinderPushButton.setText(_translate("IOSRouterWizard", "Idle-PC配置"))
 

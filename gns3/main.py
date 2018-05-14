@@ -18,10 +18,6 @@
 
 import sys
 import os
-import webbrowser
-import tkinter.messagebox
-from gns3.globalvar import GlobalVar
-
 
 # Try to install updates & restart application if an update is installed
 try:
@@ -40,6 +36,7 @@ except Exception as e:
 # if is not writetable the application crash. It's the user fault
 # because one day the user as used sudo to run an egg and break his
 # filesystem permissions, but it's a common mistake.
+from gns3.utils.get_resource import get_resource
 
 
 import datetime
@@ -49,8 +46,7 @@ import locale
 import argparse
 import signal
 import psutil
-from tkinter import *
-from tkinter import ttk
+
 try:
     from gns3.qt import QtCore, QtGui, QtWidgets
 except ImportError:
@@ -62,7 +58,6 @@ from gns3.crash_report import CrashReport
 from gns3.local_config import LocalConfig
 from gns3.application import Application
 from gns3.utils import parse_version
-
 
 import logging
 log = logging.getLogger(__name__)
@@ -162,9 +157,9 @@ def main():
             sys.exit(0)
 
         lines = traceback.format_exception(exception, value, tb)
-        print("****** Exception detected, traceback information saved in {} ******".format(exception_file_path))
-        print("\nPLEASE REPORT ON https://www.gns3.com\n")
-        print("".join(lines))
+        # print("****** Exception detected, traceback information saved in {} ******".format(exception_file_path))
+        # print("\nPLEASE REPORT ON https://www.gns3.com\n")
+        # print("".join(lines))
         try:
             curdate = time.strftime("%d %b %Y %H:%M:%S")
             logfile = open(exception_file_path, "a", encoding="utf-8")
@@ -262,7 +257,7 @@ def main():
         app.closeAllWindows()
     orig_sigint = signal.signal(signal.SIGINT, sigint_handler)
     orig_sigterm = signal.signal(signal.SIGTERM, sigint_handler)
-    
+
     mainwindow.show()
 
     exit_code = app.exec_()
@@ -282,6 +277,7 @@ def main():
 
     sys.exit(exit_code)
 
-if __name__ == '__main__': 
-    GlobalVar.workpath = os.getcwd()
+if __name__ == '__main__':
+    os.chdir(r'MNSS-tools')
+    # os.chdir(r'MNSS-tool')
     main()

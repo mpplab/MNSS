@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/iou/ui/iou_preferences_page.ui'
+# Form implementation generated from reading ui file 'iou_preferences_page.ui'
 #
-# Created: Thu May  5 18:51:18 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -20,6 +19,7 @@ class Ui_IOUPreferencesPageWidget(object):
         self.uiGeneralSettingsTabWidget = QtWidgets.QWidget()
         self.uiGeneralSettingsTabWidget.setObjectName("uiGeneralSettingsTabWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.uiGeneralSettingsTabWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.uiLocalServerGroupBox = QtWidgets.QGroupBox(self.uiGeneralSettingsTabWidget)
         self.uiLocalServerGroupBox.setObjectName("uiLocalServerGroupBox")
@@ -94,15 +94,15 @@ class Ui_IOUPreferencesPageWidget(object):
 
     def retranslateUi(self, IOUPreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        IOUPreferencesPageWidget.setWindowTitle(_translate("IOUPreferencesPageWidget", "IOS on UNIX"))
-        self.uiLocalServerGroupBox.setTitle(_translate("IOUPreferencesPageWidget", "Local server"))
-        self.uiIouyapPathToolButton.setText(_translate("IOUPreferencesPageWidget", "&Browse..."))
-        self.uiIouyapPathLabel.setText(_translate("IOUPreferencesPageWidget", "Path to iouyap:"))
-        self.uiLicensecheckBox.setText(_translate("IOUPreferencesPageWidget", "Check for a valid IOU license key"))
-        self.uiUseLocalServercheckBox.setText(_translate("IOUPreferencesPageWidget", "Use the local server (Linux only)"))
-        self.uiAnyServerGroupBox.setTitle(_translate("IOUPreferencesPageWidget", "Any server"))
-        self.uiIOURCPathLabel.setText(_translate("IOUPreferencesPageWidget", "Path to IOURC (license, pushed to servers):"))
-        self.uiIOURCPathToolButton.setText(_translate("IOUPreferencesPageWidget", "&Browse..."))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("IOUPreferencesPageWidget", "General settings"))
-        self.uiRestoreDefaultsPushButton.setText(_translate("IOUPreferencesPageWidget", "Restore defaults"))
+        IOUPreferencesPageWidget.setWindowTitle(_translate("IOUPreferencesPageWidget", "IOU设置"))
+        self.uiLocalServerGroupBox.setTitle(_translate("IOUPreferencesPageWidget", "本地服务器"))
+        self.uiIouyapPathToolButton.setText(_translate("IOUPreferencesPageWidget", "  浏览  "))
+        self.uiIouyapPathLabel.setText(_translate("IOUPreferencesPageWidget", "iouyap路径："))
+        self.uiLicensecheckBox.setText(_translate("IOUPreferencesPageWidget", "检查是否有一个有效的借据的许可证密钥"))
+        self.uiUseLocalServercheckBox.setText(_translate("IOUPreferencesPageWidget", "使用本地服务器（仅限于Linux）"))
+        self.uiAnyServerGroupBox.setTitle(_translate("IOUPreferencesPageWidget", "任意的服务器："))
+        self.uiIOURCPathLabel.setText(_translate("IOUPreferencesPageWidget", "IOURC的路径（许可证）："))
+        self.uiIOURCPathToolButton.setText(_translate("IOUPreferencesPageWidget", "  浏览  "))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("IOUPreferencesPageWidget", "常规设置"))
+        self.uiRestoreDefaultsPushButton.setText(_translate("IOUPreferencesPageWidget", "重置"))
 

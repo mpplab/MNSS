@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>704</width>
+    <width>698</width>
     <height>504</height>
    </rect>
   </property>
@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Add appliance</string>
+   <string>添加设备</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -36,7 +36,7 @@
   </property>
   <widget class="QWizardPage" name="uiInfoWizardPage">
    <property name="title">
-    <string>Cisco NX-OSv</string>
+    <string>思科 NX-OSv </string>
    </property>
    <property name="subTitle">
     <string/>
@@ -77,15 +77,15 @@
       </column>
       <item>
        <property name="text">
-        <string>Category:</string>
+        <string>类别：</string>
        </property>
        <property name="text">
-        <string>router</string>
+        <string>路由器</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Product:</string>
+        <string>产品：</string>
        </property>
        <property name="text">
         <string>NX-OSv</string>
@@ -93,26 +93,26 @@
       </item>
       <item>
        <property name="text">
-        <string>Vendor:</string>
+        <string>供应商：</string>
        </property>
        <property name="text">
-        <string>Cisco</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Status:</string>
-       </property>
-       <property name="text">
-        <string>stable</string>
+        <string>思科</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Maintainer:</string>
+        <string>状态：</string>
        </property>
        <property name="text">
-        <string>The GNS3 team</string>
+        <string>稳定</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>维护者：</string>
+       </property>
+       <property name="text">
+        <string>MNSS教研团队</string>
        </property>
       </item>
       <item>
@@ -128,7 +128,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="uiDescriptionLabel">
       <property name="text">
-       <string>NX-OSv is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 7000-series platforms, running as a full virtual machine on a hypervisor.</string>
+       <string>NX-OSv是基于Nexus 7000系列平台的思科Nexus操作系统的一个参考平台，它可以作为一个虚拟机管理程序上的一个完整的虚拟机运行</string>
       </property>
       <property name="scaledContents">
        <bool>false</bool>
@@ -145,10 +145,10 @@
   </widget>
   <widget class="QWizardPage" name="uiServerWizardPage">
    <property name="title">
-    <string>Server</string>
+    <string>服务器</string>
    </property>
    <property name="subTitle">
-    <string>Please choose a server type to run your new Appliance.</string>
+    <string>请选择一个服务器类型来运行您的新设备 </string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -173,7 +173,7 @@
        </size>
       </property>
       <property name="title">
-       <string>Server type</string>
+       <string>服务器类型 </string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
@@ -191,7 +191,7 @@
           </size>
          </property>
          <property name="text">
-          <string>The grayed server types are not supported or configured.</string>
+          <string>灰色的服务器类型不受支持或配置。</string>
          </property>
         </widget>
        </item>
@@ -210,7 +210,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Run the appliance on a remote computer</string>
+          <string>在云端服务器上运行设备</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -232,7 +232,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Run the appliance on the GNS3 VM (recommended)</string>
+          <string>在GNS3 VM上运行设备(建议)</string>
          </property>
         </widget>
        </item>
@@ -251,7 +251,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Run the appliance on your local computer</string>
+          <string>在本地计算机上运行该设备</string>
          </property>
         </widget>
        </item>
@@ -280,7 +280,7 @@
        </sizepolicy>
       </property>
       <property name="title">
-       <string>Remote server</string>
+       <string>云端服务器</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="1" column="1">
@@ -299,7 +299,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="uiRemoteServersLabel">
          <property name="text">
-          <string>Run on:</string>
+          <string>运行于：</string>
          </property>
         </widget>
        </item>
@@ -313,7 +313,7 @@
     <item>
      <widget class="QLabel" name="uiCheckServerLabel">
       <property name="text">
-       <string>Please wait while checking server capacities...</string>
+       <string>请等待检查服务器容量…</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -324,16 +324,16 @@
   </widget>
   <widget class="QWizardPage" name="uiFilesWizardPage">
    <property name="title">
-    <string>Required files</string>
+    <string>所需文件 </string>
    </property>
    <property name="subTitle">
-    <string>The following files are required to install NX-OS</string>
+    <string>安装NX-OS需要以下文件 </string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click on a version to see the required files and import the file from your computer.&lt;br/&gt;GNS3 is looking for files in your downloads directory and in the GNS3 images directory.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;单击某个版本以查看所需的文件，然后从计算机导入该文件。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;MNSS正在您的下载目录和MNSS图像目录中查找文件。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="textFormat">
        <enum>Qt::RichText</enum>
@@ -359,7 +359,7 @@
       </attribute>
       <column>
        <property name="text">
-        <string>Version</string>
+        <string>版本</string>
        </property>
        <property name="font">
         <font>
@@ -370,27 +370,27 @@
       </column>
       <column>
        <property name="text">
-        <string>Filename</string>
+        <string>文件名</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Size</string>
+        <string>大小</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Status</string>
+        <string>状态</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>File version</string>
+        <string>文件版本</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>MD5</string>
+        <string>MD5值</string>
        </property>
       </column>
       <item>
@@ -547,7 +547,7 @@
     <item>
      <widget class="QLabel" name="uiExplainDownloadLabel">
       <property name="text">
-       <string>Click on a the download button to access to a location where you can download the file.</string>
+       <string>点击下载按钮访问您可以下载该文件的位置。</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -559,14 +559,14 @@
       <item>
        <widget class="QPushButton" name="uiImportPushButton">
         <property name="text">
-         <string>&amp;Import</string>
+         <string>&amp;导入</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="uiDownloadPushButton">
         <property name="text">
-         <string>&amp;Download</string>
+         <string>下载</string>
         </property>
        </widget>
       </item>
@@ -586,14 +586,14 @@
       <item>
        <widget class="QPushButton" name="uiCreateVersionPushButton">
         <property name="text">
-         <string>Create a new version</string>
+         <string>创建一个新的版本</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="uiRefreshPushButton">
         <property name="text">
-         <string>Refresh</string>
+         <string>刷新</string>
         </property>
        </widget>
       </item>
@@ -609,16 +609,16 @@
     </sizepolicy>
    </property>
    <property name="title">
-    <string>Qemu settings</string>
+    <string>Qemu 设置 </string>
    </property>
    <property name="subTitle">
-    <string>Please choose the qemu binary that we will use for running this appliance.</string>
+    <string>请选择我们将用于运行此设备的QEMU二进制文件</string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QLabel" name="uiQemuListLabel">
       <property name="text">
-       <string>Qemu binary:</string>
+       <string>Qemu二进制文件：</string>
       </property>
      </widget>
     </item>
@@ -636,10 +636,10 @@
   </widget>
   <widget class="QWizardPage" name="uiSummaryWizardPage">
    <property name="title">
-    <string>Summary</string>
+    <string>总结</string>
    </property>
    <property name="subTitle">
-    <string>The following settings are going to be used.</string>
+    <string>将使用以下设置</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
@@ -698,7 +698,7 @@
       </column>
       <item>
        <property name="text">
-        <string>adapter_type</string>
+        <string>适配器类型</string>
        </property>
        <property name="text">
         <string>e1000</string>
@@ -706,7 +706,7 @@
       </item>
       <item>
        <property name="text">
-        <string>console_type</string>
+        <string>控制台类型</string>
        </property>
        <property name="text">
         <string>telnet</string>
@@ -714,7 +714,7 @@
       </item>
       <item>
        <property name="text">
-        <string>ram</string>
+        <string>RAM</string>
        </property>
        <property name="text">
         <string>3072</string>
@@ -722,7 +722,7 @@
       </item>
       <item>
        <property name="text">
-        <string>arch</string>
+        <string>ARCH</string>
        </property>
        <property name="text">
         <string>x68_64</string>
@@ -730,7 +730,7 @@
       </item>
       <item>
        <property name="text">
-        <string>adapters</string>
+        <string>适配器数量</string>
        </property>
        <property name="text">
         <string>16</string>
@@ -738,10 +738,10 @@
       </item>
       <item>
        <property name="text">
-        <string>kernel command line</string>
+        <string>内核命令</string>
        </property>
        <property name="text">
-        <string>user=gns3</string>
+        <string>user=MNSS</string>
        </property>
       </item>
      </widget>
@@ -750,10 +750,10 @@
   </widget>
   <widget class="QWizardPage" name="uiUsageWizardPage">
    <property name="title">
-    <string>Usage</string>
+    <string>用法</string>
    </property>
    <property name="subTitle">
-    <string>Please read the following instructions in order to use your new appliance.</string>
+    <string>请阅读以下说明，以使用您的新设备。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
@@ -762,8 +762,8 @@
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-size:11pt;&quot;&gt;The default username/password is admin/admin. A default configuration is present.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;默认用户名&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; color:#000000;&quot;&gt;/&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;密码为&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; color:#000000;&quot;&gt;admin / admin（&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;存在默认配置）&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>

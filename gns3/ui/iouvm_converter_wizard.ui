@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GNS3 IOU Converter</string>
+   <string>MNSS IOU 转换向导</string>
   </property>
   <property name="options">
    <set>QWizard::NoCancelButton|QWizard::NoDefaultButton</set>
@@ -21,9 +21,7 @@
     <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>&lt;h1&gt;Welcome to the IOUVM converter&lt;/h1&gt;
-&lt;p&gt;This Wizard will help you to convert the IOUVM to the new GNS3 VM&lt;/p&gt;
-&lt;p&gt;The GNS3 VM has a self update system allowing you to easily upgrade between version of the GNS3 VM without manual operations.&lt;/p&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;欢迎来到IOUVM转换器&lt;/span&gt;&lt;/p&gt;&lt;p&gt;此向导将帮助您转换到最新的GNS3 VM&lt;/p&gt;&lt;p&gt;GNS3 VM具有自我更新系统，让您在各个GNS3 VM版本之间轻松完成升级，且无需人工操作。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
@@ -37,12 +35,7 @@
     <item>
      <widget class="QLabel" name="label_14">
       <property name="text">
-       <string>&lt;h1&gt;Start GNS3&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Start GNS3 &gt;= 1.4&lt;/li&gt;
-&lt;li&gt;Configure the GNS3 VM via preferences or the initial wizard&lt;/li&gt;
-&lt;li&gt;Exit all instance of GNS3&lt;/li&gt;
-&lt;/ul&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;启动MNSS&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;确保MNSS版本 &amp;gt;= 1.0.0&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;通过参数或初始向导配置GNS3 VM&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;退出MNSS的所有实例&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>
@@ -53,16 +46,7 @@
     <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>&lt;h1&gt;Setup NAT&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Start VirtualBox &lt;/li&gt;
-&lt;li&gt;Click on the IOUVM&lt;/li&gt;
-&lt;li&gt;Click on settings&lt;/li&gt;
-&lt;li&gt;Click on Network&lt;/li&gt;
-&lt;li&gt;Change Host-only adapter to NAT&lt;/li&gt;
-&lt;li&gt;Click on OK&lt;/li&gt;
-&lt;li&gt;Start the VM&lt;li&gt;
-&lt;/ul&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;配置NAT&lt;/span&gt;&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;启动 VirtualBox &lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;点击IOUVM选项&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;点击设置选项&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;点击网络选项&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;将主机唯一适配器更改为NAT&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;点击OK选项&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;启动 VM&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
     </item>

@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/dynamips/ui/atm_switch_configuration_page.ui'
+# Form implementation generated from reading ui file 'atm_switch_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_atmSwitchConfigPageWidget(object):
-
     def setupUi(self, atmSwitchConfigPageWidget):
         atmSwitchConfigPageWidget.setObjectName("atmSwitchConfigPageWidget")
         atmSwitchConfigPageWidget.resize(459, 419)
@@ -169,20 +167,21 @@ class Ui_atmSwitchConfigPageWidget(object):
 
     def retranslateUi(self, atmSwitchConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        atmSwitchConfigPageWidget.setWindowTitle(_translate("atmSwitchConfigPageWidget", "ATM Switch"))
-        self.uiGeneralGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "General"))
-        self.uiNameLabel.setText(_translate("atmSwitchConfigPageWidget", "Name:"))
-        self.uiVPICheckBox.setText(_translate("atmSwitchConfigPageWidget", "Use VPI only (VP tunnel)"))
-        self.uiMappingGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "Mapping"))
-        self.uiMappingTreeWidget.headerItem().setText(0, _translate("atmSwitchConfigPageWidget", "Port:VPI:VCI"))
-        self.uiMappingTreeWidget.headerItem().setText(1, _translate("atmSwitchConfigPageWidget", "Port:VPI:VCI"))
-        self.uiAddPushButton.setText(_translate("atmSwitchConfigPageWidget", "&Add"))
-        self.uiDeletePushButton.setText(_translate("atmSwitchConfigPageWidget", "&Delete"))
-        self.uiSourceGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "Source"))
+        atmSwitchConfigPageWidget.setWindowTitle(_translate("atmSwitchConfigPageWidget", "ATM交换"))
+        self.uiGeneralGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "常规"))
+        self.uiNameLabel.setText(_translate("atmSwitchConfigPageWidget", "名称："))
+        self.uiVPICheckBox.setText(_translate("atmSwitchConfigPageWidget", "只使用VPI（VP隧道）"))
+        self.uiMappingGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "映射"))
+        self.uiMappingTreeWidget.headerItem().setText(0, _translate("atmSwitchConfigPageWidget", "端口:VPI:VCI"))
+        self.uiMappingTreeWidget.headerItem().setText(1, _translate("atmSwitchConfigPageWidget", "端口:VPI:VCI"))
+        self.uiAddPushButton.setText(_translate("atmSwitchConfigPageWidget", "添加"))
+        self.uiDeletePushButton.setText(_translate("atmSwitchConfigPageWidget", "删除"))
+        self.uiSourceGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "源端"))
         self.uiSourcePortLabel.setText(_translate("atmSwitchConfigPageWidget", "Port:"))
         self.uiSourceVPILabel.setText(_translate("atmSwitchConfigPageWidget", "VPI:"))
         self.uiSourceVCILabel.setText(_translate("atmSwitchConfigPageWidget", "VCI:"))
-        self.uiDestinationGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "Destination"))
+        self.uiDestinationGroupBox.setTitle(_translate("atmSwitchConfigPageWidget", "目的端"))
         self.uiDestinationPortLabel.setText(_translate("atmSwitchConfigPageWidget", "Port:"))
         self.uiDestinationVPILabel.setText(_translate("atmSwitchConfigPageWidget", "VPI:"))
         self.uiDestinationVCILabel.setText(_translate("atmSwitchConfigPageWidget", "VCI:"))
+

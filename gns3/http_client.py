@@ -169,9 +169,9 @@ class HTTPClient(QtCore.QObject):
                 HTTPClient._progress_callback.add_query_signal.emit(query_id, progress_text, response)
             else:
                 if self._local:
-                    HTTPClient._progress_callback.add_query_signal.emit(query_id, "Waiting for local GNS3 server", response)
+                    HTTPClient._progress_callback.add_query_signal.emit(query_id, "等待本地服务器。。。", response)
                 else:
-                    HTTPClient._progress_callback.add_query_signal.emit(query_id, "Waiting for {}".format(self.url()), response)
+                    HTTPClient._progress_callback.add_query_signal.emit(query_id, "等待{}。。。".format(self.url()), response)
 
     def notify_progress_end_query(cls, query_id):
         """

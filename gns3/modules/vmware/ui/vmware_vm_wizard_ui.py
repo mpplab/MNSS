@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/vmware/ui/vmware_vm_wizard.ui'
+# Form implementation generated from reading ui file 'vmware_vm_wizard.ui'
 #
-# Created: Tue Sep 20 17:45:46 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -74,16 +73,16 @@ class Ui_VMwareVMWizard(object):
 
     def retranslateUi(self, VMwareVMWizard):
         _translate = QtCore.QCoreApplication.translate
-        VMwareVMWizard.setWindowTitle(_translate("VMwareVMWizard", "New VMware VM template"))
-        self.uiServerWizardPage.setTitle(_translate("VMwareVMWizard", "Server"))
-        self.uiServerWizardPage.setSubTitle(_translate("VMwareVMWizard", "Please choose a server type to run your new VMware VM (Workstation, Player or Fusion)."))
-        self.uiServerTypeGroupBox.setTitle(_translate("VMwareVMWizard", "Server type"))
-        self.uiRemoteRadioButton.setText(_translate("VMwareVMWizard", "Run this VMware VM on a remote GNS3 computer"))
-        self.uiLocalRadioButton.setText(_translate("VMwareVMWizard", "Run this VMware VM on my local computer"))
-        self.uiRemoteServersGroupBox.setTitle(_translate("VMwareVMWizard", "Remote servers"))
-        self.uiRemoteServersLabel.setText(_translate("VMwareVMWizard", "Run on server:"))
-        self.uiVirtualBoxWizardPage.setTitle(_translate("VMwareVMWizard", "VMware Virtual Machine"))
-        self.uiVirtualBoxWizardPage.setSubTitle(_translate("VMwareVMWizard", "Please choose a VMware virtual machine from the list."))
-        self.uiVMListLabel.setText(_translate("VMwareVMWizard", "VM list:"))
-        self.uiBaseVMCheckBox.setText(_translate("VMwareVMWizard", "Use as a linked base VM (experimental)"))
+        VMwareVMWizard.setWindowTitle(_translate("VMwareVMWizard", "新添医院信息系统及其他终端系统向导"))
+        self.uiServerWizardPage.setTitle(_translate("VMwareVMWizard", "服务器"))
+        self.uiServerWizardPage.setSubTitle(_translate("VMwareVMWizard", "请选择一种服务器类型来运行新的医院信息系统及其他终端系统。"))
+        self.uiServerTypeGroupBox.setTitle(_translate("VMwareVMWizard", "服务器类别"))
+        self.uiRemoteRadioButton.setText(_translate("VMwareVMWizard", "运行早远端电脑上的医院信息系统及其他终端系统"))
+        self.uiLocalRadioButton.setText(_translate("VMwareVMWizard", "运行本地的医院信息系统及其他终端系统"))
+        self.uiRemoteServersGroupBox.setTitle(_translate("VMwareVMWizard", "云端服务器"))
+        self.uiRemoteServersLabel.setText(_translate("VMwareVMWizard", "路径："))
+        self.uiVirtualBoxWizardPage.setTitle(_translate("VMwareVMWizard", "医院信息系统及其他终端系统"))
+        self.uiVirtualBoxWizardPage.setSubTitle(_translate("VMwareVMWizard", "请从列表中选择一个医院信息系统及其他终端系统在VMware中实例化。"))
+        self.uiVMListLabel.setText(_translate("VMwareVMWizard", "列表："))
+        self.uiBaseVMCheckBox.setText(_translate("VMwareVMWizard", "用作链接的基础VM（实验）"))
 

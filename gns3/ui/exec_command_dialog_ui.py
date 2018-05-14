@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/ui/exec_command_dialog.ui'
+# Form implementation generated from reading ui file 'exec_command_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_ExecCommandDialog(object):
-
     def setupUi(self, ExecCommandDialog):
         ExecCommandDialog.setObjectName("ExecCommandDialog")
         ExecCommandDialog.resize(651, 343)
@@ -33,6 +31,6 @@ class Ui_ExecCommandDialog(object):
 
     def retranslateUi(self, ExecCommandDialog):
         _translate = QtCore.QCoreApplication.translate
-        ExecCommandDialog.setWindowTitle(_translate("ExecCommandDialog", "Command execution"))
+        ExecCommandDialog.setWindowTitle(_translate("ExecCommandDialog", "命令执行"))
 
-from . import resources_rc
+from .import resources_rc

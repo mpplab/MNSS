@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
+    <width>586</width>
     <height>568</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>General</string>
+   <string>常规配置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -27,19 +27,19 @@
      </property>
      <widget class="QWidget" name="uiGeneralTab">
       <attribute name="title">
-       <string>General</string>
+       <string>通用</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QGroupBox" name="uiLocalPathsGroupBox">
          <property name="title">
-          <string>Local paths</string>
+          <string>本地路径</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
            <widget class="QLabel" name="uiProjectsPathLabel">
             <property name="text">
-             <string>My projects:</string>
+             <string>我的工程：</string>
             </property>
            </widget>
           </item>
@@ -61,7 +61,7 @@
             <item>
              <widget class="QToolButton" name="uiProjectsPathToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -73,7 +73,7 @@
           <item>
            <widget class="QLabel" name="uiImagesPathLabel">
             <property name="text">
-             <string>My binary images:</string>
+             <string>我的镜像：</string>
             </property>
            </widget>
           </item>
@@ -95,7 +95,7 @@
             <item>
              <widget class="QToolButton" name="uiImagesPathToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -107,7 +107,7 @@
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>My symbols:</string>
+             <string>我的标记：</string>
             </property>
            </widget>
           </item>
@@ -119,7 +119,7 @@
             <item>
              <widget class="QToolButton" name="uiSymbolsPathToolButton">
               <property name="text">
-               <string>Browse...</string>
+               <string>  浏览  </string>
               </property>
              </widget>
             </item>
@@ -128,7 +128,7 @@
           <item>
            <widget class="QLabel" name="uiConfigsPathLabel">
             <property name="text">
-             <string>My configs:</string>
+             <string>我的配置：</string>
             </property>
            </widget>
           </item>
@@ -150,7 +150,7 @@
             <item>
              <widget class="QToolButton" name="uiConfigsPathToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -165,7 +165,7 @@
        <item>
         <widget class="QGroupBox" name="uiConfigurationFileGroupBox">
          <property name="title">
-          <string>Configuration file</string>
+          <string>配置文件</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="0">
@@ -173,21 +173,21 @@
             <item>
              <widget class="QPushButton" name="uiImportConfigurationFilePushButton">
               <property name="text">
-               <string>&amp;Import</string>
+               <string>&amp;导入</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="uiExportConfigurationFilePushButton">
               <property name="text">
-               <string>&amp;Export</string>
+               <string>&amp;导出</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="uiBrowseConfigurationPushButton">
               <property name="text">
-               <string>Browse configuration directory</string>
+               <string>浏览配置目录</string>
               </property>
              </widget>
             </item>
@@ -209,7 +209,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="uiConfigurationFileLabel">
             <property name="text">
-             <string>Unknown location</string>
+             <string>未知的路径</string>
             </property>
            </widget>
           </item>
@@ -233,19 +233,19 @@
      </widget>
      <widget class="QWidget" name="uiConsoleTab">
       <attribute name="title">
-       <string>Console applications</string>
+       <string>控制台应用程序</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QGroupBox" name="uiTelnetConsoleSettingsGroupBox">
          <property name="title">
-          <string>Console settings</string>
+          <string>控制台设置</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
            <widget class="QLabel" name="uiTelnetConsoleCommandLabel">
             <property name="text">
-             <string>Console application command for Telnet:</string>
+             <string>用于Telnet的控制台应用程序命令：</string>
             </property>
            </widget>
           </item>
@@ -276,7 +276,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>&amp;Edit</string>
+               <string>&amp;编辑</string>
               </property>
              </widget>
             </item>
@@ -285,7 +285,7 @@
           <item>
            <widget class="QLabel" name="uiSerialConsoleCommandLabel">
             <property name="text">
-             <string>Console application command for Serial:</string>
+             <string>用于Serial的控制台应用程序命令：</string>
             </property>
            </widget>
           </item>
@@ -316,7 +316,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>&amp;Edit</string>
+               <string>&amp;编辑</string>
               </property>
              </widget>
             </item>
@@ -328,13 +328,13 @@
        <item>
         <widget class="QGroupBox" name="uiConsoleMiscGroupBox">
          <property name="title">
-          <string>Miscellaneous</string>
+          <string>其他参数</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="0" column="0">
            <widget class="QCheckBox" name="uiCloseConsoleWindowsOnDeleteCheckBox">
             <property name="text">
-             <string>Close any connected console window when deleting a node</string>
+             <string>删除某个节点时关闭任何连接的控制台窗口</string>
             </property>
            </widget>
           </item>
@@ -344,14 +344,14 @@
              <string>&lt;html&gt;This option will attempt to bring existing opened console window to front, instead of opening a new window.&lt;br&gt;If no existing opened console window exists, it will start a new  console window.&lt;/html&gt;</string>
             </property>
             <property name="text">
-             <string>Bring console window to front (experimental feature)</string>
+             <string>将控制台窗口放到前面（实验特性）</string>
             </property>
            </widget>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="uiSlowConsoleAllLabel">
             <property name="text">
-             <string>Delay between each console launch when consoling to all devices:</string>
+             <string>各个Console运行之间的延时（连接所有设备时）</string>
             </property>
            </widget>
           </item>
@@ -394,13 +394,13 @@
        <item>
         <widget class="QGroupBox" name="uiVNCConsoleSettingsGroupBox">
          <property name="title">
-          <string>Settings for VNC connections</string>
+          <string>虚拟网络计算机连接设置</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QLabel" name="uiVNCConsoleCommandLabel">
             <property name="text">
-             <string>Console application command for VNC:</string>
+             <string>用于VNC的控制台应用程序命令：</string>
             </property>
            </widget>
           </item>
@@ -431,7 +431,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>&amp;Edit</string>
+               <string>&amp;编辑</string>
               </property>
              </widget>
             </item>
@@ -457,27 +457,27 @@
      </widget>
      <widget class="QWidget" name="uiSceneTab">
       <attribute name="title">
-       <string>Topology view</string>
+       <string>拓扑视图</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_8">
        <item row="0" column="0">
         <widget class="QLabel" name="uiSceneWidthLabel">
          <property name="text">
-          <string>Default width:</string>
+          <string>默认宽度：</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="uiSceneHeightLabel">
          <property name="text">
-          <string>Default height:</string>
+          <string>默认高度：</string>
          </property>
         </widget>
        </item>
        <item row="4" column="0" colspan="2">
         <widget class="QCheckBox" name="uiRectangleSelectedItemCheckBox">
          <property name="text">
-          <string>Draw a rectangle when an item is selected</string>
+          <string>绘制矩形</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -487,7 +487,7 @@
        <item row="5" column="0">
         <widget class="QCheckBox" name="uiDrawLinkStatusPointsCheckBox">
          <property name="text">
-          <string>Draw link status points</string>
+          <string>绘制链接状态点</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -497,7 +497,7 @@
        <item row="6" column="0" colspan="2">
         <widget class="QCheckBox" name="uiLinkManualModeCheckBox">
          <property name="text">
-          <string>Always use manual mode when adding links</string>
+          <string>当连接设备时总是使用手动连接的方式</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -507,7 +507,7 @@
        <item row="7" column="0">
         <widget class="QLabel" name="uiLabelPreviewLabel">
          <property name="text">
-          <string>Default label style:</string>
+          <string>默认的标签样式：</string>
          </property>
         </widget>
        </item>
@@ -538,14 +538,14 @@
          <item>
           <widget class="QPushButton" name="uiDefaultLabelFontPushButton">
            <property name="text">
-            <string>&amp;Select default font</string>
+            <string>选择默认字体</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="uiDefaultLabelColorPushButton">
            <property name="text">
-            <string>&amp;Select default color</string>
+            <string>选择默认颜色</string>
            </property>
           </widget>
          </item>
@@ -619,13 +619,13 @@
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Miscellaneous</string>
+       <string>其他参数</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QCheckBox" name="uiLaunchNewProjectDialogCheckBox">
          <property name="text">
-          <string>Launch the new project dialog on startup</string>
+          <string>在应用程序启动时请求配置文件设置</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -635,7 +635,7 @@
        <item>
         <widget class="QCheckBox" name="uiAutoScreenshotCheckBox">
          <property name="text">
-          <string>Automatically take a screenshot when saving a project</string>
+          <string>当保存项目时进行项目截图</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -645,7 +645,7 @@
        <item>
         <widget class="QCheckBox" name="uiCheckForUpdateCheckBox">
          <property name="text">
-          <string>Automatically check for update</string>
+          <string>自动检查更新</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -655,7 +655,7 @@
        <item>
         <widget class="QCheckBox" name="uiCrashReportCheckBox">
          <property name="text">
-          <string>Send anonymous crash reports</string>
+          <string>发送匿名的使用崩溃数据</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -665,7 +665,7 @@
        <item>
         <widget class="QCheckBox" name="uiStatsCheckBox">
          <property name="text">
-          <string>Send anonymous usage statistics</string>
+          <string>发送匿名的使用统计数据</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -675,14 +675,14 @@
        <item>
         <widget class="QCheckBox" name="uiExperimentalFeaturesCheckBox">
          <property name="text">
-          <string>Enable experimental features (dangerous, restart required)</string>
+          <string>启用实验特性（危险、重启、请求）</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="uiSlowStartAllLabel">
          <property name="text">
-          <string>Delay between each device start when starting all devices:</string>
+          <string>各个设备间得延时（开启所有设备时）</string>
          </property>
         </widget>
        </item>
@@ -737,7 +737,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>恢复默认设置</string>
        </property>
       </widget>
      </item>

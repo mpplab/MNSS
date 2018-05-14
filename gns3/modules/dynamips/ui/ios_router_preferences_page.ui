@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>IOS routers</string>
+   <string>IOS路由器</string>
   </property>
   <property name="accessibleName">
-   <string>IOS router templates</string>
+   <string>IOS路由器模板</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
@@ -31,7 +31,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>160</width>
+        <width>1000</width>
         <height>16777215</height>
        </size>
       </property>
@@ -73,6 +73,12 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="indentation">
           <number>10</number>
          </property>
@@ -99,7 +105,7 @@
          <item>
           <widget class="QPushButton" name="uiNewIOSRouterPushButton">
            <property name="text">
-            <string>&amp;New</string>
+            <string>添加</string>
            </property>
           </widget>
          </item>
@@ -109,7 +115,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Decompress</string>
+            <string>减压</string>
            </property>
           </widget>
          </item>
@@ -119,7 +125,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Edit</string>
+            <string>编辑</string>
            </property>
           </widget>
          </item>
@@ -129,7 +135,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>&amp;Delete</string>
+            <string>删除</string>
            </property>
           </widget>
          </item>

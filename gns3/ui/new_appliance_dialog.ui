@@ -20,7 +20,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>New appliance template</string>
+   <string>添加新的设备</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -29,28 +29,42 @@
    <item>
     <widget class="QPushButton" name="uiImportApplianceTemplatePushButton">
      <property name="text">
-      <string>Import an appliance template file</string>
+      <string>导入设备模板文件</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;OR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;或者&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
    <item>
     <widget class="QRadioButton" name="uiAddIOSRouterRadioButton">
      <property name="text">
-      <string>&amp;Add an IOS router using a real IOS image (supported by Dynamips)</string>
+      <string>使用IOS镜像添加一个IOS路由器（支持Dynamips）</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QRadioButton" name="uiAddHospitalRadioButton">
+    <widget class="QRadioButton" name="uiAddIOUDeviceRadioButton">
      <property name="text">
-      <string>Add a Hospital Information System</string>
+      <string>使用的L2或L3的镜像添加IOU设备</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QRadioButton" name="uiAddQemuVMRadioButton">
+     <property name="text">
+      <string>添加QEMU虚拟机</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QRadioButton" name="uiAddVMwareVMRadioButton">
+     <property name="text">
+      <string>添加医院信息系统及其他终端系统</string>
      </property>
     </widget>
    </item>

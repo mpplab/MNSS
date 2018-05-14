@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/vpcs/ui/vpcs_preferences_page.ui'
+# Form implementation generated from reading ui file 'vpcs_preferences_page.ui'
 #
-# Created: Thu May  5 18:48:24 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -21,6 +20,7 @@ class Ui_VPCSPreferencesPageWidget(object):
         self.uiGeneralSettingsTabWidget = QtWidgets.QWidget()
         self.uiGeneralSettingsTabWidget.setObjectName("uiGeneralSettingsTabWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.uiGeneralSettingsTabWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.uiUseLocalServercheckBox = QtWidgets.QCheckBox(self.uiGeneralSettingsTabWidget)
         self.uiUseLocalServercheckBox.setChecked(True)
@@ -50,6 +50,7 @@ class Ui_VPCSPreferencesPageWidget(object):
         self.uiVPCSTabWidget = QtWidgets.QWidget()
         self.uiVPCSTabWidget.setObjectName("uiVPCSTabWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.uiVPCSTabWidget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
@@ -114,16 +115,16 @@ class Ui_VPCSPreferencesPageWidget(object):
     def retranslateUi(self, VPCSPreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
         VPCSPreferencesPageWidget.setWindowTitle(_translate("VPCSPreferencesPageWidget", "VPCS"))
-        self.uiUseLocalServercheckBox.setText(_translate("VPCSPreferencesPageWidget", "Use the local server"))
-        self.uiVPCSPathLabel.setText(_translate("VPCSPreferencesPageWidget", "Path to VPCS executable:"))
-        self.uiVPCSPathToolButton.setText(_translate("VPCSPreferencesPageWidget", "&Browse..."))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("VPCSPreferencesPageWidget", "General settings"))
-        self.uiScriptFileToolButton.setText(_translate("VPCSPreferencesPageWidget", "&Browse..."))
-        self.uiSymbolLabel.setText(_translate("VPCSPreferencesPageWidget", "Symbol:"))
-        self.uiSymbolToolButton.setText(_translate("VPCSPreferencesPageWidget", "&Browse..."))
-        self.uiCategoryLabel.setText(_translate("VPCSPreferencesPageWidget", "Category:"))
-        self.uiScriptFileLabel.setText(_translate("VPCSPreferencesPageWidget", "Base script file:"))
-        self.uiDefaultNameFormatLabel.setText(_translate("VPCSPreferencesPageWidget", "Default name format:"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiVPCSTabWidget), _translate("VPCSPreferencesPageWidget", "VPCS VM settings"))
-        self.uiRestoreDefaultsPushButton.setText(_translate("VPCSPreferencesPageWidget", "Restore defaults"))
+        self.uiUseLocalServercheckBox.setText(_translate("VPCSPreferencesPageWidget", "使用本地服务器"))
+        self.uiVPCSPathLabel.setText(_translate("VPCSPreferencesPageWidget", "vpcs.exe的路径："))
+        self.uiVPCSPathToolButton.setText(_translate("VPCSPreferencesPageWidget", "  浏览  "))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiGeneralSettingsTabWidget), _translate("VPCSPreferencesPageWidget", "常规配置"))
+        self.uiScriptFileToolButton.setText(_translate("VPCSPreferencesPageWidget", "  浏览  "))
+        self.uiSymbolLabel.setText(_translate("VPCSPreferencesPageWidget", "图标："))
+        self.uiSymbolToolButton.setText(_translate("VPCSPreferencesPageWidget", "  浏览  "))
+        self.uiCategoryLabel.setText(_translate("VPCSPreferencesPageWidget", "类别："))
+        self.uiScriptFileLabel.setText(_translate("VPCSPreferencesPageWidget", "依赖脚本文件："))
+        self.uiDefaultNameFormatLabel.setText(_translate("VPCSPreferencesPageWidget", "默认名称格式："))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.uiVPCSTabWidget), _translate("VPCSPreferencesPageWidget", "VPCS VM配置"))
+        self.uiRestoreDefaultsPushButton.setText(_translate("VPCSPreferencesPageWidget", "重置"))
 

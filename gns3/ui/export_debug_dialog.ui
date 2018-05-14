@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Export debug information</string>
+   <string>Debug导出信息</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -26,7 +26,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This will export a debug information file. You must first&lt;span style=&quot; font-weight:600;&quot;&gt; save a project before&lt;/span&gt; you are allowed to export the debug data.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Be aware&lt;/span&gt; this file can contain &lt;span style=&quot; font-weight:600;&quot;&gt;private information&lt;/span&gt; about your project, your GNS3 settings or your computer (list of running processes, opened ports etc.). You can unzip the file in order to edit its content.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Thanks a lot for helping GNS3.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;导出调试信息&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;这将导出一个调试信息文件。在允许导出调试数据之前，您必须先保存一个项目。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;请注意，这个文件可以包含关于您的项目、您的MNSS设置或您的计算机&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; color:#000000;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;正在运行的进程、打开的端口等&lt;/span&gt;&lt;span style=&quot; font-family:'Calibri'; color:#000000;&quot;&gt;)&lt;/span&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;的私有信息。您可以解压该文件，以便编辑它的内容。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'宋体'; color:#000000;&quot;&gt;非常感谢MNSS教研团队的帮助。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>

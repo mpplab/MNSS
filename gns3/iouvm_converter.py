@@ -48,7 +48,7 @@ class IOUVMConverterWizard(QtWidgets.QWizard, Ui_IOUVMConverterWizard):
             self.setOptions(QtWidgets.QWizard.NoDefaultButton)
 
         # set the window icon
-        self.setWindowIcon(QtGui.QIcon(":/images/gns3.ico"))  # this info is necessary for QSettings
+        self.setWindowIcon(QtGui.QIcon(":/images/MNSS.ico"))  # this info is necessary for QSettings
 
         config = self._loadConfig()
         self.uiPushButtonBrowse.clicked.connect(self._browseTopologiesSlot)

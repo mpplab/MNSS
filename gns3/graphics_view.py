@@ -23,11 +23,12 @@ import logging
 import os
 import sip
 import pickle
-from ftplib import FTP
-from tkinter.filedialog import asksaveasfilename
+
 from tkinter import *
 from tkinter import ttk
-from PyQt5.QtWidgets import QFileDialog  
+from tkinter.filedialog import asksaveasfilename
+from ftplib import FTP
+from PyQt5.QtWidgets import QFileDialog
 from .qt import QtCore, QtGui, QtSvg, QtNetwork, QtWidgets, qpartial
 from .servers import Servers
 from .items.node_item import NodeItem
@@ -64,9 +65,10 @@ from .items.ellipse_item import EllipseItem
 from .items.image_item import ImageItem
 from .items.pixmap_image_item import PixmapImageItem
 from .items.svg_image_item import SvgImageItem
-
-log = logging.getLogger(__name__)
 from PyQt5.QtWidgets import QMessageBox
+from gns3.globalvar import GlobalVar
+from gns3.download import wget,newthreading
+log = logging.getLogger(__name__)
 
 
 class GraphicsView(QtWidgets.QGraphicsView):
@@ -676,59 +678,68 @@ class GraphicsView(QtWidgets.QGraphicsView):
 
         :param event: QDropEvent instance
         """
+
         # check if what has been dropped is handled by this view
-#         print(event)
+        import threading
         if event.mimeData().hasFormat("application/x-gns3-node"):
             data = event.mimeData().data("application/x-gns3-node")
             # load the pickled node data
             node_data = pickle.loads(data)
             if ('class' in node_data) is False:
-                reply=QMessageBox.question(self,u'警告',u'是否下载所需系统包',QMessageBox.Yes , QMessageBox.No)
-                if reply==QMessageBox.Yes:
-                    ftp = FTP()
-                    ftp.connect("139.196.202.32",428)
-                    ftp.login("gns3@163.com","gns3**")
-                    print (ftp.getwelcome())
-                    list = ['HIS','LIS','PACS']
-                    for a in list:
-                        if a in node_data['name'].upper():
-                            root = Tk()
-                            root.title("请选择下载路径")
-                            ftp.cwd('/TR/')
-                            ftp.cwd("{}".format(a))
-                            filename1="{}".format(node_data["name"]+".mf")
-                            filename2="{}".format(node_data["name"]+".ovf")
-                            filename3="{}".format(node_data["name"]+"-disk1.vmdk")
-                            fname = QFileDialog.getExistingDirectory(self,"请选择下载路径","C:/")
-                            try:
-                                os.chdir(fname)
-                                self.download(ftp,filename1)
-                                self.download(ftp,filename2)
-                                self.download(ftp,filename3)
-                            except OSError as e:
-                                print(e)
-                            ftp.close()
-                            root.destroy()
-                        else:
-                            continue
-                    
+                url = "/".join([GlobalVar.downloadurl, node_data['marked'], node_data['name']])
+                size = node_data['size']
+                if url in GlobalVar.nowurllist:
+                    QMessageBox.information(self,u'下载中', u'{}正在下载安装中，请稍等！'.format(node_data['name'][:-4]), QMessageBox.Yes)
                 else:
-                    pass
+                    reply = QMessageBox.question(self, u'提示', u'是否下载安装所需系统包', QMessageBox.Yes, QMessageBox.No)
+                    if reply == QMessageBox.Yes:
+                        from gns3.main_window import MainWindow
+                        MainWindow.instance().showtab.setCurrentIndex(0)
+                        if node_data['marked'] == 'router':
+                            iospath = GlobalVar.getpath(0)
+                            if os.path.exists(iospath):
+                                pass
+                            else:
+                                os.makedirs(iospath)
+                            GlobalVar.nowurllist.add(url)
+                            newpath = os.path.join(iospath,node_data['name'])
+                            newmisstion = wget(url,size,newpath,GlobalVar.area)
+                            GlobalVar.downloadobjectlist.append(newmisstion)
+                            newgame = newthreading(newmisstion)
+                            newgame.start()
+                        else:
+                            root = Tk()
+                            root.title("请选择ova镜像下载路径")
+                            fname = QFileDialog.getExistingDirectory(self, "请选择下载路径", "C:/")
+                            if fname:
+                                GlobalVar.nowurllist.add(url)
+                                newpath = os.path.join(fname, node_data['name'])
+                                newmisstion = wget(url, size, newpath, GlobalVar.area)
+                                GlobalVar.downloadobjectlist.append(newmisstion)
+                                newgame = newthreading(newmisstion)
+                                newgame.start()
+                            else:
+                                pass
+                        # newgame.join()
+                    else:
+                        pass
             else:
                 event.setDropAction(QtCore.Qt.CopyAction)
                 event.accept()
                 if event.keyboardModifiers() == QtCore.Qt.ShiftModifier:
                     max_nodes_per_line = 10  # max number of nodes on a single line
                     offset = 100  # spacing between elements
-                    integer, ok = QtWidgets.QInputDialog.getInt(self, "Nodes", "Number of nodes:", 2, 1, 100, 1)
+                    integer, ok = QtWidgets.QInputDialog.getInt(self, "节点", "可添加节点的数量：", 2, 1, 100, 1)
                     if ok:
                         for node_number in range(integer):
                             node_item = self.createNode(node_data, event.pos())
                             if node_item is None:
                                 # stop if there is any error
                                 break
-                            x = node_item.pos().x() - (node_item.boundingRect().width() / 2) + (node_number % max_nodes_per_line) * offset
-                            y = node_item.pos().y() - (node_item.boundingRect().height() / 2) + (node_number // max_nodes_per_line) * offset
+                            x = node_item.pos().x() - (node_item.boundingRect().width() / 2) + (
+                                                                                               node_number % max_nodes_per_line) * offset
+                            y = node_item.pos().y() - (node_item.boundingRect().height() / 2) + (
+                                                                                                node_number // max_nodes_per_line) * offset
                             node_item.setPos(x, y)
                 else:
                     self.createNode(node_data, event.pos())
@@ -745,13 +756,13 @@ class GraphicsView(QtWidgets.QGraphicsView):
             event.acceptProposedAction()
         else:
             event.ignore()
-            
-    def download(self,ftp,filename):
+
+    def download(self, ftp, filename):
         bufsize = 1024
-        file_handle=open(filename,"wb").write
-        ftp.retrbinary('RETR ' +  filename,file_handle,bufsize)
-        
-#         if node["name"]=="GNU Health Server":
+        file_handle = open(filename, "wb").write
+        ftp.retrbinary('RETR ' +  filename, file_handle, bufsize)
+        ftp.close()
+
     def _showDeviceContextualMenu(self, pos):
         """
         Create and display the device contextual menu on the view.
@@ -776,136 +787,136 @@ class GraphicsView(QtWidgets.QGraphicsView):
             return
 
         if True in list(map(lambda item: isinstance(item, NodeItem), items)):
-            configure_action = QtWidgets.QAction("Configure", menu)
+            configure_action = QtWidgets.QAction("配置", menu)
             configure_action.setIcon(QtGui.QIcon(':/icons/configuration.svg'))
             configure_action.triggered.connect(self.configureActionSlot)
             menu.addAction(configure_action)
 
             # Action: Change hostname
-            change_hostname_action = QtWidgets.QAction("Change hostname", menu)
+            change_hostname_action = QtWidgets.QAction("修改主机名", menu)
             change_hostname_action.setIcon(QtGui.QIcon(':/icons/show-hostname.svg'))
             change_hostname_action.triggered.connect(self.changeHostnameActionSlot)
             menu.addAction(change_hostname_action)
 
             # Action: Change symbol
-            change_symbol_action = QtWidgets.QAction("Change symbol", menu)
+            change_symbol_action = QtWidgets.QAction("修改图标", menu)
             change_symbol_action.setIcon(QtGui.QIcon(':/icons/node_conception.svg'))
             change_symbol_action.triggered.connect(self.changeSymbolActionSlot)
             menu.addAction(change_symbol_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "vmDir"), items)):
             # Action: Show in file manager
-            show_in_file_manager_action = QtWidgets.QAction("Show in file manager", menu)
+            show_in_file_manager_action = QtWidgets.QAction("在文件管理中显示", menu)
             show_in_file_manager_action.setIcon(QtGui.QIcon(':/icons/open.svg'))
             show_in_file_manager_action.triggered.connect(self.showInFileManagerSlot)
             menu.addAction(show_in_file_manager_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "console"), items)):
-            console_action = QtWidgets.QAction("Console", menu)
+            console_action = QtWidgets.QAction("打开命令行", menu)
             console_action.setIcon(QtGui.QIcon(':/icons/console.svg'))
             console_action.triggered.connect(self.consoleActionSlot)
             menu.addAction(console_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "console"), items)):
-            console_edit_action = QtWidgets.QAction("Custom console", menu)
+            console_edit_action = QtWidgets.QAction("自定义命令行", menu)
             console_edit_action.setIcon(QtGui.QIcon(':/icons/console_edit.svg'))
             console_edit_action.triggered.connect(self.customConsoleActionSlot)
             menu.addAction(console_edit_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "auxConsole"), items)):
-            aux_console_action = QtWidgets.QAction("Auxiliary console", menu)
+            aux_console_action = QtWidgets.QAction("辅助命令行", menu)
             aux_console_action.setIcon(QtGui.QIcon(':/icons/aux-console.svg'))
             aux_console_action.triggered.connect(self.auxConsoleActionSlot)
             menu.addAction(aux_console_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "importConfig"), items)):
-            import_config_action = QtWidgets.QAction("Import config", menu)
+            import_config_action = QtWidgets.QAction("导入配置", menu)
             import_config_action.setIcon(QtGui.QIcon(':/icons/import_config.svg'))
             import_config_action.triggered.connect(self.importConfigActionSlot)
             menu.addAction(import_config_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "exportConfig"), items)):
-            export_config_action = QtWidgets.QAction("Export config", menu)
+            export_config_action = QtWidgets.QAction("导出配置", menu)
             export_config_action.setIcon(QtGui.QIcon(':/icons/export_config.svg'))
             export_config_action.triggered.connect(self.exportConfigActionSlot)
             menu.addAction(export_config_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "saveConfig"), items)):
-            save_config_action = QtWidgets.QAction("Save config", menu)
+            save_config_action = QtWidgets.QAction("保存配置", menu)
             save_config_action.setIcon(QtGui.QIcon(':/icons/save.svg'))
             save_config_action.triggered.connect(self.saveConfigActionSlot)
             menu.addAction(save_config_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "startPacketCapture"), items)):
-            capture_action = QtWidgets.QAction("Capture", menu)
+            capture_action = QtWidgets.QAction("抓包", menu)
             capture_action.setIcon(QtGui.QIcon(':/icons/inspect.svg'))
             capture_action.triggered.connect(self.captureActionSlot)
             menu.addAction(capture_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "idlepc"), items)):
-            idlepc_action = QtWidgets.QAction("Idle-PC", menu)
+            idlepc_action = QtWidgets.QAction("计算Idle-PC", menu)
             idlepc_action.setIcon(QtGui.QIcon(':/icons/calculate.svg'))
             idlepc_action.triggered.connect(self.idlepcActionSlot)
             menu.addAction(idlepc_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "idlepc"), items)):
-            auto_idlepc_action = QtWidgets.QAction("Auto Idle-PC", menu)
+            auto_idlepc_action = QtWidgets.QAction("自动配置Idle-PC", menu)
             auto_idlepc_action.setIcon(QtGui.QIcon(':/icons/calculate.svg'))
             auto_idlepc_action.triggered.connect(self.autoIdlepcActionSlot)
             menu.addAction(auto_idlepc_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "start"), items)):
-            start_action = QtWidgets.QAction("Start", menu)
+            start_action = QtWidgets.QAction("运行", menu)
             start_action.setIcon(QtGui.QIcon(':/icons/start.svg'))
             start_action.triggered.connect(self.startActionSlot)
             menu.addAction(start_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "suspend"), items)):
-            suspend_action = QtWidgets.QAction("Suspend", menu)
+            suspend_action = QtWidgets.QAction("暂停", menu)
             suspend_action.setIcon(QtGui.QIcon(':/icons/pause.svg'))
             suspend_action.triggered.connect(self.suspendActionSlot)
             menu.addAction(suspend_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "stop"), items)):
-            stop_action = QtWidgets.QAction("Stop", menu)
+            stop_action = QtWidgets.QAction("终止", menu)
             stop_action.setIcon(QtGui.QIcon(':/icons/stop.svg'))
             stop_action.triggered.connect(self.stopActionSlot)
             menu.addAction(stop_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "reload"), items)):
-            reload_action = QtWidgets.QAction("Reload", menu)
+            reload_action = QtWidgets.QAction("重启", menu)
             reload_action.setIcon(QtGui.QIcon(':/icons/reload.svg'))
             reload_action.triggered.connect(self.reloadActionSlot)
             menu.addAction(reload_action)
 
         if True in list(map(lambda item: isinstance(item, NoteItem) or isinstance(item, ShapeItem) or isinstance(item, ImageItem), items)):
-            duplicate_action = QtWidgets.QAction("Duplicate", menu)
+            duplicate_action = QtWidgets.QAction("重复", menu)
             duplicate_action.setIcon(QtGui.QIcon(':/icons/new.svg'))
             duplicate_action.triggered.connect(self.duplicateActionSlot)
             menu.addAction(duplicate_action)
 
         if True in list(map(lambda item: isinstance(item, NoteItem), items)):
-            text_edit_action = QtWidgets.QAction("Text edit", menu)
+            text_edit_action = QtWidgets.QAction("编辑", menu)
             text_edit_action.setIcon(QtGui.QIcon(':/icons/show-hostname.svg'))  # TODO: change icon for text edit
             text_edit_action.triggered.connect(self.textEditActionSlot)
             menu.addAction(text_edit_action)
 
         if True in list(map(lambda item: isinstance(item, ShapeItem), items)):
-            style_action = QtWidgets.QAction("Style", menu)
+            style_action = QtWidgets.QAction("风格", menu)
             style_action.setIcon(QtGui.QIcon(':/icons/drawing.svg'))
             style_action.triggered.connect(self.styleActionSlot)
             menu.addAction(style_action)
 
         if True in list(map(lambda item: isinstance(item, NodeItem) and hasattr(item.node(), "commandLine"), items)):
             # Action: Get command line
-            show_in_file_manager_action = QtWidgets.QAction("Command line", menu)
+            show_in_file_manager_action = QtWidgets.QAction("命令行", menu)
             show_in_file_manager_action.setIcon(QtGui.QIcon(':/icons/console.svg'))
             show_in_file_manager_action.triggered.connect(self.getCommandLineSlot)
             menu.addAction(show_in_file_manager_action)
 
         if True in list(map(lambda item: isinstance(item, NoteItem), items)) and False in list(map(lambda item: item.parentItem() is None, items)):
             # action only for port labels
-            reset_label_position_action = QtWidgets.QAction("Reset position", menu)
+            reset_label_position_action = QtWidgets.QAction("复位", menu)
             reset_label_position_action.setIcon(QtGui.QIcon(':/icons/reset.svg'))
             reset_label_position_action.triggered.connect(self.resetLabelPositionActionSlot)
             menu.addAction(reset_label_position_action)
@@ -914,27 +925,27 @@ class GraphicsView(QtWidgets.QGraphicsView):
         if True in list(map(lambda item: item.parentItem() is None, items)):
 
             if len(items) > 1:
-                horizontal_align_action = QtWidgets.QAction("Align horizontally", menu)
+                horizontal_align_action = QtWidgets.QAction("水平对齐", menu)
                 horizontal_align_action.setIcon(QtGui.QIcon(':/icons/horizontally.svg'))
                 horizontal_align_action.triggered.connect(self.horizontalAlignmentSlot)
                 menu.addAction(horizontal_align_action)
 
-                vertical_align_action = QtWidgets.QAction("Align vertically", menu)
+                vertical_align_action = QtWidgets.QAction("垂直对齐", menu)
                 vertical_align_action.setIcon(QtGui.QIcon(':/icons/vertically.svg'))
                 vertical_align_action.triggered.connect(self.verticalAlignmentSlot)
                 menu.addAction(vertical_align_action)
 
-            raise_layer_action = QtWidgets.QAction("Raise one layer", menu)
+            raise_layer_action = QtWidgets.QAction("上移一层", menu)
             raise_layer_action.setIcon(QtGui.QIcon(':/icons/raise_z_value.svg'))
             raise_layer_action.triggered.connect(self.raiseLayerActionSlot)
             menu.addAction(raise_layer_action)
 
-            lower_layer_action = QtWidgets.QAction("Lower one layer", menu)
+            lower_layer_action = QtWidgets.QAction("下降一层", menu)
             lower_layer_action.setIcon(QtGui.QIcon(':/icons/lower_z_value.svg'))
             lower_layer_action.triggered.connect(self.lowerLayerActionSlot)
             menu.addAction(lower_layer_action)
 
-            delete_action = QtWidgets.QAction("Delete", menu)
+            delete_action = QtWidgets.QAction("删除", menu)
             delete_action.setIcon(QtGui.QIcon(':/icons/delete.svg'))
             delete_action.triggered.connect(self.deleteActionSlot)
             menu.addAction(delete_action)
@@ -1542,10 +1553,10 @@ class GraphicsView(QtWidgets.QGraphicsView):
                 selected_nodes.append(item.node())
         if selected_nodes:
             if len(selected_nodes) > 1:
-                question = "Do you want to permanently delete these {} nodes?".format(len(selected_nodes))
+                question = "你想要永久删除这些{}节点设备吗?".format(len(selected_nodes))
             else:
-                question = "Do you want to permanently delete {}?".format(selected_nodes[0].name())
-            reply = QtWidgets.QMessageBox.question(self, "Delete", question,
+                question = "你想要永久删除{}吗?".format(selected_nodes[0].name())
+            reply = QtWidgets.QMessageBox.question(self, "删除", question,
                                                    QtWidgets.QMessageBox.Yes, QtWidgets.QMessageBox.No)
             if reply == QtWidgets.QMessageBox.No:
                 return

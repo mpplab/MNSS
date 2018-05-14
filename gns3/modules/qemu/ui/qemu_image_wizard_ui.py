@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/qemu/ui/qemu_image_wizard.ui'
+# Form implementation generated from reading ui file 'qemu_image_wizard.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_QemuImageWizard(object):
-
     def setupUi(self, QemuImageWizard):
         QemuImageWizard.setObjectName("QemuImageWizard")
         QemuImageWizard.resize(535, 369)
@@ -294,11 +292,11 @@ class Ui_QemuImageWizard(object):
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.uiSizeSpinBox = QtWidgets.QSpinBox(self.uiSizeAndLocationWizardPage)
         self.uiSizeSpinBox.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.uiSizeSpinBox.setProperty("showGroupSeparator", True)
         self.uiSizeSpinBox.setMinimum(0)
         self.uiSizeSpinBox.setMaximum(2000000)
         self.uiSizeSpinBox.setSingleStep(1000)
         self.uiSizeSpinBox.setProperty("value", 30000)
-        self.uiSizeSpinBox.setProperty("showGroupSeparator", True)
         self.uiSizeSpinBox.setObjectName("uiSizeSpinBox")
         self.horizontalLayout_7.addWidget(self.uiSizeSpinBox)
         self.gridLayout_4.addLayout(self.horizontalLayout_7, 1, 1, 1, 1)
@@ -311,34 +309,34 @@ class Ui_QemuImageWizard(object):
 
     def retranslateUi(self, QemuImageWizard):
         _translate = QtCore.QCoreApplication.translate
-        QemuImageWizard.setWindowTitle(_translate("QemuImageWizard", "Qemu image creator"))
-        self.uiBinaryWizardPage.setTitle(_translate("QemuImageWizard", "Binary and format"))
-        self.uiBinaryWizardPage.setSubTitle(_translate("QemuImageWizard", "Please select a qemu-img binary, and the format for your new image."))
-        self.uiBinaryLabel.setText(_translate("QemuImageWizard", "Qemu-img binary:"))
-        self.uiFormatLabel.setText(_translate("QemuImageWizard", "Image format:"))
+        QemuImageWizard.setWindowTitle(_translate("QemuImageWizard", "Qemu镜像创建"))
+        self.uiBinaryWizardPage.setTitle(_translate("QemuImageWizard", "镜像与格式"))
+        self.uiBinaryWizardPage.setSubTitle(_translate("QemuImageWizard", "请选择一个QEMU二进制镜像，并创建您的新的镜像格式。"))
+        self.uiBinaryLabel.setText(_translate("QemuImageWizard", "镜像："))
+        self.uiFormatLabel.setText(_translate("QemuImageWizard", "格式："))
         self.uiFormatQcow2Radio.setToolTip(_translate("QemuImageWizard", "Qcow2 is the current Qemu format, supporting many special features."))
         self.uiFormatQcowRadio.setToolTip(_translate("QemuImageWizard", "Qcow is a legacy Qemu format that is also supported by VirtualBox."))
         self.uiFormatVhdRadio.setToolTip(_translate("QemuImageWizard", "VHD is the format used by Microsoft VirtualPC, and is also supported by Qemu and VirtualBox.\n"
-                                                    "On Windows 7 and above, it can be mounted on the host PC."))
+"On Windows 7 and above, it can be mounted on the host PC."))
         self.uiFormatVdiRadio.setToolTip(_translate("QemuImageWizard", "VDI is the native format of VirtualBox"))
         self.uiFormatVmdkRadio.setToolTip(_translate("QemuImageWizard", "VMDK is the native format for VMware and is also supported by Qemu and VirtualBox."))
         self.uiFormatRawRadio.setToolTip(_translate("QemuImageWizard", "Raw image files represent the actual data on the image, with zero special features.\n"
-                                                    "It can easily be converted to various other formats by various utilities, making it the most portable format."))
+"It can easily be converted to various other formats by various utilities, making it the most portable format."))
         self.uiFormatRawRadio.setText(_translate("QemuImageWizard", "Raw"))
-        self.uiQcow2OptionsWizardPage.setTitle(_translate("QemuImageWizard", "Qcow2 options"))
-        self.uiSizeOptionsGroupBox.setTitle(_translate("QemuImageWizard", "Size options"))
-        self.uiPreallocationLabel.setText(_translate("QemuImageWizard", "Preallocation:"))
+        self.uiQcow2OptionsWizardPage.setTitle(_translate("QemuImageWizard", "qcow2选项"))
+        self.uiSizeOptionsGroupBox.setTitle(_translate("QemuImageWizard", "大小选项"))
+        self.uiPreallocationLabel.setText(_translate("QemuImageWizard", "分配："))
         self.uiQcow2PreallocationOffRadio.setToolTip(_translate("QemuImageWizard", "The file only takes as much space from the host as needed. The VM will still see the full capacity you specify."))
         self.uiQcow2PreallocationOffRadio.setText(_translate("QemuImageWizard", "off"))
         self.uiQcow2PreallocationMetadataRadio.setToolTip(_translate("QemuImageWizard", "Same as \"off\", but preallocates enough space to hold any potenial metadata for the HDD.\n"
-                                                                     "This improves performance when the image file needs to grow."))
+"This improves performance when the image file needs to grow."))
         self.uiQcow2PreallocationMetadataRadio.setText(_translate("QemuImageWizard", "metadata"))
         self.uiQcow2PreallocationFallocRadio.setToolTip(_translate("QemuImageWizard", "Same as \"full\", but uses C\'s posix_fallocate() if available on the host, instead of zero filling the file."))
         self.uiQcow2PreallocationFallocRadio.setText(_translate("QemuImageWizard", "falloc"))
         self.uiQcow2PreallocationFullRadio.setToolTip(_translate("QemuImageWizard", "The file will start off at the full size you specify.\n"
-                                                                 "Free space will be zero filled."))
+"Free space will be zero filled."))
         self.uiQcow2PreallocationFullRadio.setText(_translate("QemuImageWizard", "full"))
-        self.uiClusterSizeLabel.setText(_translate("QemuImageWizard", "Cluster size:"))
+        self.uiClusterSizeLabel.setText(_translate("QemuImageWizard", "簇的大小："))
         self.uiQcow2ClusterSizeComboBox.setItemText(0, _translate("QemuImageWizard", "<default>"))
         self.uiQcow2ClusterSizeComboBox.setItemText(1, _translate("QemuImageWizard", "512"))
         self.uiQcow2ClusterSizeComboBox.setItemText(2, _translate("QemuImageWizard", "1k"))
@@ -354,7 +352,7 @@ class Ui_QemuImageWizard(object):
         self.uiQcow2ClusterSizeComboBox.setItemText(12, _translate("QemuImageWizard", "1024k"))
         self.uiQcow2ClusterSizeComboBox.setItemText(13, _translate("QemuImageWizard", "2048k"))
         self.uiRefcountsGroupBox.setTitle(_translate("QemuImageWizard", "Refcounts"))
-        self.uiRefcountEntrySizeLabel.setText(_translate("QemuImageWizard", "Refcount entry size:"))
+        self.uiRefcountEntrySizeLabel.setText(_translate("QemuImageWizard", "refcount出入大小："))
         self.uiRefcountEntrySizeComboBox.setItemText(0, _translate("QemuImageWizard", "<default>"))
         self.uiRefcountEntrySizeComboBox.setItemText(1, _translate("QemuImageWizard", "1"))
         self.uiRefcountEntrySizeComboBox.setItemText(2, _translate("QemuImageWizard", "2"))
@@ -363,36 +361,37 @@ class Ui_QemuImageWizard(object):
         self.uiRefcountEntrySizeComboBox.setItemText(5, _translate("QemuImageWizard", "16"))
         self.uiRefcountEntrySizeComboBox.setItemText(6, _translate("QemuImageWizard", "32"))
         self.uiRefcountEntrySizeComboBox.setItemText(7, _translate("QemuImageWizard", "64"))
-        self.uiLazyRefcountsCheckBox.setText(_translate("QemuImageWizard", "Lazy refcounts"))
-        self.uiVhdOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VHD options"))
-        self.uiVhdFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "Image file sizing mode"))
+        self.uiLazyRefcountsCheckBox.setText(_translate("QemuImageWizard", "懒惰的refcounts"))
+        self.uiVhdOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VHD选项"))
+        self.uiVhdFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "镜像文件大小模式"))
         self.uiVhdFileSizeModeDynamicRadio.setToolTip(_translate("QemuImageWizard", "The file only takes as much space from the host as needed. The VM will still see the full capacity you specify."))
         self.uiVhdFileSizeModeDynamicRadio.setText(_translate("QemuImageWizard", "Dynamic"))
         self.uiVhdFileSizeModeFixedRadio.setToolTip(_translate("QemuImageWizard", "The file will start off at the full size you specify."))
         self.uiVhdFileSizeModeFixedRadio.setText(_translate("QemuImageWizard", "Fixed"))
-        self.uiVdiOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VDI options"))
-        self.uiVdiFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "Image file sizing mode"))
+        self.uiVdiOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VDI选项"))
+        self.uiVdiFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "进项文件大小模式"))
         self.uiVdiFileSizeModeDynamicRadio.setToolTip(_translate("QemuImageWizard", "The file only takes as much space from the host as needed. The VM will still see the full capacity you specify."))
         self.uiVdiFileSizeModeDynamicRadio.setText(_translate("QemuImageWizard", "Dynamic"))
         self.uiVdiFileSizeModeFixedRadio.setToolTip(_translate("QemuImageWizard", "The file will start off at the full size you specify."))
         self.uiVdiFileSizeModeFixedRadio.setText(_translate("QemuImageWizard", "Fixed"))
-        self.uiVmdkOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VMDK options"))
-        self.uiVmdkAdapterTypeGroupBox.setTitle(_translate("QemuImageWizard", "Adapter type"))
+        self.uiVmdkOptionsWizardPage.setTitle(_translate("QemuImageWizard", "VMDK选项"))
+        self.uiVmdkAdapterTypeGroupBox.setTitle(_translate("QemuImageWizard", "适配器类型"))
         self.uiVmdkAdapterTypeIdeRadio.setText(_translate("QemuImageWizard", "IDE"))
         self.uiVmdkAdapterTypeLsiRadio.setText(_translate("QemuImageWizard", "LSI Logic"))
         self.uiVmdkAdapterTypeBusRadio.setText(_translate("QemuImageWizard", "BusLogic"))
         self.uiVmdkAdapterTypeEsxRadio.setText(_translate("QemuImageWizard", "Legacy (ESX)"))
-        self.uiVmdkFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "Image file sizing mode"))
+        self.uiVmdkFileSizeModeGroupBox.setTitle(_translate("QemuImageWizard", "镜像文件大小模式"))
         self.uiVmdkFileSizeModeSparseRadio.setToolTip(_translate("QemuImageWizard", "The file only takes as much space from the host as needed. The VM will still see the full capacity you specify."))
         self.uiVmdkFileSizeModeSparseRadio.setText(_translate("QemuImageWizard", "Sparse"))
         self.uiVmdkFileSizeModeFlatRadio.setToolTip(_translate("QemuImageWizard", "The file will start off at the full size you specify."))
         self.uiVmdkFileSizeModeFlatRadio.setText(_translate("QemuImageWizard", "Flat"))
-        self.uiVmdkMiscGroupBox.setTitle(_translate("QemuImageWizard", "Misc"))
+        self.uiVmdkMiscGroupBox.setTitle(_translate("QemuImageWizard", "其他"))
         self.uiVmdkStreamOptimizedCheckBox.setText(_translate("QemuImageWizard", "Stream optimized"))
         self.uiVmdkSplit2gCheckBox.setText(_translate("QemuImageWizard", "Split every 2 GiB"))
         self.uiVmdkZeroedGrainCheckBox.setText(_translate("QemuImageWizard", "Zeroed grain"))
-        self.uiSizeAndLocationWizardPage.setTitle(_translate("QemuImageWizard", "Size and location"))
-        self.uiLocationLabel.setText(_translate("QemuImageWizard", "File location:"))
-        self.uiLocationBrowseToolButton.setText(_translate("QemuImageWizard", "Browse"))
-        self.uiSizeLabel.setText(_translate("QemuImageWizard", "Disk size:"))
+        self.uiSizeAndLocationWizardPage.setTitle(_translate("QemuImageWizard", "大小和位置"))
+        self.uiLocationLabel.setText(_translate("QemuImageWizard", "文件路径："))
+        self.uiLocationBrowseToolButton.setText(_translate("QemuImageWizard", "  浏览  "))
+        self.uiSizeLabel.setText(_translate("QemuImageWizard", "磁盘大小："))
         self.uiSizeSpinBox.setSuffix(_translate("QemuImageWizard", " MiB"))
+

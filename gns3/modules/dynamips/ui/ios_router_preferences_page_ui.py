@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/dynamips/ui/ios_router_preferences_page.ui'
+# Form implementation generated from reading ui file 'ios_router_preferences_page.ui'
 #
-# Created: Thu May  5 09:39:07 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -24,7 +23,7 @@ class Ui_IOSRouterPreferencesPageWidget(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.uiIOSRoutersTreeWidget.sizePolicy().hasHeightForWidth())
         self.uiIOSRoutersTreeWidget.setSizePolicy(sizePolicy)
-        self.uiIOSRoutersTreeWidget.setMaximumSize(QtCore.QSize(160, 16777215))
+        self.uiIOSRoutersTreeWidget.setMaximumSize(QtCore.QSize(1000, 16777215))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -47,6 +46,7 @@ class Ui_IOSRouterPreferencesPageWidget(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.uiIOSRouterInfoTreeWidget.sizePolicy().hasHeightForWidth())
         self.uiIOSRouterInfoTreeWidget.setSizePolicy(sizePolicy)
+        self.uiIOSRouterInfoTreeWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.uiIOSRouterInfoTreeWidget.setIndentation(10)
         self.uiIOSRouterInfoTreeWidget.setAllColumnsShowFocus(True)
         self.uiIOSRouterInfoTreeWidget.setObjectName("uiIOSRouterInfoTreeWidget")
@@ -77,12 +77,12 @@ class Ui_IOSRouterPreferencesPageWidget(object):
 
     def retranslateUi(self, IOSRouterPreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        IOSRouterPreferencesPageWidget.setWindowTitle(_translate("IOSRouterPreferencesPageWidget", "IOS routers"))
-        IOSRouterPreferencesPageWidget.setAccessibleName(_translate("IOSRouterPreferencesPageWidget", "IOS router templates"))
+        IOSRouterPreferencesPageWidget.setWindowTitle(_translate("IOSRouterPreferencesPageWidget", "IOS路由器"))
+        IOSRouterPreferencesPageWidget.setAccessibleName(_translate("IOSRouterPreferencesPageWidget", "IOS路由器模板"))
         self.uiIOSRouterInfoTreeWidget.headerItem().setText(0, _translate("IOSRouterPreferencesPageWidget", "1"))
         self.uiIOSRouterInfoTreeWidget.headerItem().setText(1, _translate("IOSRouterPreferencesPageWidget", "2"))
-        self.uiNewIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "&New"))
-        self.uiDecompressIOSPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "&Decompress"))
-        self.uiEditIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "&Edit"))
-        self.uiDeleteIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "&Delete"))
+        self.uiNewIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "添加"))
+        self.uiDecompressIOSPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "减压"))
+        self.uiEditIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "编辑"))
+        self.uiDeleteIOSRouterPushButton.setText(_translate("IOSRouterPreferencesPageWidget", "删除"))
 

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>IOU device configuration</string>
+   <string>IOU设备配置</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -30,13 +30,13 @@
           <string notr="true"/>
          </property>
          <property name="title">
-          <string>General</string>
+          <string>通用</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="uiNameLabel">
             <property name="text">
-             <string>Name:</string>
+             <string>名称：</string>
             </property>
            </widget>
           </item>
@@ -46,7 +46,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="uiSymbolLabel">
             <property name="text">
-             <string>Symbol:</string>
+             <string>图标：</string>
             </property>
            </widget>
           </item>
@@ -58,7 +58,7 @@
             <item>
              <widget class="QToolButton" name="uiSymbolToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -70,7 +70,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="uiCategoryLabel">
             <property name="text">
-             <string>Category:</string>
+             <string>种类：</string>
             </property>
            </widget>
           </item>
@@ -80,7 +80,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="uiIOUImageLabel">
             <property name="text">
-             <string>IOU image path:</string>
+             <string>IOU镜像路径:</string>
             </property>
            </widget>
           </item>
@@ -92,7 +92,7 @@
             <item>
              <widget class="QToolButton" name="uiIOUImageToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -104,7 +104,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="uiStartupConfigLabel">
             <property name="text">
-             <string>Startup-config:</string>
+             <string>启动文件配置：</string>
             </property>
            </widget>
           </item>
@@ -116,7 +116,7 @@
             <item>
              <widget class="QToolButton" name="uiStartupConfigToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -128,7 +128,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="uiPrivateConfigLabel">
             <property name="text">
-             <string>Private-config:</string>
+             <string>私有配置：</string>
             </property>
            </widget>
           </item>
@@ -140,7 +140,7 @@
             <item>
              <widget class="QToolButton" name="uiPrivateConfigToolButton">
               <property name="text">
-               <string>&amp;Browse...</string>
+               <string>  浏览  </string>
               </property>
               <property name="toolButtonStyle">
                <enum>Qt::ToolButtonTextOnly</enum>
@@ -152,7 +152,7 @@
           <item row="8" column="0">
            <widget class="QLabel" name="uiConsolePortLabel">
             <property name="text">
-             <string>Console port:</string>
+             <string>控制端口：</string>
             </property>
            </widget>
           </item>
@@ -166,7 +166,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiDefaultNameFormatLabel">
             <property name="text">
-             <string>Default name format:</string>
+             <string>默认名称格式：</string>
             </property>
            </widget>
           </item>
@@ -183,7 +183,7 @@
        <item>
         <widget class="QGroupBox" name="uiOtherSettingsGroupBox">
          <property name="title">
-          <string>Other settings</string>
+          <string>其他设置</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0" colspan="2">
@@ -192,7 +192,7 @@
              <bool>true</bool>
             </property>
             <property name="text">
-             <string>Enable layer 1 keepalive messages (testing only)</string>
+             <string>使1层实时消息（测试）</string>
             </property>
             <property name="checked">
              <bool>false</bool>
@@ -202,7 +202,7 @@
           <item row="1" column="0" colspan="2">
            <widget class="QCheckBox" name="uiDefaultValuesCheckBox">
             <property name="text">
-             <string>Use default IOU values for memories</string>
+             <string>使用默认的IOU值存储</string>
             </property>
             <property name="checked">
              <bool>true</bool>
@@ -212,7 +212,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="uiRamLabel">
             <property name="text">
-             <string>RAM size:</string>
+             <string>RAM大小:</string>
             </property>
            </widget>
           </item>
@@ -247,7 +247,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="uiNvramLabel">
             <property name="text">
-             <string>NVRAM size:</string>
+             <string>NVRAM大小:</string>
             </property>
            </widget>
           </item>
@@ -299,19 +299,19 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Network</string>
+       <string>网络</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_5">
        <item row="0" column="0">
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Adapters</string>
+          <string>适配器</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QLabel" name="uiEthernetAdaptersLabel">
             <property name="text">
-             <string>Ethernet adapters:</string>
+             <string>以太网适配器：</string>
             </property>
            </widget>
           </item>
@@ -337,7 +337,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiSerialAdaptersLabel">
             <property name="text">
-             <string>Serial adapters:</string>
+             <string>串口适配器：</string>
             </property>
            </widget>
           </item>

@@ -30,9 +30,15 @@ class Ui_NewApplianceDialog(object):
         self.uiAddIOSRouterRadioButton = QtWidgets.QRadioButton(NewApplianceDialog)
         self.uiAddIOSRouterRadioButton.setObjectName("uiAddIOSRouterRadioButton")
         self.verticalLayout.addWidget(self.uiAddIOSRouterRadioButton)
-        self.uiAddHospitalRadioButton = QtWidgets.QRadioButton(NewApplianceDialog)
-        self.uiAddHospitalRadioButton.setObjectName("uiAddHospitalRadioButton")
-        self.verticalLayout.addWidget(self.uiAddHospitalRadioButton)
+        self.uiAddIOUDeviceRadioButton = QtWidgets.QRadioButton(NewApplianceDialog)
+        self.uiAddIOUDeviceRadioButton.setObjectName("uiAddIOUDeviceRadioButton")
+        self.verticalLayout.addWidget(self.uiAddIOUDeviceRadioButton)
+        self.uiAddQemuVMRadioButton = QtWidgets.QRadioButton(NewApplianceDialog)
+        self.uiAddQemuVMRadioButton.setObjectName("uiAddQemuVMRadioButton")
+        self.verticalLayout.addWidget(self.uiAddQemuVMRadioButton)
+        self.uiAddVMwareVMRadioButton = QtWidgets.QRadioButton(NewApplianceDialog)
+        self.uiAddVMwareVMRadioButton.setObjectName("uiAddVMwareVMRadioButton")
+        self.verticalLayout.addWidget(self.uiAddVMwareVMRadioButton)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -52,10 +58,12 @@ class Ui_NewApplianceDialog(object):
 
     def retranslateUi(self, NewApplianceDialog):
         _translate = QtCore.QCoreApplication.translate
-        NewApplianceDialog.setWindowTitle(_translate("NewApplianceDialog", "New appliance template"))
-        self.uiImportApplianceTemplatePushButton.setText(_translate("NewApplianceDialog", "Import an appliance template file"))
-        self.label.setText(_translate("NewApplianceDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:x-large; font-weight:600;\">OR</span></p></body></html>"))
-        self.uiAddIOSRouterRadioButton.setText(_translate("NewApplianceDialog", "&Add an IOS router using a real IOS image (supported by Dynamips)"))
-        self.uiAddHospitalRadioButton.setText(_translate("NewApplianceDialog", "Add a Hospital Information System"))
+        NewApplianceDialog.setWindowTitle(_translate("NewApplianceDialog", "添加新的设备"))
+        self.uiImportApplianceTemplatePushButton.setText(_translate("NewApplianceDialog", "导入设备模板文件"))
+        self.label.setText(_translate("NewApplianceDialog", "<html><head/><body><p align=\"center\">或者</p></body></html>"))
+        self.uiAddIOSRouterRadioButton.setText(_translate("NewApplianceDialog", "使用IOS镜像添加一个IOS路由器（支持Dynamips）"))
+        self.uiAddIOUDeviceRadioButton.setText(_translate("NewApplianceDialog", "使用的L2或L3的镜像添加IOU设备"))
+        self.uiAddQemuVMRadioButton.setText(_translate("NewApplianceDialog", "添加QEMU虚拟机"))
+        self.uiAddVMwareVMRadioButton.setText(_translate("NewApplianceDialog", "添加医院信息系统及其他终端系统"))
 
 from .import resources_rc

@@ -26,6 +26,7 @@ import psutil
 from .qt import QtCore, QtWidgets
 from .version import __version__
 from .utils import parse_version
+from gns3.globalvar import GlobalVar
 
 import logging
 log = logging.getLogger(__name__)
@@ -46,9 +47,9 @@ class LocalConfig(QtCore.QObject):
         self._last_config_changed = None
 
         if sys.platform.startswith("win"):
-            filename = "gns3_gui.ini"
+            filename = "mnss_gui.ini"
         else:
-            filename = "gns3_gui.conf"
+            filename = "mnss_gui.conf"
 
         self._migrateOldConfigPath()
 
@@ -56,11 +57,11 @@ class LocalConfig(QtCore.QObject):
 
         if sys.platform.startswith("win"):
 
-            # On windows, the system wide configuration file location is %COMMON_APPDATA%/GNS3/gns3_gui.conf
+            # On windows, the system wide configuration file location is %COMMON_APPDATA%/GNS3/mnss_gui.conf
             common_appdata = os.path.expandvars("%COMMON_APPDATA%")
             system_wide_config_file = os.path.join(common_appdata, appname, filename)
         else:
-            # On UNIX-like platforms, the system wide configuration file location is /etc/xdg/GNS3/gns3_gui.conf
+            # On UNIX-like platforms, the system wide configuration file location is /etc/xdg/GNS3/mnss_gui.conf
             system_wide_config_file = os.path.join("/etc/xdg", appname, filename)
 
         if config_file:
@@ -90,6 +91,7 @@ class LocalConfig(QtCore.QObject):
         self._settings.update(user_settings)
         self._migrateOldConfig()
         self._writeConfig()
+        GlobalVar.totalLocalConfig = self
 
     @staticmethod
     def configDirectory():
@@ -202,7 +204,6 @@ class LocalConfig(QtCore.QObject):
             log.error("Could not write the config file {}: {}".format(self._config_file, e))
 
     def checkConfigChanged(self):
-
         try:
             if self._last_config_changed and self._last_config_changed < os.stat(self._config_file).st_mtime:
                 log.info("Client config has changed, reloading it...")
@@ -294,10 +295,8 @@ class LocalConfig(QtCore.QObject):
         :param section: section name
         :param settings: settings to save (dict)
         """
-
         if section not in self._settings:
             self._settings[section] = {}
-
         if self._settings[section] != settings:
             self._settings[section].update(copy.deepcopy(settings))
             log.info("Section %s has changed. Saving configuration", section)

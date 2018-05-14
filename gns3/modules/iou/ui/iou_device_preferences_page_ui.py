@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/iou/ui/iou_device_preferences_page.ui'
+# Form implementation generated from reading ui file 'iou_device_preferences_page.ui'
 #
-# Created: Sun Mar 27 11:39:22 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -37,12 +36,12 @@ class Ui_IOUDevicePreferencesPageWidget(object):
         self.uiIOUDevicesTreeWidget.setObjectName("uiIOUDevicesTreeWidget")
         self.uiIOUDevicesTreeWidget.headerItem().setText(0, "1")
         self.uiIOUDevicesTreeWidget.header().setVisible(False)
-        self.widget = QtWidgets.QWidget(self.splitter)
-        self.widget.setObjectName("widget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(self.splitter)
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.uiIOUDeviceInfoTreeWidget = QtWidgets.QTreeWidget(self.widget)
+        self.uiIOUDeviceInfoTreeWidget = QtWidgets.QTreeWidget(self.layoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -55,14 +54,14 @@ class Ui_IOUDevicePreferencesPageWidget(object):
         self.verticalLayout.addWidget(self.uiIOUDeviceInfoTreeWidget)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.uiNewIOUDevicePushButton = QtWidgets.QPushButton(self.widget)
+        self.uiNewIOUDevicePushButton = QtWidgets.QPushButton(self.layoutWidget)
         self.uiNewIOUDevicePushButton.setObjectName("uiNewIOUDevicePushButton")
         self.horizontalLayout_5.addWidget(self.uiNewIOUDevicePushButton)
-        self.uiEditIOUDevicePushButton = QtWidgets.QPushButton(self.widget)
+        self.uiEditIOUDevicePushButton = QtWidgets.QPushButton(self.layoutWidget)
         self.uiEditIOUDevicePushButton.setEnabled(False)
         self.uiEditIOUDevicePushButton.setObjectName("uiEditIOUDevicePushButton")
         self.horizontalLayout_5.addWidget(self.uiEditIOUDevicePushButton)
-        self.uiDeleteIOUDevicePushButton = QtWidgets.QPushButton(self.widget)
+        self.uiDeleteIOUDevicePushButton = QtWidgets.QPushButton(self.layoutWidget)
         self.uiDeleteIOUDevicePushButton.setEnabled(False)
         self.uiDeleteIOUDevicePushButton.setObjectName("uiDeleteIOUDevicePushButton")
         self.horizontalLayout_5.addWidget(self.uiDeleteIOUDevicePushButton)
@@ -76,10 +75,10 @@ class Ui_IOUDevicePreferencesPageWidget(object):
     def retranslateUi(self, IOUDevicePreferencesPageWidget):
         _translate = QtCore.QCoreApplication.translate
         IOUDevicePreferencesPageWidget.setWindowTitle(_translate("IOUDevicePreferencesPageWidget", "IOU Devices"))
-        IOUDevicePreferencesPageWidget.setAccessibleName(_translate("IOUDevicePreferencesPageWidget", "IOU Device templates"))
+        IOUDevicePreferencesPageWidget.setAccessibleName(_translate("IOUDevicePreferencesPageWidget", "IOU设备模板"))
         self.uiIOUDeviceInfoTreeWidget.headerItem().setText(0, _translate("IOUDevicePreferencesPageWidget", "1"))
         self.uiIOUDeviceInfoTreeWidget.headerItem().setText(1, _translate("IOUDevicePreferencesPageWidget", "2"))
-        self.uiNewIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "&New"))
-        self.uiEditIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "&Edit"))
-        self.uiDeleteIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "&Delete"))
+        self.uiNewIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "添加"))
+        self.uiEditIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "编辑"))
+        self.uiDeleteIOUDevicePushButton.setText(_translate("IOUDevicePreferencesPageWidget", "删除"))
 

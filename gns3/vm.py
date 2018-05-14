@@ -161,8 +161,11 @@ class VM(Node):
         """
 
         if error:
-            log.error("error while setting up {}: {}".format(self.name(), result["message"]))
-            self.server_error_signal.emit(self.id(), result["message"])
+            from gns3.main_window import MainWindow
+            main_window = MainWindow.instance()
+            main_window.uigeneralPreferencesAction.click()
+            # log.error("error while setting up {}: {}".format(self.name(), result["message"]))
+            # self.server_error_signal.emit(self.id(), result["message"])
             return False
 
         self._vm_id = result["vm_id"]

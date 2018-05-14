@@ -24,13 +24,13 @@
      </property>
      <widget class="QWidget" name="uiServerSettingsTabWidget">
       <attribute name="title">
-       <string>General settings</string>
+       <string>常规设置</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QCheckBox" name="uiUseLocalServercheckBox">
          <property name="text">
-          <string>Use the local server</string>
+          <string>使用本地服务器</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -40,7 +40,7 @@
        <item>
         <widget class="QCheckBox" name="uiKVMAccelerationCheckBox">
          <property name="text">
-          <string>Enable KVM acceleration</string>
+          <string>KVM加速度</string>
          </property>
         </widget>
        </item>
@@ -79,7 +79,7 @@
      <item>
       <widget class="QPushButton" name="uiRestoreDefaultsPushButton">
        <property name="text">
-        <string>Restore defaults</string>
+        <string>重置</string>
        </property>
       </widget>
      </item>

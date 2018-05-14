@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Qemu image creator</string>
+   <string>Qemu镜像创建</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -21,16 +21,16 @@
   </property>
   <widget class="QWizardPage" name="uiBinaryWizardPage">
    <property name="title">
-    <string>Binary and format</string>
+    <string>镜像与格式</string>
    </property>
    <property name="subTitle">
-    <string>Please select a qemu-img binary, and the format for your new image.</string>
+    <string>请选择一个QEMU二进制镜像，并创建您的新的镜像格式。</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QLabel" name="uiBinaryLabel">
       <property name="text">
-       <string>Qemu-img binary:</string>
+       <string>镜像：</string>
       </property>
      </widget>
     </item>
@@ -47,7 +47,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="uiFormatLabel">
       <property name="text">
-       <string>Image format:</string>
+       <string>格式：</string>
       </property>
      </widget>
     </item>
@@ -142,19 +142,19 @@ It can easily be converted to various other formats by various utilities, making
   </widget>
   <widget class="QWizardPage" name="uiQcow2OptionsWizardPage">
    <property name="title">
-    <string>Qcow2 options</string>
+    <string>qcow2选项</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QGroupBox" name="uiSizeOptionsGroupBox">
       <property name="title">
-       <string>Size options</string>
+       <string>大小选项</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
         <widget class="QLabel" name="uiPreallocationLabel">
          <property name="text">
-          <string>Preallocation:</string>
+          <string>分配：</string>
          </property>
         </widget>
        </item>
@@ -235,7 +235,7 @@ Free space will be zero filled.</string>
        <item row="1" column="0">
         <widget class="QLabel" name="uiClusterSizeLabel">
          <property name="text">
-          <string>Cluster size:</string>
+          <string>簇的大小：</string>
          </property>
         </widget>
        </item>
@@ -331,7 +331,7 @@ Free space will be zero filled.</string>
        <item row="1" column="0">
         <widget class="QLabel" name="uiRefcountEntrySizeLabel">
          <property name="text">
-          <string>Refcount entry size:</string>
+          <string>refcount出入大小：</string>
          </property>
         </widget>
        </item>
@@ -388,7 +388,7 @@ Free space will be zero filled.</string>
        <item row="0" column="0">
         <widget class="QCheckBox" name="uiLazyRefcountsCheckBox">
          <property name="text">
-          <string>Lazy refcounts</string>
+          <string>懒惰的refcounts</string>
          </property>
          <property name="tristate">
           <bool>false</bool>
@@ -402,13 +402,13 @@ Free space will be zero filled.</string>
   </widget>
   <widget class="QWizardPage" name="uiVhdOptionsWizardPage">
    <property name="title">
-    <string>VHD options</string>
+    <string>VHD选项</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
      <widget class="QGroupBox" name="uiVhdFileSizeModeGroupBox">
       <property name="title">
-       <string>Image file sizing mode</string>
+       <string>镜像文件大小模式</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
@@ -460,13 +460,13 @@ Free space will be zero filled.</string>
   </widget>
   <widget class="QWizardPage" name="uiVdiOptionsWizardPage">
    <property name="title">
-    <string>VDI options</string>
+    <string>VDI选项</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
      <widget class="QGroupBox" name="uiVdiFileSizeModeGroupBox">
       <property name="title">
-       <string>Image file sizing mode</string>
+       <string>进项文件大小模式</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
@@ -518,13 +518,13 @@ Free space will be zero filled.</string>
   </widget>
   <widget class="QWizardPage" name="uiVmdkOptionsWizardPage">
    <property name="title">
-    <string>VMDK options</string>
+    <string>VMDK选项</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
      <widget class="QGroupBox" name="uiVmdkAdapterTypeGroupBox">
       <property name="title">
-       <string>Adapter type</string>
+       <string>适配器类型</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
@@ -589,7 +589,7 @@ Free space will be zero filled.</string>
     <item>
      <widget class="QGroupBox" name="uiVmdkFileSizeModeGroupBox">
       <property name="title">
-       <string>Image file sizing mode</string>
+       <string>镜像文件大小模式</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
@@ -640,7 +640,7 @@ Free space will be zero filled.</string>
     <item>
      <widget class="QGroupBox" name="uiVmdkMiscGroupBox">
       <property name="title">
-       <string>Misc</string>
+       <string>其他</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
@@ -684,13 +684,13 @@ Free space will be zero filled.</string>
   </widget>
   <widget class="QWizardPage" name="uiSizeAndLocationWizardPage">
    <property name="title">
-    <string>Size and location</string>
+    <string>大小和位置</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_4">
     <item row="0" column="0">
      <widget class="QLabel" name="uiLocationLabel">
       <property name="text">
-       <string>File location:</string>
+       <string>文件路径：</string>
       </property>
      </widget>
     </item>
@@ -702,7 +702,7 @@ Free space will be zero filled.</string>
       <item>
        <widget class="QToolButton" name="uiLocationBrowseToolButton">
         <property name="text">
-         <string>Browse</string>
+         <string>  浏览  </string>
         </property>
        </widget>
       </item>
@@ -711,7 +711,7 @@ Free space will be zero filled.</string>
     <item row="1" column="0">
      <widget class="QLabel" name="uiSizeLabel">
       <property name="text">
-       <string>Disk size:</string>
+       <string>磁盘大小：</string>
       </property>
      </widget>
     </item>
@@ -721,6 +721,9 @@ Free space will be zero filled.</string>
        <widget class="QSpinBox" name="uiSizeSpinBox">
         <property name="buttonSymbols">
          <enum>QAbstractSpinBox::UpDownArrows</enum>
+        </property>
+        <property name="showGroupSeparator" stdset="0">
+         <bool>true</bool>
         </property>
         <property name="suffix">
          <string> MiB</string>
@@ -736,9 +739,6 @@ Free space will be zero filled.</string>
         </property>
         <property name="value">
          <number>30000</number>
-        </property>
-        <property name="showGroupSeparator" stdset="0">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -783,11 +783,11 @@ Free space will be zero filled.</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="uiQcow2PreallocationRadios"/>
   <buttongroup name="uiVmdkAdapterRadios"/>
   <buttongroup name="uiFormatRadios"/>
-  <buttongroup name="uiVdiSizeModeRadios"/>
-  <buttongroup name="uiVmdkSizeModeRadios"/>
   <buttongroup name="uiVhdSizeModeRadios"/>
+  <buttongroup name="uiVdiSizeModeRadios"/>
+  <buttongroup name="uiQcow2PreallocationRadios"/>
+  <buttongroup name="uiVmdkSizeModeRadios"/>
  </buttongroups>
 </ui>

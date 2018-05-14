@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/iou/ui/iou_device_configuration_page.ui'
+# Form implementation generated from reading ui file 'iou_device_configuration_page.ui'
 #
-# Created: Thu Feb  4 21:08:13 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -20,6 +19,7 @@ class Ui_iouDeviceConfigPageWidget(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.tab)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.uiGeneralgroupBox = QtWidgets.QGroupBox(self.tab)
         self.uiGeneralgroupBox.setStyleSheet("")
@@ -157,6 +157,7 @@ class Ui_iouDeviceConfigPageWidget(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.tab_2)
+        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_5.setObjectName("gridLayout_5")
         self.groupBox = QtWidgets.QGroupBox(self.tab_2)
         self.groupBox.setObjectName("groupBox")
@@ -200,32 +201,32 @@ class Ui_iouDeviceConfigPageWidget(object):
 
     def retranslateUi(self, iouDeviceConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        iouDeviceConfigPageWidget.setWindowTitle(_translate("iouDeviceConfigPageWidget", "IOU device configuration"))
-        self.uiGeneralgroupBox.setTitle(_translate("iouDeviceConfigPageWidget", "General"))
-        self.uiNameLabel.setText(_translate("iouDeviceConfigPageWidget", "Name:"))
-        self.uiSymbolLabel.setText(_translate("iouDeviceConfigPageWidget", "Symbol:"))
-        self.uiSymbolToolButton.setText(_translate("iouDeviceConfigPageWidget", "&Browse..."))
-        self.uiCategoryLabel.setText(_translate("iouDeviceConfigPageWidget", "Category:"))
-        self.uiIOUImageLabel.setText(_translate("iouDeviceConfigPageWidget", "IOU image path:"))
-        self.uiIOUImageToolButton.setText(_translate("iouDeviceConfigPageWidget", "&Browse..."))
-        self.uiStartupConfigLabel.setText(_translate("iouDeviceConfigPageWidget", "Startup-config:"))
-        self.uiStartupConfigToolButton.setText(_translate("iouDeviceConfigPageWidget", "&Browse..."))
-        self.uiPrivateConfigLabel.setText(_translate("iouDeviceConfigPageWidget", "Private-config:"))
-        self.uiPrivateConfigToolButton.setText(_translate("iouDeviceConfigPageWidget", "&Browse..."))
-        self.uiConsolePortLabel.setText(_translate("iouDeviceConfigPageWidget", "Console port:"))
-        self.uiDefaultNameFormatLabel.setText(_translate("iouDeviceConfigPageWidget", "Default name format:"))
-        self.uiOtherSettingsGroupBox.setTitle(_translate("iouDeviceConfigPageWidget", "Other settings"))
-        self.uiL1KeepalivesCheckBox.setText(_translate("iouDeviceConfigPageWidget", "Enable layer 1 keepalive messages (testing only)"))
-        self.uiDefaultValuesCheckBox.setText(_translate("iouDeviceConfigPageWidget", "Use default IOU values for memories"))
-        self.uiRamLabel.setText(_translate("iouDeviceConfigPageWidget", "RAM size:"))
+        iouDeviceConfigPageWidget.setWindowTitle(_translate("iouDeviceConfigPageWidget", "IOU设备配置"))
+        self.uiGeneralgroupBox.setTitle(_translate("iouDeviceConfigPageWidget", "通用"))
+        self.uiNameLabel.setText(_translate("iouDeviceConfigPageWidget", "名称："))
+        self.uiSymbolLabel.setText(_translate("iouDeviceConfigPageWidget", "图标："))
+        self.uiSymbolToolButton.setText(_translate("iouDeviceConfigPageWidget", "  浏览  "))
+        self.uiCategoryLabel.setText(_translate("iouDeviceConfigPageWidget", "种类："))
+        self.uiIOUImageLabel.setText(_translate("iouDeviceConfigPageWidget", "IOU镜像路径:"))
+        self.uiIOUImageToolButton.setText(_translate("iouDeviceConfigPageWidget", "  浏览  "))
+        self.uiStartupConfigLabel.setText(_translate("iouDeviceConfigPageWidget", "启动文件配置："))
+        self.uiStartupConfigToolButton.setText(_translate("iouDeviceConfigPageWidget", "  浏览  "))
+        self.uiPrivateConfigLabel.setText(_translate("iouDeviceConfigPageWidget", "私有配置："))
+        self.uiPrivateConfigToolButton.setText(_translate("iouDeviceConfigPageWidget", "  浏览  "))
+        self.uiConsolePortLabel.setText(_translate("iouDeviceConfigPageWidget", "控制端口："))
+        self.uiDefaultNameFormatLabel.setText(_translate("iouDeviceConfigPageWidget", "默认名称格式："))
+        self.uiOtherSettingsGroupBox.setTitle(_translate("iouDeviceConfigPageWidget", "其他设置"))
+        self.uiL1KeepalivesCheckBox.setText(_translate("iouDeviceConfigPageWidget", "使1层实时消息（测试）"))
+        self.uiDefaultValuesCheckBox.setText(_translate("iouDeviceConfigPageWidget", "使用默认的IOU值存储"))
+        self.uiRamLabel.setText(_translate("iouDeviceConfigPageWidget", "RAM大小:"))
         self.uiRamSpinBox.setSuffix(_translate("iouDeviceConfigPageWidget", " MB"))
-        self.uiNvramLabel.setText(_translate("iouDeviceConfigPageWidget", "NVRAM size:"))
+        self.uiNvramLabel.setText(_translate("iouDeviceConfigPageWidget", "NVRAM大小:"))
         self.uiNvramSpinBox.setSuffix(_translate("iouDeviceConfigPageWidget", " KB"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab), _translate("iouDeviceConfigPageWidget", "General settings"))
-        self.groupBox.setTitle(_translate("iouDeviceConfigPageWidget", "Adapters"))
-        self.uiEthernetAdaptersLabel.setText(_translate("iouDeviceConfigPageWidget", "Ethernet adapters:"))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab), _translate("iouDeviceConfigPageWidget", "常规设置"))
+        self.groupBox.setTitle(_translate("iouDeviceConfigPageWidget", "适配器"))
+        self.uiEthernetAdaptersLabel.setText(_translate("iouDeviceConfigPageWidget", "以太网适配器："))
         self.uiEthernetAdaptersSpinBox.setToolTip(_translate("iouDeviceConfigPageWidget", "1 adapter equals 4 Ethernet interfaces"))
-        self.uiSerialAdaptersLabel.setText(_translate("iouDeviceConfigPageWidget", "Serial adapters:"))
+        self.uiSerialAdaptersLabel.setText(_translate("iouDeviceConfigPageWidget", "串口适配器："))
         self.uiSerialAdaptersSpinBox.setToolTip(_translate("iouDeviceConfigPageWidget", "1 adapter equals 4 serial interfaces"))
-        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab_2), _translate("iouDeviceConfigPageWidget", "Network"))
+        self.uiTabWidget.setTabText(self.uiTabWidget.indexOf(self.tab_2), _translate("iouDeviceConfigPageWidget", "网络"))
 

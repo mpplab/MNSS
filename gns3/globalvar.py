@@ -1,151 +1,112 @@
 from ftplib import FTP
-import urllib
-import json
 import os
-class GlobalVar: 
-    ftp = FTP()
-    ftp.connect("139.196.202.32",428)
-    ftp.login("gns3@163.com","gns3**")
-    Gdictionary = {}
-    Gdictionaryson = []
-    ftp.cwd("MGNS")
-    b = ftp.nlst()
-    for a in b:
-        ftp.cwd("{}".format(a))
-        Gdictionaryson = ftp.nlst()
-        Gdictionary["{}".format(a)] = Gdictionaryson
-        ftp.cwd('/MGNS/')
-    globalvarmark = 1
-    workpath = ""
-    uploadpath = ""
+
+class GlobalVar(object):
+    totalLocalConfig = None
+    totalserverpath = {}
+    area = None
+    subthreadinglist = {}
+    progressbarlist = []
+    downloadurl = 'http://124.167.223.254:2001'
+    downloadobjectlist = []
+    downloadurllist = {}
+    nowurllist = set()
+    name = ''
+    headportrait = 'http://118.190.159.129:8062'
+    settings = {}
+    section = ""
+    routerTemplet = {}
+    ftppath = ['router','switch','client','server','his','lis','pacs','security']
+    path = ''
+
     loginmark = False
-    userid = ""
-    userid1 = ""
-    password = ""
-    dictuser = {}
-    ismodified = 0
-    imagepath = ""
-    imagename = ""
-    
-    def getuserismodified(self,userid):
-        url = "http://139.196.202.32:8080/secbox/getGNS3UserInfo"
-        postdata =urllib.parse.urlencode({    
-         "userid":"{}".format(userid)}).encode('utf-8')
-        header = {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Encoding":"utf-8",
-        "Accept-Language":"zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3",
-        "Connection":"keep-alive",
-        "Host":"c.highpin.cn",
-        "Referer":"http://c.highpin.cn/",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0"
-        }
-        req = urllib.request.Request(url,postdata,header)
-        page = urllib.request.urlopen(req).read().decode('utf-8')
-        data = json.loads(page)
-        return data['ismodified']
-    
-    def getuserinfo(self,userid):
-        url = "http://139.196.202.32:8080/secbox/getGNS3UserInfo"
-        postdata =urllib.parse.urlencode({    
-         "userid":"{}".format(userid)
-        }).encode('utf-8')
-        header = {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Encoding":"utf-8",
-        "Accept-Language":"zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3",
-        "Connection":"keep-alive",
-        "Host":"c.highpin.cn",
-        "Referer":"http://c.highpin.cn/",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0"
-        }
-        req = urllib.request.Request(url,postdata,header)
-        page = urllib.request.urlopen(req).read().decode('utf-8')
-        data = json.loads(page)
-        return data['userdata']
-    
-    def getuserinuse(self,userid):
-        url = "http://139.196.202.32:8080/secbox/getInUseAction"
-        postdata =urllib.parse.urlencode({    
-         "userid":"{}".format(userid)
-        }).encode('utf-8')
-        header = {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Encoding":"utf-8",
-        "Accept-Language":"zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3",
-        "Connection":"keep-alive",
-        "Host":"c.highpin.cn",
-        "Referer":"http://c.highpin.cn/",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0"
-        }
-        req = urllib.request.Request(url,postdata,header)
-        page = urllib.request.urlopen(req).read().decode('utf-8')
-        data = json.loads(page)
-        return data['inuse'][:-1]
-    
-    def setuserinfo(self,userid,dictdata):
-        url = "http://139.196.202.32:8080/secbox/setGNS3UserInfo"
-        dictuser = {"userid":"{}".format(userid),'username': '', 'sex': 0, 'workplace': '', 'location': '', 'profession': '', 'email': '', 'age': 0,"imagename":GlobalVar.imagename}
-        dictuser.update(dictdata)
-        postdata =urllib.parse.urlencode(dictuser).encode('utf-8')
-        header = {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Encoding":"utf-8",
-        "Accept-Language":"zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3",
-        "Connection":"keep-alive",
-        "Host":"c.highpin.cn",
-        "Referer":"http://c.highpin.cn/",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0"
-        }
-        req = urllib.request.Request(url,postdata,header)
-        page = urllib.request.urlopen(req).read().decode('utf-8')
-        data = json.loads(page)
-        return data['ret']
-        
-    def denlu(self,userid,password):
-        url = "http://139.196.202.32:8080/secbox/loginAction"
-        postdata =urllib.parse.urlencode({    
-        "username":userid,
-        "pswd":password,
-        }).encode('utf-8')
-        header = {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Encoding":"utf-8",
-        "Accept-Language":"zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3",
-        "Connection":"keep-alive",
-        "Host":"c.highpin.cn",
-        "Referer":"http://c.highpin.cn/",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:32.0) Gecko/20100101 Firefox/32.0"
-        }
-        req = urllib.request.Request(url,postdata,header)
-        page = urllib.request.urlopen(req).read().decode('utf-8')
-        data = json.loads(page)
-        return data['ret']
-    
-    def createfolder(self):
-        try:
-            os.chdir(GlobalVar.workpath)
-            os.mkdir("{}".format(GlobalVar.userid1))
-            os.chdir("{}".format(GlobalVar.userid1))
-            os.mkdir("image")
-        except Exception as e: 
-            os.chdir(GlobalVar.workpath)
-            os.chdir("{}/image".format(GlobalVar.userid1))
+    dictionary = {}
+    globalmarket = 0
+    routersection = 'Dynamips'
+
+
+# Templet example
+    routerTemplet = {}
+    vmTemplet = {}
+    pixTemplet = {}
+    switchTemplet = {}
+
+    test = {
+        "allocate_aux_console_ports": False,
+        "dynamips_path": "E:\\\u82f1\u96c4\u65f6\u523b\\first\\gns3\\GNS3\\dynamips\\dynamips.exe",
+        "ghost_ios_support": True,
+        "mmap_support": True,
+        "routers": [
+            {
+                "auto_delete_disks": True,
+                "category": 0,
+                "chassis": "",
+                "default_name_format": "R{0}",
+                "disk0": 0,
+                "disk1": 0,
+                "exec_area": 64,
+                "idlemax": 500,
+                "idlepc": "",
+                "idlesleep": 30,
+                "image": "c7200-is-mz.123-22.bin",
+                "mac_addr": "",
+                "midplane": "vxr",
+                "mmap": True,
+                "name": "c7200",
+                "npe": "npe-400",
+                "nvram": 512,
+                "platform": "c7200",
+                "private_config": "",
+                "ram": 512,
+                "server": "local",
+                "slot0": "C7200-IO-FE",
+                "slot1": "",
+                "slot2": "",
+                "slot3": "",
+                "slot4": "",
+                "slot5": "",
+                "slot6": "",
+                "sparsemem": True,
+                "startup_config": "C:\\Users\\huangyihe\\GNS3\\configs\\ios_base_startup-config.txt",
+                "symbol": ":/symbols/router.svg",
+                "system_id": "FTX0945W0MY"
+            }
+        ],
+        "sparse_memory_support": True,
+        "use_local_server": True
+    }
+
+    def ftplogin(self):
+        ftp = FTP()
+        ftp.connect("124.167.223.254", 2021)
+        ftp.login('mnss','asdf1234*123')
+        return ftp
+
+    def getdict(self):
+        ftp = self.ftplogin()
+        for i in self.ftppath:
+            self.dictionary[i] = {}
+            ftp.cwd('/{}/'.format(i))
             try:
-                GlobalVar.imagepath = os.path.join(os.getcwd(),GlobalVar.imagename)
-                if os.path.exists(GlobalVar.imagename):
-                    pass
-                else:
-                    ftp = FTP()
-                    ftp.connect("139.196.202.32",428)
-                    ftp.login("{}".format(GlobalVar.userid),"{}".format(GlobalVar.password))
-                    ftp.encoding = 'UTF-8'
-                    ftp.cwd('image')
-                    bufsize = 1024
-                    filename = GlobalVar.imagename
-                    file_handle = open(filename,"wb").write
-                    ftp.retrbinary('RETR ' +  filename,file_handle,bufsize)
-                    ftp.quit()   
-            except Exception as e: 
-                print(e)
-                
+                for j in ftp.nlst():
+                    self.dictionary[i][j] = ftp.size(j)
+            except Exception as e:
+                self.dictionary[i] = {}
+            finally:
+                pass
+        ftp.quit()
+
+    def savedownload(self):
+        with open('download.txt','w') as f:
+            for i in GlobalVar.downloadobjectlist:
+                GlobalVar.downloadurllist[i.url] = i.size
+            f.write(str(GlobalVar.downloadurllist))
+
+    def quitdownload(self):
+        with open('download.txt','w') as f:
+            for i in GlobalVar.downloadobjectlist:
+                GlobalVar.downloadurllist[i.url] = i.total
+            f.write(str(GlobalVar.downloadurllist))
+
+    def getpath(self):
+        return os.path.join(GlobalVar.totalserverpath['local_server']['images_path'],'IOS')

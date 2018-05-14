@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/noplay/code/gns3/gns3-gui/gns3/modules/vpcs/ui/vpcs_device_configuration_page.ui'
+# Form implementation generated from reading ui file 'vpcs_device_configuration_page.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_VPCSDeviceConfigPageWidget(object):
-
     def setupUi(self, VPCSDeviceConfigPageWidget):
         VPCSDeviceConfigPageWidget.setObjectName("VPCSDeviceConfigPageWidget")
         VPCSDeviceConfigPageWidget.resize(391, 246)
@@ -37,6 +35,7 @@ class Ui_VPCSDeviceConfigPageWidget(object):
 
     def retranslateUi(self, VPCSDeviceConfigPageWidget):
         _translate = QtCore.QCoreApplication.translate
-        VPCSDeviceConfigPageWidget.setWindowTitle(_translate("VPCSDeviceConfigPageWidget", "VPCS device configuration"))
-        self.uiConsolePortLabel.setText(_translate("VPCSDeviceConfigPageWidget", "Console port:"))
-        self.uiNameLabel.setText(_translate("VPCSDeviceConfigPageWidget", "Name:"))
+        VPCSDeviceConfigPageWidget.setWindowTitle(_translate("VPCSDeviceConfigPageWidget", "VPCS设备配置"))
+        self.uiConsolePortLabel.setText(_translate("VPCSDeviceConfigPageWidget", "控制台端口："))
+        self.uiNameLabel.setText(_translate("VPCSDeviceConfigPageWidget", "名      称："))
+

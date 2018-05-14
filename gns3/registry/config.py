@@ -81,9 +81,9 @@ class Config:
     def _get_standard_config_file_path(self):
 
         if sys.platform.startswith("win"):
-            filename = "gns3_gui.ini"
+            filename = "mnss_gui.ini"
         else:
-            filename = "gns3_gui.conf"
+            filename = "mnss_gui.conf"
 
         appname = "GNS3"
 

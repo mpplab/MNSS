@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/grossmj/PycharmProjects/gns3-gui/gns3/modules/qemu/ui/qemu_vm_wizard.ui'
+# Form implementation generated from reading ui file 'qemu_vm_wizard.ui'
 #
-# Created: Tue Sep 20 17:45:47 2016
-#      by: PyQt5 UI code generator 5.2.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -196,37 +195,37 @@ class Ui_QemuVMWizard(object):
 
     def retranslateUi(self, QemuVMWizard):
         _translate = QtCore.QCoreApplication.translate
-        QemuVMWizard.setWindowTitle(_translate("QemuVMWizard", "New QEMU VM template"))
-        self.uiServerWizardPage.setTitle(_translate("QemuVMWizard", "Server"))
-        self.uiServerWizardPage.setSubTitle(_translate("QemuVMWizard", "Please choose a server type to run your new QEMU VM."))
-        self.uiServerTypeGroupBox.setTitle(_translate("QemuVMWizard", "Server type"))
-        self.uiRemoteRadioButton.setText(_translate("QemuVMWizard", "Run this Qemu VM on a remote computer"))
-        self.uiVMRadioButton.setText(_translate("QemuVMWizard", "Run this Qemu VM  on the GNS3 VM"))
-        self.uiLocalRadioButton.setText(_translate("QemuVMWizard", "Run this Qemu VM on my local computer"))
-        self.uiRemoteServersGroupBox.setTitle(_translate("QemuVMWizard", "Remote server"))
-        self.uiRemoteServersLabel.setText(_translate("QemuVMWizard", "Run on:"))
-        self.uiNameWizardPage.setTitle(_translate("QemuVMWizard", "QEMU VM name"))
-        self.uiNameWizardPage.setSubTitle(_translate("QemuVMWizard", "Please choose a descriptive name for your new QEMU virtual machine."))
-        self.uiNameLabel.setText(_translate("QemuVMWizard", "Name:"))
-        self.uiLegacyASACheckBox.setText(_translate("QemuVMWizard", "This is a legacy ASA VM"))
-        self.uiBinaryMemoryWizardPage.setTitle(_translate("QemuVMWizard", "QEMU binary and memory"))
-        self.uiBinaryMemoryWizardPage.setSubTitle(_translate("QemuVMWizard", "Please check the Qemu binary is correctly set and the virtual machine has enough memory to work."))
-        self.uiQemuListLabel.setText(_translate("QemuVMWizard", "Qemu binary:"))
+        QemuVMWizard.setWindowTitle(_translate("QemuVMWizard", "创建QEMU VM模板"))
+        self.uiServerWizardPage.setTitle(_translate("QemuVMWizard", "服务器"))
+        self.uiServerWizardPage.setSubTitle(_translate("QemuVMWizard", "请选择服务器类型来运行你的新QEMU虚拟机。"))
+        self.uiServerTypeGroupBox.setTitle(_translate("QemuVMWizard", "服务器类型"))
+        self.uiRemoteRadioButton.setText(_translate("QemuVMWizard", "运行云端服务器上的Qemu VM"))
+        self.uiVMRadioButton.setText(_translate("QemuVMWizard", "运行GNS3 Vm上的Qemy VM"))
+        self.uiLocalRadioButton.setText(_translate("QemuVMWizard", "运行本地服务器上的Qemu VM"))
+        self.uiRemoteServersGroupBox.setTitle(_translate("QemuVMWizard", "云端服务器"))
+        self.uiRemoteServersLabel.setText(_translate("QemuVMWizard", "路径："))
+        self.uiNameWizardPage.setTitle(_translate("QemuVMWizard", "QEMU VM名称"))
+        self.uiNameWizardPage.setSubTitle(_translate("QemuVMWizard", "请选择您的新QEMU虚拟机一个描述性名称。"))
+        self.uiNameLabel.setText(_translate("QemuVMWizard", "名称："))
+        self.uiLegacyASACheckBox.setText(_translate("QemuVMWizard", "这是一ge ASA的虚拟机"))
+        self.uiBinaryMemoryWizardPage.setTitle(_translate("QemuVMWizard", "QEMU镜像与内存"))
+        self.uiBinaryMemoryWizardPage.setSubTitle(_translate("QemuVMWizard", "请检查QEMU二进制是正确设置和虚拟机有足够的内存来工作。 "))
+        self.uiQemuListLabel.setText(_translate("QemuVMWizard", "镜像文件："))
         self.uiRamLabel.setText(_translate("QemuVMWizard", "RAM:"))
         self.uiRamSpinBox.setSuffix(_translate("QemuVMWizard", " MB"))
-        self.uiDiskWizardPage.setTitle(_translate("QemuVMWizard", "Disk image"))
-        self.uiDiskWizardPage.setSubTitle(_translate("QemuVMWizard", "Please choose a base disk image for your virtual machine."))
-        self.uiHdaDiskExistingImageRadioButton.setText(_translate("QemuVMWizard", "Existing image"))
-        self.uiNewImageRadioButton_2.setText(_translate("QemuVMWizard", "New Image"))
-        self.uiHdaDiskImageLabel.setText(_translate("QemuVMWizard", "Disk image (hda):"))
-        self.uiHdaDiskImageToolButton.setText(_translate("QemuVMWizard", "&Browse..."))
-        self.uiHdaDiskImageCreateToolButton.setText(_translate("QemuVMWizard", "&Create"))
-        self.uiInitrdKernelImageWizardPage.setTitle(_translate("QemuVMWizard", "Linux boot specific settings"))
-        self.uiInitrdKernelImageWizardPage.setSubTitle(_translate("QemuVMWizard", "Please choose a initrd and a kernel image."))
-        self.uiLinuxExistingImageRadioButton.setText(_translate("QemuVMWizard", "Existing image"))
-        self.uiNewImageRadioButton_4.setText(_translate("QemuVMWizard", "New Image"))
-        self.uiInitrdImageToolButton.setText(_translate("QemuVMWizard", "&Browse..."))
-        self.uiKernelImageLabel.setText(_translate("QemuVMWizard", "Kernel image (vmlinuz):"))
-        self.uiKernelImageToolButton.setText(_translate("QemuVMWizard", "&Browse..."))
-        self.uiInitrdLabel.setText(_translate("QemuVMWizard", "Initial RAM disk (initrd):"))
+        self.uiDiskWizardPage.setTitle(_translate("QemuVMWizard", "磁盘镜像"))
+        self.uiDiskWizardPage.setSubTitle(_translate("QemuVMWizard", "请为虚拟机选择一个基本磁盘映像。"))
+        self.uiHdaDiskExistingImageRadioButton.setText(_translate("QemuVMWizard", "导入的镜像"))
+        self.uiNewImageRadioButton_2.setText(_translate("QemuVMWizard", "新的镜像"))
+        self.uiHdaDiskImageLabel.setText(_translate("QemuVMWizard", "磁盘镜像："))
+        self.uiHdaDiskImageToolButton.setText(_translate("QemuVMWizard", "  浏览  "))
+        self.uiHdaDiskImageCreateToolButton.setText(_translate("QemuVMWizard", "  创建  "))
+        self.uiInitrdKernelImageWizardPage.setTitle(_translate("QemuVMWizard", "Linux启动特异性参数"))
+        self.uiInitrdKernelImageWizardPage.setSubTitle(_translate("QemuVMWizard", "请选择一个initrd和内核镜像。"))
+        self.uiLinuxExistingImageRadioButton.setText(_translate("QemuVMWizard", "导入的镜像"))
+        self.uiNewImageRadioButton_4.setText(_translate("QemuVMWizard", "新的镜像"))
+        self.uiInitrdImageToolButton.setText(_translate("QemuVMWizard", "  浏览  "))
+        self.uiKernelImageLabel.setText(_translate("QemuVMWizard", "内核（vmlinuz）："))
+        self.uiKernelImageToolButton.setText(_translate("QemuVMWizard", "  浏览  "))
+        self.uiInitrdLabel.setText(_translate("QemuVMWizard", "初始化内存盘（initrd）："))
 

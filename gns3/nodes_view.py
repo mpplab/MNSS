@@ -20,7 +20,6 @@ Nodes view that list all the available nodes to be dragged and dropped on the QG
 """
 
 import pickle
-import webbrowser
 from .qt import QtCore, QtGui, QtWidgets, qpartial
 from .qt.qimage_svg_renderer import QImageSvgRenderer
 from .modules import MODULES
@@ -28,7 +27,7 @@ from .node import Node
 from .dialogs.configuration_dialog import ConfigurationDialog
 from .globalvar import GlobalVar
 globalvar = GlobalVar()
-Gdictionary = globalvar.Gdictionary
+
 
 class NodesView(QtWidgets.QTreeWidget):
 
@@ -50,94 +49,84 @@ class NodesView(QtWidgets.QTreeWidget):
         self.clear()
         self.populateNodesView(self._current_category)
 
-    def showoldicon(self, node):
-        item = QtWidgets.QTreeWidgetItem(self)
-        item.setText(0, node["name"])
-        item.setData(0, QtCore.Qt.UserRole, node)
-        image = QtGui.QImage(32, 32, QtGui.QImage.Format_ARGB32)
-        # Set the ARGB to 0 to prevent rendering artifacts
-        image.fill(0x00000000)
-        svg_renderer = QImageSvgRenderer(node["symbol"])
-        svg_renderer.render(QtGui.QPainter(image))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap.fromImage(image))
-        item.setIcon(0, icon)
-    
-    def ROUTERpopulateNodesView(self, category):
+    def ROUTERpopulateNodesView(self, category,marked):
         self._current_category = category
-        b = Gdictionary["ROUTER"]
+        b = GlobalVar.dictionary[marked].keys()
         dictionary = {}
         name = []
         for module in MODULES:
             for node in module.instance().nodes():
                 if node["categories"] == [0]:
-                    self.showoldicon(node)
+                    self.newshowoldicon(node)
                     name.append(node["name"])
         for a in b:
-            if "bin" in a:
-                if a[:5] in name:
-                    continue
-                dictionary["name"] = a[:5]
-                dictionary["symbol"] = ':/symbols/oldrouter.svg'
-                self.showoldicon(dictionary)
-                
-    def HISpopulateNodesView(self, category):
-        self._current_category = category
-        b = Gdictionary["HIS"]
-        dictionary = {}
-        name = []
-        for module in MODULES:
-            for node in module.instance().nodes():
-                if category is None:
-                    if "HIS" in node["name"]:
-                        self.showoldicon(node)
-                        name.append(node["name"])
-        for a in b:
-            if "ova" in a:
-                if a[:-4] in name:
-                    continue
-                dictionary["name"] = a[:-4]
-                dictionary["symbol"] = ':/images/oldvm.svg'
-                self.showoldicon(dictionary)
-                
-    def PACSpopulateNodesView(self,category):
-        self._current_category = category
-        b = Gdictionary["PACS"]
-        dictionary = {}
-        name = []
-        for module in MODULES:
-            for node in module.instance().nodes():
-                if category is None:
-                    if "PACS" in node["name"]:
-                        self.showoldicon(node)
-                        name.append(node["name"])
-        for a in b:
-            if "ova" in a:
-                if a[:-4] in name:
-                    continue
-                dictionary["name"] = a[:-4]
-                dictionary["symbol"] = ':/images/oldvm.svg'
-                self.showoldicon(dictionary)
+            if a[:-4] in name:
+                continue
+            dictionary["marked"] = marked
+            dictionary["name"] = a
+            dictionary["symbol"] = ':/symbols/oldrouter.svg'
+            dictionary["size"] = GlobalVar.dictionary[marked][a]
+            self.oldshowoldicon(dictionary)
 
-    def LISpopulateNodesView(self,category):
+    def SWITCHpopulateNodesView(self, category,marked):
         self._current_category = category
-        b = Gdictionary["LIS"]
+        b = GlobalVar.dictionary[marked].keys()
         dictionary = {}
         name = []
         for module in MODULES:
             for node in module.instance().nodes():
-                if category is None:
-                    if "LIS" in node["name"]:
-                        self.showoldicon(node)
-                        name.append(node["name"])
+                if node["categories"] == [1]:
+                    self.newshowoldicon(node)
+                    name.append(node["name"])
         for a in b:
-            if "ova" in a:
-                if a[:-4] in name:
-                    continue
-                dictionary["name"] = a[:-4]
-                dictionary["symbol"] = ':/images/oldvm.svg'
-                self.showoldicon(dictionary)
-        
+            if a[:-4] in name:
+                continue
+            dictionary["marked"] = marked
+            dictionary["name"] = a
+            dictionary["symbol"] = ':/symbols/oldswitch.svg'
+            dictionary["size"] = GlobalVar.dictionary[marked][a]
+            self.oldshowoldicon(dictionary)
+
+    def SECURITYpopulateNodesView(self, category,marked):
+        self._current_category = category
+        b = GlobalVar.dictionary[marked].keys()
+        dictionary = {}
+        name = []
+        for module in MODULES:
+            for node in module.instance().nodes():
+                if node["categories"] == [3]:
+                    self.newshowoldicon(node)
+                    name.append(node["name"])
+        for a in b:
+            if a[:-4] in name:
+                continue
+            dictionary["marked"] = marked
+            dictionary["name"] = a
+            dictionary["size"] = GlobalVar.dictionary[marked][a]
+            dictionary["symbol"] = ':/symbols/oldsecurity.svg'
+            self.oldshowoldicon(dictionary)
+
+    def VMpopulateNodesView(self, category,marked):
+        self._current_category = category
+        b = GlobalVar.dictionary[marked].keys()
+        dictionary = {}
+        name = []
+        for module in MODULES:
+            if str(module) == "<class 'gns3.modules.vmware.VMware'>":
+                for node in module.instance().nodes():
+                    if ''.join([node['name'],'.ova']) in b:
+                        node['symbol'] = ':/symbols/new{}.svg'.format(marked)
+                        self.newshowoldicon(node)
+                        # name.append(node["name"])
+        for a in b:
+            if a[:-4] in name:
+                continue
+            dictionary["marked"] = marked
+            dictionary["name"] = a
+            dictionary["size"] = GlobalVar.dictionary[marked][a]
+            dictionary["symbol"] = ':/symbols/old{}.svg'.format(marked)
+            self.oldshowoldicon(dictionary)
+
     def populateNodesView(self, category):
         """
         Populates the nodes view with the device list of the specified
@@ -145,28 +134,44 @@ class NodesView(QtWidgets.QTreeWidget):
 
         :param category: category of device to list
         """
+
         self._current_category = category
+        dictionary = {}
         for module in MODULES:
-            if str(module) == "<class 'gns3.modules.vmware.VMware'>":
-                continue
-            else:
-                for node in module.instance().nodes():
-                    if category is None:
-                        continue
-                    if category is not None and category not in node["categories"]:
-                        continue
-                    if category == 0:
-                        continue
-                    self.showoldicon(node)
-        
+            for node in module.instance().nodes():
+                if node["categories"] == [2] and node['class'] != 'VMwareVM':
+                    self.newshowoldicon(node)
+
         if not self.topLevelItemCount() and category == Node.routers:
             QtWidgets.QMessageBox.warning(self, 'Routers', 'No routers have been configured.<br>You must provide your own router images in order to use GNS3.<br><br><a href="https://gns3.com/support/docs">Show documentation</a>')
 
         self.sortByColumn(0, QtCore.Qt.AscendingOrder)
-    import re
-    
-    
 
+    def newshowoldicon(self, node):
+        item = QtWidgets.QTreeWidgetItem(self)
+        item.setText(0, node["name"])
+        item.setData(0, QtCore.Qt.UserRole, node)
+        image = QtGui.QImage(31, 31, QtGui.QImage.Format_ARGB32)
+        # Set the ARGB to 0 to prevent rendering artifacts
+        image.fill(0x00000000)
+        svg_renderer = QImageSvgRenderer(node["symbol"])
+        svg_renderer.render(QtGui.QPainter(image))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap.fromImage(image))
+        item.setIcon(0, icon)
+
+    def oldshowoldicon(self, node):
+        item = QtWidgets.QTreeWidgetItem(self)
+        item.setText(0, node["name"][:-4])
+        item.setData(0, QtCore.Qt.UserRole, node)
+        image = QtGui.QImage(31, 31, QtGui.QImage.Format_ARGB32)
+        # Set the ARGB to 0 to prevent rendering artifacts
+        image.fill(0x00000000)
+        svg_renderer = QImageSvgRenderer(node["symbol"])
+        svg_renderer.render(QtGui.QPainter(image))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap.fromImage(image))
+        item.setIcon(0, icon)
 
     def mousePressEvent(self, event):
         """
@@ -189,6 +194,7 @@ class NodesView(QtWidgets.QTreeWidget):
 
         :param: QMouseEvent instance
         """
+
         # Check that an item has been selected and left button clicked
         if self.currentItem() is not None and event.buttons() == QtCore.Qt.LeftButton:
             item = self.currentItem()

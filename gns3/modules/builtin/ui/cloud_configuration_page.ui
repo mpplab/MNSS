@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Cloud configuration</string>
+   <string>Cloud设置</string>
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -27,7 +27,7 @@
        <item>
         <widget class="QGroupBox" name="uiGenericEthernetGroupBox">
          <property name="title">
-          <string>Generic Ethernet NIO</string>
+          <string>一般的以太网NIO</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0" colspan="3">
@@ -49,7 +49,7 @@
           <item row="1" column="1">
            <widget class="QPushButton" name="uiAddGenericEthernetPushButton">
             <property name="text">
-             <string>&amp;Add</string>
+             <string>添加</string>
             </property>
            </widget>
           </item>
@@ -59,7 +59,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>&amp;Delete</string>
+             <string>删除</string>
             </property>
            </widget>
           </item>
@@ -78,7 +78,7 @@
           </sizepolicy>
          </property>
          <property name="title">
-          <string>Linux Ethernet NIO (Linux only)</string>
+          <string>Linux以太网NIO(仅限Linux)</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0" colspan="3">
@@ -97,7 +97,7 @@
           <item row="1" column="1">
            <widget class="QPushButton" name="uiAddLinuxEthernetPushButton">
             <property name="text">
-             <string>&amp;Add</string>
+             <string>添加</string>
             </property>
            </widget>
           </item>
@@ -107,7 +107,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>&amp;Delete</string>
+             <string>删除</string>
             </property>
            </widget>
           </item>
@@ -143,13 +143,13 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="uiNIONATSettingsGroupBox">
          <property name="title">
-          <string>Settings</string>
+          <string>设置</string>
          </property>
          <layout class="QGridLayout" name="_2">
           <item row="0" column="0">
            <widget class="QLabel" name="uiNIONATIdentifierLabel">
             <property name="text">
-             <string>Local identifier:</string>
+             <string>本地标识符：</string>
             </property>
            </widget>
           </item>
@@ -188,7 +188,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="uiAddNIONATPushButton">
          <property name="text">
-          <string>&amp;Add</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -198,7 +198,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&amp;Delete</string>
+          <string>删除</string>
          </property>
         </widget>
        </item>
@@ -238,13 +238,13 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="uiNIOUDPSettingsGroupBox">
          <property name="title">
-          <string>Settings</string>
+          <string>设置</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="uiLocalPortLabel">
             <property name="text">
-             <string>Local port:</string>
+             <string>本地端口：</string>
             </property>
            </widget>
           </item>
@@ -267,7 +267,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="uiRemoteHostLabel">
             <property name="text">
-             <string>Remote host:</string>
+             <string>云端主机：</string>
             </property>
            </widget>
           </item>
@@ -293,7 +293,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="uiRemotePortLabel">
             <property name="text">
-             <string>Remote port:</string>
+             <string>云端端口：</string>
             </property>
            </widget>
           </item>
@@ -331,7 +331,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="uiAddNIOUDPPushButton">
          <property name="text">
-          <string>&amp;Add</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -341,7 +341,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&amp;Delete</string>
+          <string>删除</string>
          </property>
         </widget>
        </item>
@@ -368,7 +368,7 @@
        <item>
         <widget class="QGroupBox" name="uiNIOTAPGroupBox">
          <property name="title">
-          <string>TAP interface</string>
+          <string>TAP接口</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
@@ -377,7 +377,7 @@
           <item row="0" column="1">
            <widget class="QPushButton" name="uiAddNIOTAPPushButton">
             <property name="text">
-             <string>&amp;Add</string>
+             <string>添加</string>
             </property>
            </widget>
           </item>
@@ -387,7 +387,7 @@
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>&amp;Delete</string>
+             <string>删除</string>
             </property>
            </widget>
           </item>
@@ -420,7 +420,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="uiNIOUNIXSettingsGroupBox">
          <property name="title">
-          <string>Settings</string>
+          <string>设置</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
@@ -428,7 +428,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="uiLocalFileLabel">
               <property name="text">
-               <string>Local file:</string>
+               <string>本地文件</string>
               </property>
              </widget>
             </item>
@@ -449,7 +449,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="uiRemoteFileLabel">
               <property name="text">
-               <string>Remote file:</string>
+               <string>云端文件</string>
               </property>
              </widget>
             </item>
@@ -490,7 +490,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="uiAddNIOUNIXPushButton">
          <property name="text">
-          <string>&amp;Add</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -500,7 +500,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&amp;Delete</string>
+          <string>删除</string>
          </property>
         </widget>
        </item>
@@ -543,7 +543,7 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="uiNIOVDESettingsGroupBox">
          <property name="title">
-          <string>Settings</string>
+          <string>设置</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
@@ -551,7 +551,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="uiVDEControlFileLabel">
               <property name="text">
-               <string>Control file:</string>
+               <string>控制文件</string>
               </property>
              </widget>
             </item>
@@ -572,7 +572,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="uiVDELocalFileLabel">
               <property name="text">
-               <string>Local file:</string>
+               <string>本地文件</string>
               </property>
              </widget>
             </item>
@@ -613,7 +613,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="uiAddNIOVDEPushButton">
          <property name="text">
-          <string>&amp;Add</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -623,7 +623,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&amp;Delete</string>
+          <string>删除</string>
          </property>
         </widget>
        </item>
@@ -666,13 +666,13 @@
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="uiNIONullSettingsGroupBox">
          <property name="title">
-          <string>Settings</string>
+          <string>设置</string>
          </property>
          <layout class="QGridLayout">
           <item row="0" column="0">
            <widget class="QLabel" name="uiNIONullIdentifierLabel">
             <property name="text">
-             <string>Local identifier:</string>
+             <string>本地标识符：</string>
             </property>
            </widget>
           </item>
@@ -711,7 +711,7 @@
        <item row="1" column="0">
         <widget class="QPushButton" name="uiAddNIONullPushButton">
          <property name="text">
-          <string>&amp;Add</string>
+          <string>添加</string>
          </property>
         </widget>
        </item>
@@ -721,7 +721,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&amp;Delete</string>
+          <string>删除</string>
          </property>
         </widget>
        </item>
@@ -761,7 +761,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="uiNameLabel">
          <property name="text">
-          <string>Name:</string>
+          <string>名称：</string>
          </property>
         </widget>
        </item>

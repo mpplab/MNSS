@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Command execution</string>
+   <string>命令执行</string>
   </property>
   <property name="modal">
    <bool>true</bool>

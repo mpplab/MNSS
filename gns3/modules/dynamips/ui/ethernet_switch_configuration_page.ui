@@ -11,19 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Ethernet switch configuration</string>
+   <string>以太网交换机设置</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" colspan="2">
     <widget class="QGroupBox" name="uiGeneralGroupBox">
      <property name="title">
-      <string>General</string>
+      <string>常规</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="uiNameLabel">
         <property name="text">
-         <string>Name:</string>
+         <string>名称：</string>
         </property>
        </widget>
       </item>
@@ -36,7 +36,7 @@
    <item row="0" column="2" rowspan="3">
     <widget class="QGroupBox" name="uiEthernetSwitchPortsGroupBox">
      <property name="title">
-      <string>Ports</string>
+      <string>映射</string>
      </property>
      <layout class="QVBoxLayout">
       <item>
@@ -52,22 +52,22 @@
         </property>
         <column>
          <property name="text">
-          <string>Port</string>
+          <string>端口</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>VLAN</string>
+          <string>虚拟局域网</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Type</string>
+          <string>类型</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>EtherType</string>
+          <string>以太网类型</string>
          </property>
         </column>
        </widget>
@@ -84,13 +84,13 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Settings</string>
+      <string>设置</string>
      </property>
      <layout class="QGridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Port:</string>
+         <string>端口</string>
         </property>
        </widget>
       </item>
@@ -116,7 +116,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>VLAN:</string>
+         <string>虚拟局域网</string>
         </property>
        </widget>
       </item>
@@ -142,14 +142,14 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Type:</string>
+         <string>类型</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>QinQ EtherType:</string>
+         <string>QinQ以太类型：</string>
         </property>
        </widget>
       </item>
@@ -205,7 +205,7 @@
    <item row="2" column="0">
     <widget class="QPushButton" name="uiAddPushButton">
      <property name="text">
-      <string>&amp;Add</string>
+      <string>添加</string>
      </property>
     </widget>
    </item>
@@ -215,7 +215,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>&amp;Delete</string>
+      <string>删除</string>
      </property>
     </widget>
    </item>
